@@ -24,6 +24,13 @@ bool x = true;
 bool y = false;
 ```
 
+Display Variables
+``` cpp
+int myAge = 35;
+cout << "I am " << myAge << " years old.";
+```
+
+
 
 Different types of variables in cpp
 
