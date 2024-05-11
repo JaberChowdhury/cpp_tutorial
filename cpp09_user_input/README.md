@@ -5,7 +5,7 @@ cout << "Hello " << name << "\n";
 ```
 
 
-with `cin` we print something in terminal with `>>`
+with `cin` we take input from user in terminal with `>>`
 
 ```cpp
 int name;
