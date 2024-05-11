@@ -1,0 +1,1 @@
+ > A variable in C++ must be a specified data type.
