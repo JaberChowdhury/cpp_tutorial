@@ -13,12 +13,21 @@ so here is the steps
 
 ### how you will use it
 ```bash
-cr bmi_calculator.cpp
-Compiling bmi_calculator.cpp...
-Compilation successful. Running bmi_calculator...
-Type your weight in 'kg' unit : 10
-Type your height in 'meter' unit : 20
-Your bmi is 0.025⏎
+> cr basic_data_types.cpp
+
+Compiling basic_data_types.cpp with g++...           
+Compilation successful.
+
+Running basic_data_types.exe...
+82881
+10.75
+281.282
+bdafabda7cc1bbc7969df7063b1
+g
+1
+0
+
+Execution time: 69 millisecond(s)
  ```
 
 
