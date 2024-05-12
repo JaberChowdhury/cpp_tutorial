@@ -10,7 +10,9 @@ so here is the steps
 - after saving the code restart the `fish shell` or `open a new terminal` .
 - than you can use the function 
 
-> ```bash
+
+### how you will use it
+```bash
 cr bmi_calculator.cpp
 Compiling bmi_calculator.cpp...
 Compilation successful. Running bmi_calculator...
@@ -20,7 +22,7 @@ Your bmi is 0.025⏎
  ```
 
 
-
+### fish shell function
 ``` fish
 function cr
     if test (count $argv) -eq 0
