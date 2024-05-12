@@ -31,11 +31,14 @@ function cr
     end
 
     set cpp_file $argv[1]
-    set output_file (basename $cpp_file .cpp)
+    set output_file (basename $cpp_file .cpp).exe
 
     echo "Compiling $cpp_file..."
     if g++ -o $output_file $cpp_file
-        echo "Compilation successful. Running $output_file..."                                                    ./$output_file                                   else
+        echo "Compilation successful. Running $output_file..."
+        ./$output_file
+        rm $output_file # Delete the binary file after execution
+    else
         echo "Compilation failed."
     end
 end
