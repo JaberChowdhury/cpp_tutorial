@@ -33,53 +33,105 @@ Execution time: 69 millisecond(s)
 
 ### fish shell function
 ``` fish
+# Define variables for colors
+set -g __COLOR_RESET (set_color normal)
+set -g __COLOR_RED (set_color red)
+set -g __COLOR_GREEN (set_color green)
+set -g __COLOR_CYAN (set_color cyan)
+set -g __COLOR_MAGENTA (set_color magenta)
+
 function cr
-    if test (count $argv) -eq 0
-        echo "Usage: cr <cpp_file> [compiler]"
-        return 1
-    end
-
-    set cpp_file $argv[1]
-    set output_file (basename $cpp_file .cpp).exe
-
-    # Auto-detect compiler or use g++ if not specified
-    if test (count $argv) -gt 1
-        set compiler $argv[2]
-    else
-        if type clang++ >/dev/null 2>&1
-            set compiler "clang++"
-        else
+    # Check if file exists
+    if test -f $argv[1]
+        # Auto detect compiler
+        if type -q g++
             set compiler "g++"
+        else
+            echo "Error: Compiler not found"
+            return 1
         end
+
+        # Log starting time for compilation
+        set start_compile_time (date +%s%N)
+
+        # Compile the file
+        echo -n "Compiling... "
+        if $compiler $argv[1] -o output 2> log
+            echo "$__COLOR_GREEN Successful"
+            set success true
+        else
+            echo "$__COLOR_RED Error"
+            cat log
+            rm -f log
+            return 1
+        end
+
+        # Log compilation time
+        set end_compile_time (date +%s%N)
+        set compile_time_ns (math $end_compile_time - $start_compile_time)
+        set compile_time_ms (math $compile_time_ns / 1000000)
+        set compile_time_s (math $compile_time_ms / 1000)
+        echo -n $__COLOR_CYAN"Compilation Time: "
+        if test $compile_time_s -gt 60
+            echo "$compile_time_s seconds"
+        else if test $compile_time_ms -gt 1000
+            echo "$compile_time_s seconds"
+        else
+            echo "$compile_time_ms milliseconds"
+        end
+
+        # Add newline before execution log
+        echo ""
+
+        # Execute the binary
+        echo -n $_COLOR_MAGENTA "Executing... "
+        set start_time (date +%s%N)
+        ./output
+        set end_time (date +%s%N)
+        set execution_time_ns (math $end_time - $start_time)
+        set execution_time_ms (math $execution_time_ns / 1000000)
+        set execution_time_s (math $execution_time_ms / 1000)
+
+        # Log total execution time
+        echo ""
+        echo ""
+        echo -n $__COLOR_CYAN"Total Execution Time: "
+        if test $execution_time_s -gt 60
+            echo "$execution_time_s seconds"
+        else if test $execution_time_ms -gt 1000
+            echo "$execution_time_s seconds"
+        else
+            echo "$execution_time_ms milliseconds"
+        end
+
+        # Cleanup
+        rm -f output
+
+        return 0
+    else
+        echo "Error: File not found"
+        return 1
     end
 
-    echo -e "\n\e[1;34mCompiling $cpp_file with $compiler...\e[0m"
-    if $compiler -o $output_file $cpp_file 2>&1 | tee compilation.log
-        echo -e "\n\e[1;32mCompilation successful.\e[0m"
-        echo -e "\n\e[1;34mRunning $output_file...\e[0m"
-        set start_time_ns (date +%s%N) # Record start time in nanoseconds
-        if test (count $argv) -gt 2 && $argv[3] == "--verbose"
-            ./$output_file | tee execution.log
-        else
-            ./$output_file
-        end
-        set end_time_ns (date +%s%N)   # Record end time in nanoseconds
-        set elapsed_time_ns (expr \( $end_time_ns - $start_time_ns \)) # Calculate execution time in nanoseconds
-        set elapsed_time_ms (expr \( $elapsed_time_ns / 1000000 \)) # Convert to milliseconds
-        set elapsed_time_sec (expr \( $elapsed_time_ms / 1000 \)) # Convert to seconds
-        set elapsed_time_min (expr \( $elapsed_time_sec / 60 \)) # Convert to minutes
-
-        if test $elapsed_time_min -gt 0
-            echo -e "\n\e[1;34mExecution time: $elapsed_time_min minute(s) and $elapsed_time_sec second(s)\e[0m" # Print execution time in blue
-        else if test $elapsed_time_sec -gt 0
-            echo -e "\n\e[1;34mExecution time: $elapsed_time_sec second(s) and $elapsed_time_ms millisecond(s)\e[0m" # Print execution time in blue
-        else
-            echo -e "\n\e[1;34mExecution time: $elapsed_time_ms millisecond(s)\e[0m" # Print execution time in blue
-        end
-        rm $output_file # Delete the binary file after execution
+    # Log total compilation time and execution time at the end with different color
+    echo ""
+    echo ""
+    echo -n $__COLOR_MAGENTA"Total Compilation Time: "
+    if test $compile_time_s -gt 60
+        echo "$compile_time_s seconds"
+    else if test $compile_time_ms -gt 1000
+        echo "$compile_time_s seconds"
     else
-        echo -e "\n\e[1;31mCompilation failed.\e[0m"
-        return 1
+        echo "$compile_time_ms milliseconds"
+    end
+
+    echo -n $__COLOR_MAGENTA"Total Execution Time: "
+    if test $execution_time_s -gt 60
+        echo "$execution_time_s seconds"
+    else if test $execution_time_ms -gt 1000
+        echo "$execution_time_s seconds"
+    else
+        echo "$execution_time_ms milliseconds"
     end
 end
 ```
