@@ -39,12 +39,6 @@ int main() {
   cout << f1 << endl;
   cout << d1 << endl;
 }
-
-
-/*
-A floating point number can also be a scientific
-number with an "e" to indicate the power of 10:
-*/
  ```
  
 #### use case of 'e'
