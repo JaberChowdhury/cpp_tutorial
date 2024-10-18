@@ -12,7 +12,7 @@ int main() {
 // this is a single line comment
 
 /*
-this is 
-multi line 
+this is
+multi line
 comment
 */

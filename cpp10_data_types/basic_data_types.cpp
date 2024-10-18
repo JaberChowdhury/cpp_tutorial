@@ -9,7 +9,7 @@ int main() {
   char e = 'g';
   bool f = true;
   bool g = false;
-  
+
   std::cout << a << std::endl;
   std::cout << b << std::endl;
   std::cout << c << std::endl;
