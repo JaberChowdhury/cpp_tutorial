@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int addition() {
+void addition() {
   int sum1 = 500 + 300;
 
   int sum2 = sum1 + 300;
@@ -11,6 +11,9 @@ int addition() {
   cout << sum1 << endl;
   cout << sum2 << endl;
   cout << sum3 << endl;
-}
+};
 
-int main() { addition() }
+int main() {
+  addition();
+  return 0;
+}
