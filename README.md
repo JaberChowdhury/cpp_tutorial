@@ -91,7 +91,8 @@ function cv
     echo "Execution time: $exec_time seconds"
 
     # Remove the output executable
-    rm $output                                                                    end
+    rm $output
+end
 ```
 
 ### fish shell function 2
