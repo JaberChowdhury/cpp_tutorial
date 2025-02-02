@@ -11,6 +11,31 @@ OOP stands for Object-Oriented Programming._`Procedural programming is about wri
 
 > a class is a template for objects, and an object is an instance of a class.
 
-# Classes and Objects
+## Classes and Objects
 
 C++ is an object-oriented programming language.
+
+```cpp
+
+#include <iostream>
+using namespace std;
+
+class Car
+{
+public:
+    string name;
+    int price;
+};
+
+int main()
+{
+    Car tesla;
+    tesla.name = "Tesla";
+    tesla.price = 500;
+    cout << tesla.name << endl;
+    cout << tesla.price << endl;
+    return 0;
+}
+```
+
+## C++ Class Methods
