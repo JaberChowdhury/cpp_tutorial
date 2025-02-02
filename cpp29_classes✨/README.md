@@ -39,3 +39,38 @@ int main()
 ```
 
 ## C++ Class Methods
+
+There are two ways to define functions that belongs to a class:
+
+- Inside class definition
+- Outside class definition
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Human
+{
+public:
+    // Inside class definition
+    void run()
+    {
+        cout << "Running\n";
+    }
+    void walk();
+};
+
+// Outside class definition
+void Human::walk()
+{
+    cout << "walking\n";
+}
+
+int main()
+{
+    Human Its_me;
+    Its_me.run();
+    Its_me.walk();
+    return 0;
+}
+```

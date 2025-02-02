@@ -1,20 +1,25 @@
 #include <iostream>
 using namespace std;
 
-class Car
+class Human
 {
 public:
-    int speed(int maxSpeed);
+    void run()
+    {
+        cout << "Running\n";
+    }
+    void walk();
 };
 
-int Car::speed(int maxSpeed)
+void Human::walk()
 {
-    return maxSpeed;
+    cout << "walking\n";
 }
 
 int main()
 {
-    Car myObj;
-    cout << myObj.speed(200);
+    Human Its_me;
+    Its_me.run();
+    Its_me.walk();
     return 0;
 }
