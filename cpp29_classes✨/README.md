@@ -74,3 +74,13 @@ int main()
     return 0;
 }
 ```
+
+## Access Specifiers
+
+In C++, there are three access specifiers:
+
+- _`public`_ - members are accessible from outside the class
+- _`private`_ - members cannot be accessed (or viewed) from outside the class
+- _`protected`_ - members cannot be accessed from outside the class, however, they can be accessed in inherited classes. You will learn more about Inheritance later.
+
+> By default, all members of a class are private if you don't specify an access specifier:
