@@ -57,7 +57,7 @@ The key components of the STL consist of containers, iterators, and algorithms, 
 <br />
 <br />
 
-> # vector
+# vector
 
 Vector is like Array.The difference between vector and array is that we have to specify the length of an array but in vector we dont have to do that.Vector is flexible .but we have to add this vector by adding a header.
 
