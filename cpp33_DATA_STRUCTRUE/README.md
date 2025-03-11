@@ -74,3 +74,53 @@ for (string car : cars) {
   cout << car << "\n";
 }
 ```
+
+```cpp
+ vector<string> names = {"Jaber", "Tuhin", "Masum", "Sifat", "Soykot", "Yeasin", "Maruf", "Sabbir"};
+```
+
+## update a vector
+
+```cpp
+names[3] = "Sifat bro";
+```
+
+## Add Vector Elements
+
+```cpp
+names.push_back("Abrar");
+names.push_back("Abrar");
+```
+
+## Remove Vector Elements
+
+```cpp
+names.pop_back();
+```
+
+## Vector Size
+
+```cpp
+cout << "Size of vector names " << names.size() << endl;
+```
+
+## Check if a Vector is Empty
+
+```cpp
+cout << "IS names vectis empty ? " << names.empty() << endl;
+```
+
+## Loop Through a Vector
+
+```cpp
+vector<double> weights = {322.43, 87346.3264, 845.273, 23326.876, 983247.9876};
+```
+
+## Loop Through a Vector
+
+```cpp
+for (int i = 0; i < weights.size(); i++)
+{
+  cout << "Your score is " << weights[i] << endl;
+}
+```
