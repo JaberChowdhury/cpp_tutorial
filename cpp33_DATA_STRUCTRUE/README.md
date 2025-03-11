@@ -53,3 +53,24 @@ The key components of the STL consist of containers, iterators, and algorithms, 
 1. `Containers` are data structures that provides a way to store data, like vectors, lists, etc.
 2. `Iterators` are objects used to access elements of a data structure.
 3. `Algorithms` include functions, like sort() and find(), that perform operations on data structures through iterators.
+
+<br />
+<br />
+
+> # vector
+
+Vector is like Array.The difference between vector and array is that we have to specify the length of an array but in vector we dont have to do that.Vector is flexible .but we have to add this vector by adding a header.
+
+```cpp
+ #include <vector>
+```
+
+```cpp
+// Create a vector called cars that will store strings
+vector<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Print vector elements
+for (string car : cars) {
+  cout << car << "\n";
+}
+```
