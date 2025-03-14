@@ -75,52 +75,117 @@ for (string car : cars) {
 }
 ```
 
+### Create a vector called cars that will store strings
+
 ```cpp
  vector<string> names = {"Jaber", "Tuhin", "Masum", "Sifat", "Soykot", "Yeasin", "Maruf", "Sabbir"};
 ```
 
-## update a vector
+### update a vector
 
 ```cpp
 names[3] = "Sifat bro";
 ```
 
-## Add Vector Elements
+### Add Vector Elements
 
 ```cpp
 names.push_back("Abrar");
 names.push_back("Abrar");
 ```
 
-## Remove Vector Elements
+### Remove Vector Elements
 
 ```cpp
 names.pop_back();
 ```
 
-## Vector Size
+### Vector Size
 
 ```cpp
 cout << "Size of vector names " << names.size() << endl;
 ```
 
-## Check if a Vector is Empty
+### Check if a Vector is Empty
 
 ```cpp
 cout << "IS names vectis empty ? " << names.empty() << endl;
 ```
 
-## Loop Through a Vector
+### Loop Through a Vector
 
 ```cpp
 vector<double> weights = {322.43, 87346.3264, 845.273, 23326.876, 983247.9876};
 ```
 
-## Loop Through a Vector
+### Loop Through a Vector
 
 ```cpp
 for (int i = 0; i < weights.size(); i++)
 {
   cout << "Your score is " << weights[i] << endl;
+}
+```
+
+# List
+
+A list is similar to a vector in that it can store multiple elements of the same type and dynamically grow in size.
+
+However, two major differences between lists and vectors are:
+
+1. You can add and remove elements from both the beginning and at the end of a list, while vectors are generally optimized for adding and removing at the end.
+
+2. Unlike vectors, a list does not support random access, meaning you cannot directly jump to a specific index, or access elements by index numbers.
+
+## add header to use list data type
+
+```cpp
+#include <list>
+```
+
+## create a list
+
+```cpp
+list<string> pencil_variants={"2B","3B","4B","5B","6B","7B","8B","HB"};
+```
+
+## access a list
+
+```cpp
+pencil_variants.front();
+pencil_variants.back();
+```
+
+## change a list elements
+
+```cpp
+pencil_variants.front()="haha";
+pencil_variants.back()="nono";
+```
+
+## add list elements
+
+```cpp
+pencil_variants.push_back("16B");
+pencil_variants.push_front("23B");
+```
+
+## list size
+
+```cpp
+pencil_variants.size();
+```
+
+## check if a list is empty
+
+```cpp
+pencil_variants.empty();
+```
+
+## loop through a list
+
+```cpp
+for(string pencil : pencil_variants){
+  cout << pencil << endl;
 }
 ```
