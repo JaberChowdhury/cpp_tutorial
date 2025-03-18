@@ -33,3 +33,115 @@
 </div><h3 style="margin: 20px 20px 0 20px">Note</h3><div style="padding: 0px 20px 20px;"><p>In the first test case, the responses provided are as follows:</p><ul> <li> Response 1: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">7</span></span></span></span></span> words, quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">2</span></span></span></span></span> </li><li> Response 2: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn></mrow><annotation encoding="application/x-tex">12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">12</span></span></span></span></span> words, quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">5</span></span></span></span></span> </li><li> Response 3: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">9</span></span></span></span></span> words, quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span> </li><li> Response 4: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">9</span></span></span></span></span> words, quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">4</span></span></span></span></span> </li><li> Response 5: <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">10</span></span></span></span></span> words, quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span> </li></ul><p>We can see that the responses with indices <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span>, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">4</span></span></span></span></span>, and <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">5</span></span></span></span></span> have lengths not exceeding <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">10</span></span></span></span></span> words. Out of these responses, the winner is the one with the highest quality.</p><p>Comparing the qualities, we find that: </p><ul> <li> Response 1 has quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">2</span></span></span></span></span>. </li><li> Response 3 has quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span>. </li><li> Response 4 has quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">4</span></span></span></span></span>. </li><li> Response 5 has quality <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>. </li></ul><p>Among these responses, Response 4 has the highest quality.</p></div><h3 style="margin: 20px 20px 0 20px"></h3><div><!-- Prob desc tail -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9098591903020457" data-ad-slot="1011472145" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
 </div></dd>
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+struct Person
+{
+    int index;
+    int quality;
+    Person(int a, int b) : index(a), quality(b) {}
+};
+vector<Person> sort_valid_person(vector<Person> persons)
+{
+    int n = persons.size();
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (persons[j].quality > persons[j + 1].quality) // Swap if quality is greater
+            {
+                // Person temp = persons[j];
+                // persons[j] = persons[j + 1];
+                // persons[j + 1] = temp;
+                swap(persons[j], persons[j + 1]);
+            }
+        }
+    }
+    return persons;
+}
+
+bool check_response_validity(int a, int b)
+{
+    if (a <= 10)
+    {
+        // cout << "word_count " << a << " time && quality " << a << " time-----true" << endl;
+        return true;
+    }
+    else
+    {
+        // cout << "word_count " << a << " time && quality " << a << " time-----false" << endl;
+        return false;
+    }
+}
+int get_the_winner_index(vector<vector<int>> each_test)
+{
+
+    vector<Person> valid_person;
+
+    for (int i = 0; i < each_test.size(); i++)
+    {
+        if (check_response_validity(each_test[i][0], each_test[i][1]))
+        {
+
+            valid_person.push_back(Person((i + 1), each_test[i][1]));
+            // person.index = i + 1;
+            // person.quality = each_test[i][1];
+            // cout << "valid index is " << i + 1 << endl;
+        }
+    }
+    vector<Person> sorted_valid_person = sort_valid_person(valid_person);
+    int winner = sorted_valid_person.back().index;
+    return winner;
+}
+
+// taking each test n time
+vector<vector<int>> take_each_test()
+{
+    // storing each test
+    vector<vector<int>> responses;
+    int response_count;
+    cin >> response_count;
+    // taking n time input
+    for (int i = 1; i <= response_count; i++)
+    {
+        vector<int> each_response;
+        int a, b;
+        cin >> a >> b;
+        each_response.push_back(a);
+        each_response.push_back(b);
+        // each response have 2 value
+        responses.push_back(each_response);
+    }
+    return responses;
+}
+
+int main()
+{
+    // store all users response
+    vector<vector<vector<int>>> tests;
+    int t;
+    cin >> t;
+    // take t time test
+    for (int i = 1; i <= t; i++)
+    {
+        // taking each test
+        vector<vector<int>> each_test = take_each_test();
+        tests.push_back(each_test);
+    }
+
+    for (int i = 0; i < tests.size(); i++)
+    {
+        // cout << "test size " << tests.size() << tests[i].size() << endl;
+        int winner = get_the_winner_index(tests[i]);
+        // cout << "winner = " << winner << endl;
+        cout << winner << endl;
+    }
+    return 0;
+}
+
+```

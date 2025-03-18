@@ -37,9 +37,9 @@ int main()
     
     int gcd;
     if(a_dividers.size() > b_dividers.size()){
-       gcd = b_dividers.end();
+       gcd = b_dividers.back();
     }else {
-       gcd = a_dividers.end();
+       gcd = a_dividers.back();
     }
     
     cout << gcd << endl;
