@@ -189,3 +189,28 @@ for(string pencil : pencil_variants){
   cout << pencil << endl;
 }
 ```
+
+## List vs Vector
+
+| Method                 | `std::list`                                  | `std::vector`                                |
+| ---------------------- | -------------------------------------------- | -------------------------------------------- |
+| **Access Elements**    | ✅ `front()`, `back()`                       | ✅ `front()`, `back()`, `at()`, `operator[]` |
+| **Modify Elements**    | ✅ `push_front()`, `push_back()`             | ✅ `push_back()`, `emplace_back()`           |
+|                        | ✅ `pop_front()`, `pop_back()`               | ✅ `pop_back()`                              |
+| **Insert**             | ✅ `insert()` (anywhere, O(1) with iterator) | ✅ `insert()` (shifts elements, O(n) worst)  |
+| **Emplace**            | ✅ `emplace()` (efficient, anywhere)         | ✅ `emplace()` (efficient, anywhere)         |
+|                        | ✅ `emplace_front()`, `emplace_back()`       | ✅ `emplace_back()`                          |
+| **Erase**              | ✅ `erase()` (O(1) with iterator)            | ✅ `erase()` (O(n) due to shifting)          |
+|                        | ✅ `remove()`, `remove_if()` (efficient)     | ❌ Not available                             |
+| **Clear**              | ✅ `clear()`                                 | ✅ `clear()`                                 |
+| **Resize**             | ❌ Not available                             | ✅ `resize()`                                |
+| **Size & Capacity**    | ✅ `size()`                                  | ✅ `size()`, `capacity()`, `reserve()`       |
+|                        | ❌ No `capacity()` or `reserve()`            | ✅ `shrink_to_fit()`                         |
+| **Iteration**          | ✅ `begin()`, `end()`                        | ✅ `begin()`, `end()`                        |
+|                        | ✅ `rbegin()`, `rend()`                      | ✅ `rbegin()`, `rend()`                      |
+| **Splicing & Merging** | ✅ `splice()`, `merge()`                     | ❌ Not available                             |
+| **Sorting**            | ✅ `sort()` (optimized for linked list)      | ❌ Not available (use `std::sort()`)         |
+| **Reverse**            | ✅ `reverse()`                               | ❌ Not available (use `std::reverse()`)      |
+| **Swapping**           | ✅ `swap()`                                  | ✅ `swap()`                                  |
+| **Checking Empty**     | ✅ `empty()`                                 | ✅ `empty()`                                 |
+| **Finding Elements**   | ✅ `find()` (manual iteration)               | ✅ `find()` (via `std::find()`)              |
