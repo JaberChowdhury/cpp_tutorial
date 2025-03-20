@@ -1,0 +1,1 @@
+8 1 W W 4 5 1 W W W 4 5 1 2 3 W W 5 2 2 W W W 5 2 2 4 1 W W 6 2 4 W W W 6 6 6 6 1 W W 6 6 6 W W W
