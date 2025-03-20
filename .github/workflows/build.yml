@@ -17,21 +17,11 @@ jobs:
 
       - name: Set up C++ build environment
         run: |
-          if [ $RUNNER_OS == 'Windows' ]; then
-            choco install mingw
-          elif [ $RUNNER_OS == 'macOS' ]; then
-            brew install gcc
-          elif [ $RUNNER_OS == 'Linux' ]; then
-            sudo apt update && sudo apt install build-essential
-          fi
-
-      - name: Compile C/C++ code
-        run: |
-          mkdir -p build
-          # Install the latest g++ for each OS
           if [ "$RUNNER_OS" == "Windows" ]; then
-            echo "Installing latest g++ on Windows using MinGW..."
-            choco install mingw --version latest
+            echo "Installing MinGW for Windows..."
+            choco install mingw --version latest -y
+            # Ensure g++ is available
+            g++ --version || echo "g++ is not installed properly on Windows."
           elif [ "$RUNNER_OS" == "macOS" ]; then
             echo "Installing latest g++ on macOS using Homebrew..."
             brew update
@@ -42,6 +32,9 @@ jobs:
             sudo apt install -y g++
           fi
 
+      - name: Compile C/C++ code
+        run: |
+          mkdir -p build
           # Find all .cpp files recursively and compile them
           find . -type f -name "*.cpp" | while read file; do
             if [ -f "$file" ]; then
@@ -65,16 +58,15 @@ jobs:
               echo "Skipping $file: File does not exist."
             fi
           done
-        shell: bash
 
       - name: Zip individual OS compiled files
         run: |
           mkdir release
-          if [ $RUNNER_OS == 'Windows' ]; then
+          if [ "$RUNNER_OS" == "Windows" ]; then
             zip -r release/windows_code.zip build/*.exe
-          elif [ $RUNNER_OS == 'macOS' ]; then
+          elif [ "$RUNNER_OS" == "macOS" ]; then
             zip -r release/macos_code.zip build/*
-          elif [ $RUNNER_OS == 'Linux' ]; then
+          elif [ "$RUNNER_OS" == "Linux" ]; then
             zip -r release/linux_code.zip build/*
           fi
 
