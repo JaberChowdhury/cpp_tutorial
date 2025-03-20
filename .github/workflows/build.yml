@@ -27,12 +27,21 @@ jobs:
 
       - name: Compile C/C++ code
         run: |
-          mkdir build
-          for file in *.cpp; do
-            if [ $RUNNER_OS == 'Windows' ]; then
-              g++ $file -o build/$(basename $file .cpp).exe
-            elif [ $RUNNER_OS == 'macOS' ] || [ $RUNNER_OS == 'Linux' ]; then
-              g++ $file -o build/$(basename $file .cpp)
+          mkdir -p build
+          # Find all .cpp files recursively and compile them
+          find . -type f -name "*.cpp" | while read file; do
+            if [ -f "$file" ]; then
+              # Extract the filename without the path
+              filename=$(basename "$file" .cpp)
+              
+              # Compile the C/C++ files based on OS
+              if [ $RUNNER_OS == 'Windows' ]; then
+                g++ "$file" -o build/"$filename".exe
+              elif [ $RUNNER_OS == 'macOS' ] || [ $RUNNER_OS == 'Linux' ]; then
+                g++ "$file" -o build/"$filename"
+              fi
+            else
+              echo "No C++ files found."
             fi
           done
 
