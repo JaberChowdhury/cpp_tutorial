@@ -64,11 +64,26 @@ jobs:
         run: |
           mkdir release
           if [ "$RUNNER_OS" == "Windows" ]; then
-            zip -r release/windows_code.zip build/*.exe
+            # Only zip if the executable exists
+            if [ -f build/*.exe ]; then
+              zip -r release/windows_code.zip build/*.exe
+            else
+              echo "No executable found for Windows. Skipping zip creation."
+            fi
           elif [ "$RUNNER_OS" == "macOS" ]; then
-            zip -r release/macos_code.zip build/*
+            # Only zip if files exist
+            if [ -f build/* ]; then
+              zip -r release/macos_code.zip build/*
+            else
+              echo "No files found for macOS. Skipping zip creation."
+            fi
           elif [ "$RUNNER_OS" == "Linux" ]; then
-            zip -r release/linux_code.zip build/*
+            # Only zip if files exist
+            if [ -f build/* ]; then
+              zip -r release/linux_code.zip build/*
+            else
+              echo "No files found for Linux. Skipping zip creation."
+            fi
           fi
 
   create_combined_zip:
@@ -81,11 +96,32 @@ jobs:
       - name: Combine all OS releases into one zip and tar file
         run: |
           mkdir combined
-          cp release/windows_code.zip combined/
-          cp release/macos_code.zip combined/
-          cp release/linux_code.zip combined/
-          zip -r combined/combined_code.zip combined/
-          tar -cvf combined/combined_code.tar combined/
+          # Check if each zip exists before copying
+          if [ -f release/windows_code.zip ]; then
+            cp release/windows_code.zip combined/
+          else
+            echo "No Windows zip file found. Skipping."
+          fi
+
+          if [ -f release/macos_code.zip ]; then
+            cp release/macos_code.zip combined/
+          else
+            echo "No macOS zip file found. Skipping."
+          fi
+
+          if [ -f release/linux_code.zip ]; then
+            cp release/linux_code.zip combined/
+          else
+            echo "No Linux zip file found. Skipping."
+          fi
+
+          # Create combined zip and tar only if there are files to combine
+          if [ "$(ls -A combined)" ]; then
+            zip -r combined/combined_code.zip combined/
+            tar -cvf combined/combined_code.tar combined/
+          else
+            echo "No files to combine. Skipping zip and tar creation."
+          fi
 
   release:
     needs: create_combined_zip
