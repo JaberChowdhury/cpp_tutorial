@@ -2,8 +2,10 @@ name: Build and Release C++ Binaries
 
 on:
   push:
-    tags:
-      - 'v*'  # Trigger on tags like v1.0, v2.0, etc.
+    branches:
+      - main  # Trigger on any push to the `main` branch
+    paths:
+      - '**'  # Trigger on any file change (you can specify specific folders if needed)
 
 jobs:
   build:
@@ -15,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up build environment
+      - name: Set up build environment (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
@@ -68,8 +70,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ github.sha }}  # Use the commit SHA as the tag
+          release_name: Release ${{ github.sha }}
           draft: false
           prerelease: false
 
