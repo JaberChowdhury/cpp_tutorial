@@ -3,7 +3,7 @@ name: C/C++ Code Compilation and Release
 on:
   push:
     branches:
-      - "**" # Track all branches
+      - '**' # Track all branches
 
 jobs:
   compile:
@@ -14,7 +14,7 @@ jobs:
     continue-on-error: true # Allow other jobs to continue even if this one fails
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: JaberChowdhury/cpp_tutorial/.github/actions/checkout@v1
 
       - name: Set up C++ build environment
         run: |
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: JaberChowdhury/cpp_tutorial/.github/actions/checkout@v1
 
       - name: Combine all OS releases into one zip and tar file
         run: |
@@ -128,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: JaberChowdhury/cpp_tutorial/.github/actions/checkout@v1
 
       - name: Generate a tag based on the current date
         id: generate_tag
@@ -149,13 +149,13 @@ jobs:
           git push origin ${{ env.tag }}
 
       - name: Upload individual OS zip files
-        uses: softprops/action-gh-release@v1
+        uses: JaberChowdhury/cpp_tutorial/.github/actions/gh-release@v1
         with:
           tag_name: ${{ env.tag }}
           files: release/windows_code.zip,release/macos_code.zip,release/linux_code.zip
 
       - name: Upload combined zip and tar files
-        uses: softprops/action-gh-release@v1
+        uses: JaberChowdhury/cpp_tutorial/.github/actions/gh-release@v1
         with:
           tag_name: ${{ env.tag }}
           files: combined/combined_code.zip,combined/combined_code.tar
