@@ -3,7 +3,7 @@ name: C/C++ Code Compilation and Release
 on:
   push:
     branches:
-      - main # or any branch you want to track
+      - "**" # Track all branches
 
 jobs:
   compile:
