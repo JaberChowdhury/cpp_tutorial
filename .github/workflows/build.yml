@@ -127,12 +127,29 @@ jobs:
     needs: create_combined_zip
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate a tag based on the current commit
+        id: generate_tag
+        run: |
+          tag="release-$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA}"
+          echo "Generated tag: $tag"
+          echo "::set-output name=tag::$tag"
+
+      - name: Create a Git tag
+        run: |
+          git tag ${{ steps.generate_tag.outputs.tag }}
+          git push origin ${{ steps.generate_tag.outputs.tag }}
+
       - name: Upload individual OS zip files
         uses: softprops/action-gh-release@v1
         with:
+          tag: ${{ steps.generate_tag.outputs.tag }}
           files: release/windows_code.zip,release/macos_code.zip,release/linux_code.zip
 
       - name: Upload combined zip and tar files
         uses: softprops/action-gh-release@v1
         with:
+          tag: ${{ steps.generate_tag.outputs.tag }}
           files: combined/combined_code.zip,combined/combined_code.tar
