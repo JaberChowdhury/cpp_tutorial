@@ -2,6 +2,7 @@
 
 - sort an array(2 way)
 - split an array
+- filter an array
 - reverse an array
 - Number methods
 - Pattern printing
