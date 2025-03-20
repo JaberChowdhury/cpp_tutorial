@@ -3,7 +3,7 @@ name: C/C++ Code Compilation and Release
 on:
   push:
     branches:
-      - main # or any branch you want to track
+      - main  # or any branch you want to track
 
 jobs:
   compile:
@@ -11,6 +11,7 @@ jobs:
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    continue-on-error: true  # Allow other jobs to continue even if this one fails
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,7 +21,109 @@ jobs:
           if [ "$RUNNER_OS" == "Windows" ]; then
             echo "Installing MinGW for Windows..."
             choco install mingw --version latest -y
-            # Ensure g++ is available
+            # Check g++ version
+            g++ --version || echo "g++ is not installed properly on Windows."
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            echo "Installing latest g++ on macOS using Homebrew..."
+            brew update
+            brew install gcc
+          elif [ "$RUNNER_OS" == "Linux" ]; then
+            echo "Installing latest g++ on Linux..."
+            sudo apt update
+            sudo apt install -y g++
+          fi
+
+      - name: Compile C/C++ code
+        run: |
+          mkdir -p build
+          # Find all .cpp files recursively and compile them
+          find . -type f -name "*.cpp" | while read file; do
+            if [ -f "$file" ]; then
+              # Check if the file contains a main function
+              if grep -q "int main" "$file"; then
+                # Extract the filename without the path
+                filename=$(basename "$file" .cpp)
+
+                # Compile the C/C++ files based on OS
+                if [ "$RUNNER_OS" == "Windows" ]; then
+                  echo "Compiling for Windows using g++..."
+                  g++ "$file" -o build/"$filename".exe || echo "Error compiling $file on $RUNNER_OS. Skipping."
+                elif [ "$RUNNER_OS" == "macOS" ] || [ "$RUNNER_OS" == "Linux" ]; then
+                  echo "Compiling for $RUNNER_OS using g++..."
+                  g++ "$file" -o build/"$filename" || echo "Error compiling $file on $RUNNER_OS. Skipping."
+                fi
+              else
+                echo "Skipping $file: No main function found."
+              fi
+            else
+              echo "Skipping $file: File does not exist."
+            fi
+          done
+
+      - name: Zip individual OS compiled files
+        run: |
+          mkdir release
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            zip -r release/windows_code.zip build/*.exe
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            zip -r release/macos_code.zip build/*
+          elif [ "$RUNNER_OS" == "Linux" ]; then
+            zip -r release/linux_code.zip build/*
+          fi
+
+  create_combined_zip:
+    needs: compile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Combine all OS releases into one zip and tar file
+        run: |
+          mkdir combined
+          cp release/windows_code.zip combined/
+          cp release/macos_code.zip combined/
+          cp release/linux_code.zip combined/
+          zip -r combined/combined_code.zip combined/
+          tar -cvf combined/combined_code.tar combined/
+
+  release:
+    needs: create_combined_zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload individual OS zip files
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release/windows_code.zip,release/macos_code.zip,release/linux_code.zip
+
+      - name: Upload combined zip and tar files
+        uses: softprops/action-gh-release@v1
+        with:
+          files: combined/combined_code.zip,combined/combined_code.tar
+name: C/C++ Code Compilation and Release
+
+on:
+  push:
+    branches:
+      - main  # or any branch you want to track
+
+jobs:
+  compile:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    continue-on-error: true  # Allow other jobs to continue even if this one fails
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up C++ build environment
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            echo "Installing MinGW for Windows..."
+            choco install mingw --version latest -y
+            # Check g++ version
             g++ --version || echo "g++ is not installed properly on Windows."
           elif [ "$RUNNER_OS" == "macOS" ]; then
             echo "Installing latest g++ on macOS using Homebrew..."
