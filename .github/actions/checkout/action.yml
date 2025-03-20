@@ -1,19 +1,14 @@
-name: 'Checkout'
-description: 'Checkout a repository'
+name: "Checkout"
+description: "Checkout a repository"
 inputs:
-  repository:
-    description: 'Repository to checkout'
-    required: true
-    default: ${{ github.repository }}
   ref:
-    description: 'The branch, tag or SHA to checkout'
+    description: "The branch, tag or SHA to checkout"
     required: false
-    default: 'main'
+    default: "main"
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
