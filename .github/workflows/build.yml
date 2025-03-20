@@ -2,7 +2,8 @@ name: C/C++ Code Compilation and Release
 
 on:
   push:
-  commit:
+    branches:
+      - main  # or any branch you want to track
 
 jobs:
   compile:
