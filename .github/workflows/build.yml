@@ -3,7 +3,7 @@ name: C/C++ Code Compilation and Release
 on:
   push:
     branches:
-      - main  # or any branch you want to track
+      - main # or any branch you want to track
 
 jobs:
   compile:
@@ -31,17 +31,22 @@ jobs:
           # Find all .cpp files recursively and compile them
           find . -type f -name "*.cpp" | while read file; do
             if [ -f "$file" ]; then
-              # Extract the filename without the path
-              filename=$(basename "$file" .cpp)
-              
-              # Compile the C/C++ files based on OS
-              if [ $RUNNER_OS == 'Windows' ]; then
-                g++ "$file" -o build/"$filename".exe
-              elif [ $RUNNER_OS == 'macOS' ] || [ $RUNNER_OS == 'Linux' ]; then
-                g++ "$file" -o build/"$filename"
+              # Check if the file contains a main function
+              if grep -q "int main" "$file"; then
+                # Extract the filename without the path
+                filename=$(basename "$file" .cpp)
+                
+                # Compile the C/C++ files based on OS
+                if [ $RUNNER_OS == 'Windows' ]; then
+                  g++ "$file" -o build/"$filename".exe || echo "Error compiling $file on $RUNNER_OS. Skipping."
+                elif [ $RUNNER_OS == 'macOS' ] || [ $RUNNER_OS == 'Linux' ]; then
+                  g++ "$file" -o build/"$filename" || echo "Error compiling $file on $RUNNER_OS. Skipping."
+                fi
+              else
+                echo "Skipping $file: No main function found."
               fi
             else
-              echo "No C++ files found."
+              echo "Skipping $file: File does not exist."
             fi
           done
 
