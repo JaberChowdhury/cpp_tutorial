@@ -10,6 +10,6 @@ int main()
     isDead = Health <= 0;
 
     Health -= 200;
-    isDead = Health <= 0;
-    return 0;
+    isDead = Health <= 0
+   return 0;
 }
