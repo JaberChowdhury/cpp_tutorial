@@ -8,7 +8,7 @@ int main()
   cin >> k >> g >> m;
   for (int i = 0; i < k; i++)
   {
-    if (glass_now != 0)
+    if (glass_now == g)
     {
       glass_now = 0;
     }
@@ -18,22 +18,12 @@ int main()
     }
     else
     {
-      if (g - glass_now < mug_now)
-      {
-        glass_now += g - glass_now;
-        mug_now -= g - glass_now;
-      }
-      else
-      {
-        glass_now = m;
-        mug_now = m;
-      }
+      int transfer_amount = (g - glass_now < mug_now) ? (g - glass_now) : mug_now;
+      glass_now += transfer_amount;
+      mug_now -= transfer_amount;
     }
   }
 
-  cout << glass_now << endl;
-  cout << mug_now << endl;
+  cout << glass_now << " " << mug_now << endl;
   return 0;
 }
-
-// wrong answer
