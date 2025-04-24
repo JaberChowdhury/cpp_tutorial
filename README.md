@@ -1,3 +1,63 @@
+# C++ Learning and Practice Repository
+
+Welcome to my **C++ Learning and Practice Repository**! This repository contains all my experiments, exercises, and projects as I explore the world of C++ programming. It is organized into various sections, each focusing on a specific concept or topic in C++.
+
+---
+
+## C++ Compiler Workflow Diagram
+
+Below is a diagram that illustrates the workflow of a C++ compiler. It shows the steps involved in compiling and linking a C++ program, from preprocessing to generating the final executable.
+
+![C++ Compiler Workflow](./assets/diagramv2.png)
+
+---
+
+## Repository Structure
+
+### 📂 **Core Concepts**
+
+- **Syntax and Basics**: Learn the fundamentals of C++ syntax and structure.
+- **Variables and Data Types**: Explore different variable types and their usage.
+- **Operators**: Understand arithmetic, logical, and bitwise operators.
+
+### 📂 **Control Flow**
+
+- **Loops**: Practice `for`, `while`, and `do-while` loops.
+- **Conditionals**: Work with `if`, `else`, and `switch` statements.
+
+### 📂 **Functions**
+
+- **Function Basics**: Learn how to declare, define, and call functions.
+- **Function Overloading**: Understand how to use multiple functions with the same name but different parameters.
+- **Recursion**: Solve problems using recursive functions.
+
+### 📂 **Object-Oriented Programming (OOP)**
+
+- **Classes and Objects**: Learn how to create and use classes and objects.
+- **Encapsulation, Inheritance, and Polymorphism**: Dive into the core principles of OOP.
+
+### 📂 **Data Structures**
+
+- **Arrays and Vectors**: Work with static and dynamic collections of data.
+- **STL (Standard Template Library)**: Explore advanced data structures like lists, maps, and sets.
+
+### 📂 **Competitive Programming**
+
+- **Problem Solving**: Solve problems from platforms like Codeforces and LightOJ.
+- **Optimization**: Learn techniques to write efficient and optimized code.
+
+---
+
+## Highlights
+
+### 🛠️ **Custom Fish Shell Functions**
+
+This repository includes custom Fish shell functions to streamline the compilation and execution of C++ programs. These functions:
+
+- Automatically detect the file type (`.c` or `.cpp`).
+- Compile the file using the appropriate compiler (`gcc` or `g++`).
+- Measure and display compilation and execution times.
+
 <details>
   <summary>Fish Shell Function 1 (Recommended)</summary>
   <pre>
@@ -179,3 +239,13 @@
 
   </pre>
 </details>
+
+---
+
+## How to Use This Repository
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/cpp-tutorial.git
+   cd cpp-tutorial
+   ```
