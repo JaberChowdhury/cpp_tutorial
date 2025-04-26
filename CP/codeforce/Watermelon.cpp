@@ -3,26 +3,20 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int x, each;
+int main() {
+    int x, divided_by_2;
     cin >> x;
-    each = x / 2;
-    if (x % 2 == 0)
-    {
-        if (each % 2 == 0)
-        {
+    divided_by_2 = x / 2;
 
-            cout << "YES" << endl;
+    if (x % 2 == 0) {
+        if (x / 2 == 1) {
+            cout << "NO";
         }
-        else
-        {
-            cout << "NO" << endl;
+        if (x / 2 >= 2) {
+            cout << "YES";
         }
-    }
-    else
-    {
-        cout << "NO" << endl;
+    } else {
+        cout << "NO";
     }
 
     return 0;
