@@ -1,197 +1,264 @@
+#include <cstdlib> // for exit()
 #include <iostream>
+#include <limits> // for numeric_limits
 #include <string>
 #include <vector>
 using namespace std;
 
-// helper functions
+// entry of our console app
+void init();
 
-// this function will print all options from the array/vector
-void print_vector(const vector<string> datas) {
-    for (int i = 0; i < datas.size(); i++) {
-        cout << i + 1 << ".  " << datas[i] << endl;
+// this will help beautify our logging
+class Logger {
+  public:
+    enum Level { INFO, WARN, ERROR };
+    Level log_level = INFO;
+
+  private:
+    const string RESET     = "\033[0m";
+    const string INFO_LBL  = "\033[30;42m";
+    const string INFO_MSG  = "\033[32m";
+    const string WARN_LBL  = "\033[30;43m";
+    const string WARN_MSG  = "\033[33m";
+    const string ERROR_LBL = "\033[30;41m";
+    const string ERROR_MSG = "\033[31m";
+
+  public:
+    void set_log_level(const Level value) { log_level = value; }
+
+    void info(const string& msg) {
+        if (log_level <= INFO)
+            cout << INFO_LBL << "[INFO]" << RESET << " : " << INFO_MSG << msg << RESET << endl;
     }
-}
 
-// this function will only take integer input from user and return it
-// additionally it will generate the message
-int take_input(const vector<string> datas) {
-    print_vector(datas);
-    int select;
-    cout << "Select any option from 1 to " << datas.size() << " : ";
-    cin >> select;
-    return select;
-}
+    void warn(const string& msg) {
+        if (log_level <= WARN)
+            cout << WARN_LBL << "[WARN]" << RESET << " : " << WARN_MSG << msg << RESET << endl;
+    }
 
-// this function will take input with the range of array/vector !!
-int take_option_input(const vector<string> datas) {
-    int select = take_input(datas);
-    for (int i = 0; i < 5; i++) {
-        if (select == datas.size()) {
-            break;
-        } else if (select > datas.size() || select < 1) {
-            cout << "[ WARN ] : Wrong input" << endl;
-            select = take_input(datas);
-        } else {
-            break;
+    void error(const string& msg) {
+        if (log_level <= ERROR)
+            cout << ERROR_LBL << "[ERROR]" << RESET << " : " << ERROR_MSG << msg << RESET << endl;
+    }
+
+    void level(const string& msg) { cout << INFO_MSG << msg << RESET; }
+
+    void print_options(const vector<string>& datas) {
+        cout << INFO_MSG << "Select any one option from 1 to " << datas.size() << " : " << RESET << endl;
+        for (int i = 0; i < datas.size(); i++) {
+            cout << INFO_LBL << "[" << i + 1 << "]" << RESET << "." << " " << datas[i] << endl;
         }
     }
-    return select;
-}
-
-// core functions
-void BMI_CALCUATOR() {
-    cout << "BMI_CALCUATOR is coming soon........" << endl;
 };
-void BMR_CALCUATOR() {
-    cout << "BMR_CALCUATOR is coming soon........" << endl;
+
+// this will help use to handle user input based on options
+class Form {
+  private:
+    int            vector_length = 0;
+    vector<string> options;
+    int            selected_option = -1;
+
+  public:
+    Form(vector<string> datas) {
+        options = datas;
+        options.push_back("Back");
+        options.push_back("Exit");
+        vector_length = options.size();
+    }
+
+    void print_options() {
+        Logger log;
+        log.print_options(options);
+    }
+
+    int take_input() {
+        Logger log;
+        while (true) {
+            log.level("Select one option: ");
+            cin >> selected_option;
+
+            if (cin.fail() || selected_option < 1 || selected_option > vector_length) {
+                log.warn("Invalid input! Try again.");
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+
+            if (selected_option == vector_length) {
+                log.error("Exiting program...");
+                exit(0);
+            }
+
+            if (selected_option == vector_length - 1) {
+                log.warn("Going back to previous menu...");
+                return -1;
+            }
+
+            return selected_option;
+        }
+    }
 };
 
-// all arithmatic functions
-void handle_n_variable_addition(const string count) {
-    int n, result = 0;
-    if (count == "2") {
-        n = 2;
-    } else if (count == "3") {
-        n = 3;
-    } else {
-        cout << "Enter the values for total variable count : ";
-        cin >> n;
-    }
-    vector<double> nums;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cout << "a" << i + 1 << " : ";
-        cin >> x;
-        nums.push_back(x);
-    }
-    for (int i = 0; i < n; i++) {
-        result += nums[i];
-    }
-    cout << "Total addition result : " << result << endl;
-}
-void handle_n_variable_operation(const string count, string operation) {
-    int    n;
-    double result = 0;
-    if (count == "2") {
-        n = 2;
-    } else if (count == "3") {
-        n = 3;
-    } else {
-        cout << "Enter the values for total variable count : ";
-        cin >> n;
-    }
-    vector<double> nums;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cout << "a" << i + 1 << " : ";
-        cin >> x;
-        nums.push_back(x);
-    }
-    if (operation == "+") {
-        for (int i = 0; i < n; i++) {
-            result += nums[i];
-        }
-    } else if (operation == "-") {
-        for (int i = 0; i < n; i++) {
-            result -= nums[i];
-        }
-    } else if (operation == "/") {
-        for (int i = 0; i < n; i++) {
-            result /= nums[i];
-        }
-    } else if (operation == "*") {
-        for (int i = 0; i < n; i++) {
-            result *= nums[i];
-        }
-    } else if (operation == "%") {
-        for (int i = 0; i < n; i++) {
+// Calculator class with methods for each operation
+class Calculator {
+  private:
+    Logger log;
 
-            result = nums[i];
-        }
+  public:
+    // Implement BMI calculation logic here
+    void bmi() {
+        float height, weight;
+        log.level("Enter your height in meter unit : ");
     }
 
-    cout << "Total [ " << operation << " ] operation result : " << result << endl;
-}
+    // Implement BMR calculation logic here
+    void bmr() { log.info("BMR calculator selected."); }
 
-void ARITHMATIC_LOGIC(string operation) {
-    cout << "How many variable do you need : " << endl;
-    vector<string> variations = {"2 variable (a1,a2)", "3 variable (a1,a2,a3)", "n variable (a1,a2,....,an)", "Exit"};
-    int            selected_variation = take_option_input(variations);
-    switch (selected_variation) {
+    void matrix() {
+        log.info("Matrix operations selected.");
+        // Implement matrix operations logic here
+    }
+    int get_variable_count() {
+        vector<string> opt = {"2 variable  (a1,a2)", "3 variable  (a1,a2,a3)", "n variable  (a1,a2,....,an)"};
+        Form           form(opt);
+        form.print_options();
+        int selected = form.take_input();
+        switch (selected) {
+        case 1:
+            selected = 2;
+            break;
+        case 2:
+            selected = 3;
+            break;
+        case 3:
+            log.level("How many variable do you need ? :");
+            int x;
+            cin >> x;
+            selected = x;
+            break;
+        case -1:
+            init();
+            break;
+        default:
+            exit(0);
+        }
+        return selected;
+    }
+    double n_variable_arithmetic_operation(const int& variable_count, const string& operation) {
+        vector<double> nums;
+        for (int i = 0; i < variable_count; i++) {
+            double x;
+            // string aa = "[a" + to_string(i) + "]. ";
+            cout << "[a" + to_string(i + 1) + "]. ";
+            cin >> x;
+            nums.push_back(x);
+        }
+        double result = nums[0];
+
+        if (operation == "+") {
+            for (int i = 1; i < variable_count; i++) {
+                result += nums[i];
+            }
+        } else if (operation == "-") {
+            for (int i = 1; i < variable_count; i++) {
+                result -= nums[i];
+            }
+        } else if (operation == "*") {
+            for (int i = 1; i < variable_count; i++) {
+                result *= nums[i];
+            }
+        } else if (operation == "/") {
+            for (int i = 1; i < variable_count; i++) {
+                result /= nums[i];
+            }
+        }
+        return result;
+    }
+    void Addition() {
+        int    selected = get_variable_count();
+        double result   = n_variable_arithmetic_operation(selected, "+");
+        log.info("Addition result is completed ");
+        log.level("Result : ");
+        cout << result << endl;
+    }
+    void Subtraction() {
+        int    selected = get_variable_count();
+        double result   = n_variable_arithmetic_operation(selected, "-");
+        log.info("Subtraction result is completed ");
+        log.level("Result : ");
+        cout << result << endl;
+    }
+    void Multiplication() {
+        int    selected = get_variable_count();
+        double result   = n_variable_arithmetic_operation(selected, "*");
+        log.info("Multiplication result is completed ");
+        log.level("Result : ");
+        cout << result << endl;
+    }
+    void Division() {
+        int    selected = get_variable_count();
+        double result   = n_variable_arithmetic_operation(selected, "/");
+        log.info("Division result is completed ");
+        log.level("Result : ");
+        cout << result << endl;
+    }
+    void arithmetic() {
+        log.info("Arithmetic operations selected.");
+        vector<string> opt = {"Addition [+]", "Subtraction [-]", "Multiplication [*]", "Division [/]"};
+        Form           form(opt);
+        form.print_options();
+        int selected = form.take_input();
+        switch (selected) {
+        case 1:
+            Addition();
+            break;
+        case 2:
+            Subtraction();
+            break;
+        case 3:
+            Multiplication();
+            break;
+        case 4:
+            Division();
+            break;
+        case -1:
+            init();
+            break;
+        default:
+            log.error("Something went wrong");
+        }
+    }
+};
+
+// main body of init function
+void init() {
+    vector<string> main_menu = {"bmi", "bmr", "matrix", "arithmetic"};
+    Form           form(main_menu);
+    Calculator     calc;
+
+    form.print_options();
+    int selected = form.take_input();
+
+    switch (selected) {
     case 1:
-        handle_n_variable_operation("2", operation);
+        calc.bmi();
         break;
     case 2:
-        handle_n_variable_operation("3", operation);
+        calc.bmr();
         break;
     case 3:
-        handle_n_variable_operation("n", operation);
-    default:
-        cout << "Thanks for staying with us" << endl;
-    }
-};
-
-void REMAINDER() {
-    cout << "REMAINDER is coming soon........" << endl;
-};
-void EQUATION() {
-    cout << "EQUATION is coming soon........" << endl;
-};
-void ARITHMATIC_CALCULATOR() {
-    vector<string> operations      = {"Addition [ + ]",
-                                      "Subtraction [ - ]",
-                                      "Multiplication [ * ]",
-                                      "Division [ / ]",
-                                      "Remainder [ % ]",
-                                      "Equation [ type an equation using +,-,*,/]",
-                                      "Exit"};
-    int            operations_type = take_option_input(operations);
-    switch (operations_type) {
-    case 1:
-        ARITHMATIC_LOGIC("+");
-        break;
-    case 2:
-        ARITHMATIC_LOGIC("-");
-        break;
-    case 3:
-        ARITHMATIC_LOGIC("*");
+        calc.matrix();
         break;
     case 4:
-        ARITHMATIC_LOGIC("/");
+        calc.arithmetic();
         break;
     case 5:
-        ARITHMATIC_LOGIC("%");
-        break;
-    case 6:
-        EQUATION();
-        break;
-    case 7:
-        cout << "Thanks for staying with us" << endl;
-        break;
+        exit(0);
     default:
-        cout << "BYE" << endl;
+        break;
     }
-};
-
-// main/entry point of the program
+}
 int main() {
-    vector<string> options         = {"BMI Calculator", "BMR Calculator", "Arithmatic Calculator", "Exit"};
-    int            calculator_type = take_option_input(options);
-    switch (calculator_type) {
-    case 1:
-        BMI_CALCUATOR();
-        break;
-    case 2:
-        BMR_CALCUATOR();
-        break;
-    case 3:
-        ARITHMATIC_CALCULATOR();
-        break;
-    case 4:
-        cout << "Thanks for staying with us" << endl;
-        break;
-    default:
-        cout << "BYE" << endl;
-    }
+    init();
     return 0;
 }
