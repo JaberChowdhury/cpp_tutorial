@@ -5,11 +5,9 @@ class Utils {
     int year;
 
   public:
-    void take_input() {
-        cout << "Enter a year : ";
-        cin >> year;
-    }
+    Utils(int& y) { year = y; }
 
+  public:
     bool check_leap_year() {
         if (year % 400 == 0) {
             return true;
@@ -23,7 +21,7 @@ class Utils {
     }
 
     void print_result() {
-        take_input();
+        // take_input();
         bool result = check_leap_year();
         if (result) {
             cout << year << " is a leap year" << endl;
@@ -34,7 +32,10 @@ class Utils {
 };
 
 int main() {
-    Utils u;
+    int year;
+    cout << "Enter a year : ";
+    cin >> year;
+    Utils u(year);
     u.print_result();
     return 0;
 }
