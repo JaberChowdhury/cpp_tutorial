@@ -362,7 +362,82 @@ class Calculator {
         // Perform addition using existing method
         Matrix_addiion_subtraction(user_input, "-", "Result");
     }
-    void Matrix_multiplication() { log.error("Matrix Multiplication is coming soon......"); }
+    vector<vector<double>> Multiply_two_matrix(const vector<vector<double>>& A, const vector<vector<double>>& B) {
+        int rows_A = A.size();
+        int cols_A = A[0].size();
+        int cols_B = B[0].size();
+
+        vector<vector<double>> result(rows_A, vector<double>(cols_B, 0));
+
+        for (int i = 0; i < rows_A; i++) {
+            for (int j = 0; j < cols_B; j++) {
+                for (int k = 0; k < cols_A; k++) {
+                    result[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    void Matrix_multiplication() {
+        log.info("For multiplication operation of matrices:");
+        log.info("Number of columns in each matrix must equal number of rows in the next matrix");
+
+        // Get number of matrices
+        log.level("How many matrices do you want to multiply? (2 or more): ");
+        int num_matrices;
+        cin >> num_matrices;
+
+        if (num_matrices < 2) {
+            log.error("Need at least 2 matrices for multiplication!");
+            return;
+        }
+
+        vector<vector<vector<double>>> matrices;
+        vector<pair<int, int>>         dimensions(num_matrices); // Store dimensions of each matrix
+
+        // Get dimensions for all matrices
+        for (int m = 0; m < num_matrices; m++) {
+            log.level("Enter dimensions for matrix " + to_string(m + 1) + " (rows columns): ");
+            cin >> dimensions[m].first >> dimensions[m].second;
+
+            // Check compatibility with previous matrix
+            if (m > 0 && dimensions[m - 1].second != dimensions[m].first) {
+                log.error("Invalid dimensions! Columns of matrix " + to_string(m) + " must equal rows of matrix "
+                          + to_string(m + 1));
+                return;
+            }
+        }
+
+        // Get all matrices
+        for (int m = 0; m < num_matrices; m++) {
+            vector<vector<double>> current_matrix;
+            log.info("Enter values for Matrix " + to_string(m + 1));
+
+            for (int i = 0; i < dimensions[m].first; i++) {
+                vector<double> row;
+                log.level("Enter " + to_string(dimensions[m].second) + " values for row " + to_string(i + 1)
+                          + " (separated by space): ");
+                for (int j = 0; j < dimensions[m].second; j++) {
+                    double value;
+                    cin >> value;
+                    row.push_back(value);
+                }
+                current_matrix.push_back(row);
+            }
+            matrices.push_back(current_matrix);
+            log.print_matrix(current_matrix, "M" + to_string(m + 1));
+        }
+
+        // Multiply all matrices
+        vector<vector<double>> result = matrices[0];
+        for (int i = 1; i < matrices.size(); i++) {
+            result = Multiply_two_matrix(result, matrices[i]);
+        }
+
+        log.success("Matrix multiplication completed");
+        log.print_matrix(result, "Result");
+    }
     void Matrix_inverse() { log.error("Matrix Inverse Operation is coming soon......"); }
     void Instruction_for_matrix() { log.error("Instructions guide are cooking , please hold tight !!"); }
     // Implement matrix operations logic here
