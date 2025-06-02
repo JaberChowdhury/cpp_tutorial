@@ -303,8 +303,65 @@ class Calculator {
         Logger l;
         l.print_matrix(result, matrix_variable_symbol);
     }
-    void Matrix_addition() { log.error("Matrix Addition is coming soon......"); }
-    void Matrix_subtraction() { log.error("Matrix Subtraction is coming soon......"); }
+    // taking multiple matrix from user
+    vector<vector<vector<double>>> take_matrix_input() {
+        vector<vector<vector<double>>> inputs;
+        int                            size = 0, number_of_matrix = 0;
+
+        // Get matrix dimensions
+        log.level("Enter the size of matrix eg.(1,2,3,4,..): ");
+        cin >> size;
+
+        // Get number of matrices
+        log.level("How many matrices do you want? eg.(1,2,3,4,..): ");
+        cin >> number_of_matrix;
+
+        if (size > 0 && number_of_matrix > 0) {
+            // Iterate through each matrix
+            for (int m = 0; m < number_of_matrix; m++) {
+                vector<vector<double>> current_matrix;
+                log.info("Enter values for Matrix " + to_string(m + 1));
+
+                // Get each row of the matrix
+                for (int i = 0; i < size; i++) {
+                    vector<double> row;
+                    log.level("Enter " + to_string(size) + " values for row " + to_string(i + 1)
+                              + " (separated by space): ");
+
+                    // Get each column value
+                    for (int j = 0; j < size; j++) {
+                        double value;
+                        cin >> value;
+                        row.push_back(value);
+                    }
+                    current_matrix.push_back(row);
+                }
+
+                inputs.push_back(current_matrix);
+                log.success("Matrix " + to_string(m + 1) + " input completed");
+
+                // Print the entered matrix
+                log.print_matrix(current_matrix, "M" + to_string(m + 1));
+            }
+
+        } else {
+            log.error("Invalid input! Size and number of matrices must be greater than 0");
+        }
+        return inputs;
+    }
+    // taking multiple input from user
+    void Matrix_addition() {
+        log.info("For addition operation of matrix, each matrix should have a same size.");
+        vector<vector<vector<double>>> user_input = take_matrix_input();
+        // Perform addition using existing method
+        Matrix_addiion_subtraction(user_input, "+", "Result");
+    }
+    void Matrix_subtraction() {
+        log.info("For substraction operation of matrix, each matrix should have a same size.");
+        vector<vector<vector<double>>> user_input = take_matrix_input();
+        // Perform addition using existing method
+        Matrix_addiion_subtraction(user_input, "-", "Result");
+    }
     void Matrix_multiplication() { log.error("Matrix Multiplication is coming soon......"); }
     void Matrix_inverse() { log.error("Matrix Inverse Operation is coming soon......"); }
     void Instruction_for_matrix() { log.error("Instructions guide are cooking , please hold tight !!"); }
