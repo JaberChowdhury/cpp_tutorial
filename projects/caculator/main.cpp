@@ -22,8 +22,10 @@ class Logger {
     const string WARN_MSG    = "\033[33m";
     const string ERROR_LBL   = "\033[30;41m";
     const string ERROR_MSG   = "\033[31m";
-    const string SUCCESS_LBL = "\033[30;46m"; // Cyan background, black text
+    const string SUCCESS_LBL = "\033[30;46m"; // Cyan background
     const string SUCCESS_MSG = "\033[36m";    // Cyan text
+    const string LEVEL_BLUE  = "\033[34m";    // Blue text
+    const string LEVEL_RED   = "\033[91m";    // Bright red text
 
   public:
     void set_log_level(const Level value) { log_level = value; }
@@ -44,16 +46,39 @@ class Logger {
     }
 
     void success(const string& msg) {
-        // Always display success messages regardless of log level
         cout << SUCCESS_LBL << "[SUCCESS]" << RESET << " : " << SUCCESS_MSG << msg << RESET << endl;
     }
 
     void level(const string& msg) { cout << INFO_MSG << msg << RESET; }
 
+    void level_blue(const string& msg) { cout << LEVEL_BLUE << msg << RESET; }
+
+    void level_red(const string& msg) { cout << LEVEL_RED << msg << RESET; }
+
     void print_options(const vector<string>& datas) {
         cout << INFO_MSG << "Select any one option from 1 to " << datas.size() << " : " << RESET << endl;
         for (int i = 0; i < datas.size(); i++) {
-            cout << INFO_LBL << "[" << i + 1 << "]" << RESET << "." << " " << datas[i] << endl;
+            cout << INFO_LBL << "[" << i + 1 << "]" << RESET << ". " << datas[i] << endl;
+        }
+    }
+
+    void print_matrix(const vector<vector<double>>& matrix, const string& matrix_variable_symbol) {
+        if (!matrix.empty()) {
+            info("Printing matrix " + matrix_variable_symbol);
+            int matrix_row = matrix.size(), matrix_column = matrix[0].size();
+            for (int i = 0; i < matrix_row; i++) {
+                cout << "[" << matrix_variable_symbol << i + 1 << "]  [ ";
+                for (int k = 0; k < matrix_column; k++) {
+                    level_blue(to_string(matrix[i][k]));
+                    if (k != matrix[i].size() - 1) {
+                        cout << " , ";
+                    }
+                }
+                cout << " ]" << endl;
+            }
+            info("matrix size is : " + LEVEL_RED + to_string(matrix_column) + " X " + to_string(matrix_row) + RESET);
+        } else {
+            error("The vector is empty");
         }
     }
 };
@@ -74,7 +99,7 @@ class Form {
     }
 
     void print_options() {
-        cout << "\033[2J\033[1;1H"; // clear the terminal every time before rendering the options
+        cout << "\033[2J\033[1;1H\n"; // clear the terminal every time before rendering the options
         Logger log;
         log.print_options(options);
     }
@@ -235,10 +260,84 @@ class Calculator {
         log.level("To lose weight: Consume ~" + to_string(daily_calories - 500) + " calories/day\n");
         log.level("To gain weight: Consume ~" + to_string(daily_calories + 500) + " calories/day\n");
     }
+    vector<vector<double>> Add_two_matrix(const vector<vector<double>>& A, const vector<vector<double>>& B) {
+        vector<vector<double>> result;
+        int                    matrix_size = A[0].size();
+        for (int i = 0; i < matrix_size; i++) {
+            vector<double> x;
+            for (int j = 0; j < matrix_size; j++) {
+                double y = 0;
+                y        = A[i][j] + B[i][j];
+                x.push_back(y);
+            }
+            result.push_back(x);
+        }
+        return result;
+    }
+    vector<vector<double>> Substract_two_matrix(const vector<vector<double>>& A, const vector<vector<double>>& B) {
+        vector<vector<double>> result;
+        int                    matrix_size = A[0].size();
+        for (int i = 0; i < matrix_size; i++) {
+            vector<double> x;
+            for (int j = 0; j < matrix_size; j++) {
+                double y = 0;
+                y        = A[i][j] - B[i][j];
+                x.push_back(y);
+            }
+            result.push_back(x);
+        }
+        return result;
+    }
+    void Matrix_addiion_subtraction(const vector<vector<vector<double>>>& datas, const string& operation,
+                                    const string& matrix_variable_symbol) {
+        vector<vector<double>> result       = datas[0];
+        int                    total_matrix = datas.size(), matrix_size = datas[0][0].size();
+        for (int i = 1; i < total_matrix; i++) {
+            if (operation == "+") {
+                result = Add_two_matrix(result, datas[i]);
+            } else if (operation == "-") {
+                result = Substract_two_matrix(result, datas[i]);
+            }
+        }
 
+        Logger l;
+        l.print_matrix(result, matrix_variable_symbol);
+    }
+    void Matrix_addition() { log.error("Matrix Addition is coming soon......"); }
+    void Matrix_subtraction() { log.error("Matrix Subtraction is coming soon......"); }
+    void Matrix_multiplication() { log.error("Matrix Multiplication is coming soon......"); }
+    void Matrix_inverse() { log.error("Matrix Inverse Operation is coming soon......"); }
+    void Instruction_for_matrix() { log.error("Instructions guide are cooking , please hold tight !!"); }
+    // Implement matrix operations logic here
     void matrix() {
-        log.info("Matrix operations selected.");
-        // Implement matrix operations logic here
+        vector<string> opt = {"Matrix Addition", "Matrix Subtraction", "Matrix Multiplication", "Inverse Matrix",
+                              "See Instruction"};
+        Form           f(opt);
+        f.print_options();
+        int selected = f.take_input();
+
+        switch (selected) {
+        case 1:
+            Matrix_addition();
+            break;
+        case 2:
+            Matrix_subtraction();
+            break;
+        case 3:
+            Matrix_multiplication();
+            break;
+        case 4:
+            Matrix_inverse();
+            break;
+        case 5:
+            Instruction_for_matrix();
+            break;
+        case -1:
+            init();
+            break;
+        default:
+            break;
+        }
     }
     int get_variable_count() {
         vector<string> opt = {"2 variable  (a1,a2)", "3 variable  (a1,a2,a3)", "n variable  (a1,a2,....,an)"};
