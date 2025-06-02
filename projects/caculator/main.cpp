@@ -438,8 +438,187 @@ class Calculator {
         log.success("Matrix multiplication completed");
         log.print_matrix(result, "Result");
     }
-    void Matrix_inverse() { log.error("Matrix Inverse Operation is coming soon......"); }
-    void Instruction_for_matrix() { log.error("Instructions guide are cooking , please hold tight !!"); }
+    vector<vector<double>> GetIdentityMatrix(int size) {
+        vector<vector<double>> identity(size, vector<double>(size, 0));
+        for (int i = 0; i < size; i++) {
+            identity[i][i] = 1;
+        }
+        return identity;
+    }
+
+    bool IsInvertible(const vector<vector<double>>& matrix) {
+        // Check if matrix is square
+        if (matrix.size() != matrix[0].size()) {
+            return false;
+        }
+
+        // Simple determinant check for 2x2 matrix
+        if (matrix.size() == 2) {
+            double det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+            return det != 0;
+        }
+
+        return true; // For larger matrices, we'll find out during computation
+    }
+
+    vector<vector<double>> GetMatrixInverse(vector<vector<double>> A) {
+        int                    n         = A.size();
+        vector<vector<double>> augmented = A;
+        vector<vector<double>> identity  = GetIdentityMatrix(n);
+
+        // Create augmented matrix [A|I]
+        for (int i = 0; i < n; i++) {
+            augmented[i].insert(augmented[i].end(), identity[i].begin(), identity[i].end());
+        }
+
+        // Gaussian elimination
+        for (int i = 0; i < n; i++) {
+            // Find pivot
+            double pivot = augmented[i][i];
+            if (pivot == 0) {
+                return vector<vector<double>>(); // Matrix is not invertible
+            }
+
+            // Scale row to make pivot = 1
+            for (int j = 0; j < 2 * n; j++) {
+                augmented[i][j] /= pivot;
+            }
+
+            // Eliminate column
+            for (int k = 0; k < n; k++) {
+                if (k != i) {
+                    double factor = augmented[k][i];
+                    for (int j = 0; j < 2 * n; j++) {
+                        augmented[k][j] -= factor * augmented[i][j];
+                    }
+                }
+            }
+        }
+
+        // Extract inverse matrix from augmented matrix
+        vector<vector<double>> inverse(n, vector<double>(n));
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                inverse[i][j] = augmented[i][j + n];
+            }
+        }
+
+        return inverse;
+    }
+
+    void Matrix_inverse() {
+        log.info("For inverse operation of matrix:");
+        log.info("Matrix must be square (same number of rows and columns)");
+
+        // Get matrix dimensions
+        log.level("Enter matrix size (N for NxN matrix): ");
+        int size;
+        cin >> size;
+
+        if (size <= 0) {
+            log.error("Invalid size! Matrix size must be greater than 0");
+            return;
+        }
+
+        // Get matrix elements
+        vector<vector<double>> matrix;
+        log.info("Enter values for Matrix:");
+
+        for (int i = 0; i < size; i++) {
+            vector<double> row;
+            log.level("Enter " + to_string(size) + " values for row " + to_string(i + 1) + " (separated by space): ");
+            for (int j = 0; j < size; j++) {
+                double value;
+                cin >> value;
+                row.push_back(value);
+            }
+            matrix.push_back(row);
+        }
+
+        // Print input matrix
+        log.print_matrix(matrix, "A");
+
+        // Check if matrix is invertible
+        if (!IsInvertible(matrix)) {
+            log.error("Matrix is not invertible!");
+            return;
+        }
+
+        // Calculate inverse
+        vector<vector<double>> inverse = GetMatrixInverse(matrix);
+
+        if (inverse.empty()) {
+            log.error("Matrix is not invertible! (Determinant is zero)");
+            return;
+        }
+
+        log.success("Matrix inverse calculated successfully");
+        log.print_matrix(inverse, "A^(-1)");
+    }
+    void Instruction_for_matrix() {
+        Logger log;
+
+        // Title
+        log.info("=== Matrix Operations Instructions ===\n");
+
+        // 1. Matrix Addition
+        log.level_blue("\n1. Matrix Addition:\n");
+        log.level("• Matrices must have the same dimensions (rows × columns)\n");
+        log.level("• Elements are added position by position\n");
+        log.level("Example:\n");
+        log.level("  [1 2]   [5 6]   [6  8 ]\n");
+        log.level("  [3 4] + [7 8] = [10 12]\n\n");
+
+        // 2. Matrix Subtraction
+        log.level_blue("\n2. Matrix Subtraction:\n");
+        log.level("• Matrices must have the same dimensions (rows × columns)\n");
+        log.level("• Elements are subtracted position by position\n");
+        log.level("Example:\n");
+        log.level("  [5 6]   [1 2]   [4 4]\n");
+        log.level("  [7 8] - [3 4] = [4 4]\n\n");
+
+        // 3. Matrix Multiplication
+        log.level_blue("\n3. Matrix Multiplication:\n");
+        log.level("• Number of columns in first matrix must equal number of rows in second matrix\n");
+        log.level("• Result matrix dimensions: (rows of A × columns of B)\n");
+        log.level("• Each element is sum of row×column products\n");
+        log.level("Example:\n");
+        log.level("  [1 2]   [5 6]   [19 22]\n");
+        log.level("  [3 4] × [7 8] = [43 50]\n");
+        log.level("\nCalculation:\n");
+        log.level("  [1×5 + 2×7  1×6 + 2×8]\n");
+        log.level("  [3×5 + 4×7  3×6 + 4×8]\n\n");
+
+        // 4. Matrix Inverse
+        log.level_blue("\n4. Matrix Inverse:\n");
+        log.level("• Only square matrices can have inverses\n");
+        log.level("• Matrix must be non-singular (determinant ≠ 0)\n");
+        log.level("• A × A^(-1) = I (Identity Matrix)\n");
+        log.level("Example:\n");
+        log.level("  [4  7]     [ 0.6  -0.7]\n");
+        log.level("  [2  6]  →  [-0.2   0.4]\n\n");
+
+        // Input Guidelines
+        log.level_blue("\nInput Guidelines:\n");
+        log.level("1. For Addition/Subtraction:\n");
+        log.level("   • Enter square matrix size (N×N)\n");
+        log.level("   • Enter number of matrices\n");
+        log.level("   • Input elements row by row\n\n");
+
+        log.level("2. For Multiplication:\n");
+        log.level("   • Enter number of matrices (≥2)\n");
+        log.level("   • For each matrix, enter rows and columns\n");
+        log.level("   • Input elements row by row\n\n");
+
+        log.level("3. For Inverse:\n");
+        log.level("   • Enter matrix size (N for N×N matrix)\n");
+        log.level("   • Input elements row by row\n\n");
+
+        // Press any key to continue
+        log.info("Press Enter to return to matrix menu...");
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
+    }
     // Implement matrix operations logic here
     void matrix() {
         vector<string> opt = {"Matrix Addition", "Matrix Subtraction", "Matrix Multiplication", "Inverse Matrix",
