@@ -84,3 +84,35 @@ In C++, there are three access specifiers:
 - _`protected`_ - members cannot be accessed from outside the class, however, they can be accessed in inherited classes. You will learn more about Inheritance later.
 
 > By default, all members of a class are private if you don't specify an access specifier:
+
+## Constructor && Destructor
+
+```cpp
+class Form {
+  private:
+    int            vector_length = 0;
+    vector<string> options;
+    int            selected_option = -1;
+
+  public:
+    Form(vector<string> datas) {
+        options = datas;
+        options.push_back("Back");
+        options.push_back("Exit");
+        vector_length = options.size();
+    }
+    ~Form() {}
+    void print_options() {
+        cout << "\033[2J\033[1;1H\n"; // clear the terminal every time before rendering the options
+        Logger log;
+        log.print_options(options);
+    }
+    int take_input(){
+        // code goes here
+    }
+};
+```
+
+#### In this example The `Form` method inside the Form class is called `Constructor`.
+
+#### In this example The `~Form` method inside the Form class is called `Destructor`.
