@@ -10,7 +10,7 @@ int main() {
     string input_text;
     cout << "Enter a text  : ";
     cin >> input_text;
-    vector<char> vowels       = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'o', 'u'};
+    vector<char> vowels       = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
     int          total_vowels = 0;
 
     for (int i = 0; i < input_text.size(); i++) {
