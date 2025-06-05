@@ -12,6 +12,8 @@
 8.  https://judge.beecrowd.com/en/problems/view/1046
 9.  https://judge.beecrowd.com/en/problems/view/1047
 10. https://judge.beecrowd.com/en/problems/view/1048
+11. https://judge.beecrowd.com/en/problems/view/1049
+12. https://judge.beecrowd.com/en/problems/view/1050
 
 ## Not Solved (failed)
 
