@@ -1,6 +1,68 @@
+# Assignment
+
+## 1. Even or Odd
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x;
+    cout << "Enter a numeric value : ";
+    cin >> x;
+    cout << (x >= 0 ? (x % 2 == 1 ? "This ia a ODD number ." : "This is a EVEN number .")
+                    : "Enter a value greater than or equal to 0")
+         << endl;
+    return 0;
+}
+```
+
+## output
+
+## 2. Find the largest of two numbers
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int         n = 2;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cout << "A" << i + 1 << " : ";
+        cin >> x;
+        nums.push_back(x);
+    }
+
+    // buble sorting
+    for (int i = 0; i < n; i++) {
+        for (int k = 0; k < n - i - 1; k++) {
+            if (nums[k] < nums[k + 1]) {
+                int a       = nums[k];
+                int b       = nums[k + 1];
+                nums[k]     = b;
+                nums[k + 1] = a;
+            }
+        }
+    }
+
+    // for (int i = 0; i < n; i++) {
+    //     cout << nums[i] << endl;
+    // }
+    cout << "The maximum number is : " << nums[0] << endl;
+    return 0;
+}
+```
+
+## output
+
+## 3. Simple Calculator
+
+```cpp
 #include <cstdlib> // for exit()
 #include <iostream>
-// #include <limits> // for numeric_limits
 #include <string>
 #include <vector>
 using namespace std;
@@ -124,61 +186,6 @@ class Calculator {
     Logger log;
 
   public:
-    void boolean_and() {
-        double x, y;
-        log.level_blue("Enter a numeric value for x :");
-        cin >> x;
-        log.level_blue("Enter a numeric value for y :");
-        cin >> y;
-        bool result = x && y;
-        cout << x << " && " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
-        cout << endl;
-    }
-    void boolean_or() {
-        double x, y;
-        log.level_blue("Enter a numeric value for x :");
-        cin >> x;
-        log.level_blue("Enter a numeric value for y :");
-        cin >> y;
-        bool result = x || y;
-        cout << x << " || " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
-        cout << endl;
-    }
-    void boolean_not() {
-        double x, y;
-        log.level_blue("Enter a numeric value for x :");
-        cin >> x;
-        log.level_blue("Enter a numeric value for y :");
-        cin >> y;
-        bool result = x != y;
-        cout << x << " != " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
-        cout << endl;
-    }
-    void boolean() {
-        vector<string> opt = {"AND Operator", "OR Operator", "NOT Operator"};
-        Form           form(opt);
-
-        form.print_options();
-        int selected = form.take_input();
-        switch (selected) {
-        case 1:
-            boolean_and();
-            break;
-        case 2:
-            boolean_or();
-            break;
-        case 3:
-            boolean_not();
-            break;
-        case -1:
-            init();
-        default:
-            break;
-        }
-    }
     int get_variable_count() {
         vector<string> opt = {"2 variable  (a1,a2)", "3 variable  (a1,a2,a3)", "n variable  (a1,a2,....,an)"};
         Form           form(opt);
@@ -283,8 +290,8 @@ class Calculator {
             Division();
             break;
         case -1:
-            init();
-            break;
+            // init();
+            exit(0);
         default:
             log.error("Something went wrong");
         }
@@ -293,27 +300,235 @@ class Calculator {
 
 // main body of init function
 void init() {
-    vector<string> main_menu = {"Logical Operation", "arithmetic"};
-    Form           form(main_menu);
-    Calculator     calc;
-
-    form.print_options();
-    int selected = form.take_input();
-
-    switch (selected) {
-    case 1:
-        calc.boolean();
-        break;
-    case 2:
-        calc.arithmetic();
-        break;
-    case -1:
-        exit(0);
-    default:
-        break;
-    }
+    Calculator calc;
+    calc.arithmetic();
 }
 int main() {
     init();
     return 0;
 }
+```
+
+## output
+
+## 4. check leap year
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Utils {
+    int year;
+
+  public:
+    Utils(int& y) { year = y; }
+
+  public:
+    bool check_leap_year() {
+        if (year % 400 == 0) {
+            return true;
+        } else if (year % 100 == 0) {
+            return false;
+        } else if (year % 4 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void print_result() {
+        // take_input();
+        bool result = check_leap_year();
+        if (result) {
+            cout << year << " is a leap year" << endl;
+        } else {
+            cout << year << " is not a leap year" << endl;
+        }
+    }
+};
+
+int main() {
+    int year;
+    cout << "Enter a year : ";
+    cin >> year;
+    Utils u(year);
+    u.print_result();
+    return 0;
+}
+
+```
+
+## output
+
+## 05. positive , negative or zero
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number : ";
+    cin >> num;
+    cout << (num > 0 ? "Positive number" : (num == 0 ? "Number is zero" : "Negative number")) << endl;
+    return 0;
+}
+```
+
+## output
+
+## 06. check if a number is multiple of 3 and 05
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number : ";
+    cin >> num;
+
+    cout << ((num % 3 == 0 && num % 5 == 0) ? "The number is multiple of 3 and 5"
+                                            : "The number is not multiple of 3 and 5")
+         << endl;
+    return 0;
+}
+```
+
+## output
+
+## 07. grade Calculator
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Worker {
+    float number;
+
+  public:
+    void find_grade() {
+        cout << "What is your number in a subject : ";
+        cin >> number;
+        if (number > 0 && number <= 100) {
+            if (number >= 90) {
+                cout << "You got A in this subject" << endl;
+            } else if (number >= 80) {
+                cout << "You got B in this subject" << endl;
+            } else if (number >= 70) {
+                cout << "You got C in this subject" << endl;
+            } else if (number >= 60) {
+                cout << "You got D in this subject" << endl;
+            } else {
+                cout << "You failed in this subject" << endl;
+            }
+        } else {
+            cout << "Wrong input" << endl;
+        }
+    }
+};
+
+int main() {
+    Worker core_utils;
+    core_utils.find_grade();
+
+    return 0;
+}
+```
+
+## output
+
+## 08. age group classifier
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter your age : ";
+    cin >> age;
+
+    cout << (age > 0 ? (age >= 60                  ? "Senior"
+                        : (age >= 20 || age <= 59) ? "Adult"
+                        : (age >= 13 || age <= 19) ? "Teenager"
+                        : (age < 13)               ? "Child"
+                                                   : "")
+                     : "Age must have to be greater than 0")
+         << endl;
+    return 0;
+}
+```
+
+## output
+
+## 09. find the largest of three numbers
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int         n = 3;
+    vector<int> nums;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cout << "A" << i + 1 << " : ";
+        cin >> x;
+        nums.push_back(x);
+    }
+
+    // buble sorting
+    for (int i = 0; i < n; i++) {
+        for (int k = 0; k < n - i - 1; k++) {
+            if (nums[k] < nums[k + 1]) {
+                int a       = nums[k];
+                int b       = nums[k + 1];
+                nums[k]     = b;
+                nums[k + 1] = a;
+            }
+        }
+    }
+
+    // for (int i = 0; i < n; i++) {
+    //     cout << nums[i] << endl;
+    // }
+    cout << "The maximum number is : " << nums[0] << endl;
+    return 0;
+}
+```
+
+## output
+
+## 10. vowel or consonent
+
+```cpp
+#include <iostream>
+#include <vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+
+int main() {
+    char input_text;
+    cout << "Enter a letter  : ";
+    cin >> input_text;
+    vector<char> vowels   = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
+    bool         is_vowel = false;
+    cout << "input is = " << input_text << endl;
+    for (int k = 0; k < vowels.size(); k++) {
+        if (input_text == vowels[k]) {
+            is_vowel = true;
+        }
+    }
+
+    cout << (is_vowel ? "The input is a vowel" : "The input is a consonent") << endl;
+
+    return 0;
+}
+```
+
+## output

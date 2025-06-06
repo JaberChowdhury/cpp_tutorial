@@ -9,17 +9,13 @@ class Worker {
         cout << "What is your number in a subject : ";
         cin >> number;
         if (number > 0 && number <= 100) {
-            if (number >= 80) {
-                cout << "You got A+ in this subject" << endl;
-            } else if (number >= 70) {
+            if (number >= 90) {
                 cout << "You got A in this subject" << endl;
-            } else if (number >= 60) {
-                cout << "You got A- in this subject" << endl;
-            } else if (number >= 50) {
+            } else if (number >= 80) {
                 cout << "You got B in this subject" << endl;
-            } else if (number >= 45) {
+            } else if (number >= 70) {
                 cout << "You got C in this subject" << endl;
-            } else if (number >= 40) {
+            } else if (number >= 60) {
                 cout << "You got D in this subject" << endl;
             } else {
                 cout << "You failed in this subject" << endl;

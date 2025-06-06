@@ -3,9 +3,7 @@
 using namespace std;
 
 int main() {
-    int n;
-    cout << "How many number do you have? : ";
-    cin >> n;
+    int         n = 3;
     vector<int> nums;
     for (int i = 0; i < n; i++) {
         int x;

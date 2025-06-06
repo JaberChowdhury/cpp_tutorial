@@ -1,6 +1,5 @@
 #include <cstdlib> // for exit()
 #include <iostream>
-// #include <limits> // for numeric_limits
 #include <string>
 #include <vector>
 using namespace std;
@@ -124,61 +123,6 @@ class Calculator {
     Logger log;
 
   public:
-    void boolean_and() {
-        double x, y;
-        log.level_blue("Enter a numeric value for x :");
-        cin >> x;
-        log.level_blue("Enter a numeric value for y :");
-        cin >> y;
-        bool result = x && y;
-        cout << x << " && " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
-        cout << endl;
-    }
-    void boolean_or() {
-        double x, y;
-        log.level_blue("Enter a numeric value for x :");
-        cin >> x;
-        log.level_blue("Enter a numeric value for y :");
-        cin >> y;
-        bool result = x || y;
-        cout << x << " || " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
-        cout << endl;
-    }
-    void boolean_not() {
-        double x, y;
-        log.level_blue("Enter a numeric value for x :");
-        cin >> x;
-        log.level_blue("Enter a numeric value for y :");
-        cin >> y;
-        bool result = x != y;
-        cout << x << " != " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
-        cout << endl;
-    }
-    void boolean() {
-        vector<string> opt = {"AND Operator", "OR Operator", "NOT Operator"};
-        Form           form(opt);
-
-        form.print_options();
-        int selected = form.take_input();
-        switch (selected) {
-        case 1:
-            boolean_and();
-            break;
-        case 2:
-            boolean_or();
-            break;
-        case 3:
-            boolean_not();
-            break;
-        case -1:
-            init();
-        default:
-            break;
-        }
-    }
     int get_variable_count() {
         vector<string> opt = {"2 variable  (a1,a2)", "3 variable  (a1,a2,a3)", "n variable  (a1,a2,....,an)"};
         Form           form(opt);
@@ -283,8 +227,8 @@ class Calculator {
             Division();
             break;
         case -1:
-            init();
-            break;
+            // init();
+            exit(0);
         default:
             log.error("Something went wrong");
         }
@@ -293,25 +237,8 @@ class Calculator {
 
 // main body of init function
 void init() {
-    vector<string> main_menu = {"Logical Operation", "arithmetic"};
-    Form           form(main_menu);
-    Calculator     calc;
-
-    form.print_options();
-    int selected = form.take_input();
-
-    switch (selected) {
-    case 1:
-        calc.boolean();
-        break;
-    case 2:
-        calc.arithmetic();
-        break;
-    case -1:
-        exit(0);
-    default:
-        break;
-    }
+    Calculator calc;
+    calc.arithmetic();
 }
 int main() {
     init();
