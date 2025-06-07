@@ -14,7 +14,7 @@
 10. https://judge.beecrowd.com/en/problems/view/1048
 11. https://judge.beecrowd.com/en/problems/view/1049
 12. https://judge.beecrowd.com/en/problems/view/1050
-
-## Not Solved (failed)
-
-1.
+13. https://judge.beecrowd.com/en/problems/view/1051 ( Not Solved (failed)) Taxes
+14. https://judge.beecrowd.com/en/problems/view/1052
+15. https://judge.beecrowd.com/en/problems/view/1059
+16. https://judge.beecrowd.com/en/problems/view/1060

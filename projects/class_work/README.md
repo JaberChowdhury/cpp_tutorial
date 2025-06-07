@@ -19,6 +19,8 @@ int main() {
 
 ## output
 
+![1](https://i.ibb.co/q3h9XBJz/Screenshot-2025-06-06-151732.png)
+
 ## 2. Find the largest of two numbers
 
 ```cpp
@@ -57,6 +59,8 @@ int main() {
 ```
 
 ## output
+
+![02](https://i.ibb.co/nqm9TMGG/Screenshot-2025-06-06-152012.png)
 
 ## 3. Simple Calculator
 
@@ -311,6 +315,8 @@ int main() {
 
 ## output
 
+![3](https://i.ibb.co/fd6TB2Ts/Screenshot-2025-06-06-152204.png)
+
 ## 4. check leap year
 
 ```cpp
@@ -360,6 +366,8 @@ int main() {
 
 ## output
 
+![04](https://i.ibb.co/7tv7c3Pj/Screenshot-2025-06-06-152410.png)
+
 ## 05. positive , negative or zero
 
 ```cpp
@@ -376,6 +384,8 @@ int main() {
 ```
 
 ## output
+
+![05](https://i.ibb.co/ccjGt1bb/Screenshot-2025-06-06-152527.png)
 
 ## 06. check if a number is multiple of 3 and 05
 
@@ -396,6 +406,8 @@ int main() {
 ```
 
 ## output
+
+![06](https://i.ibb.co/zhzgDZ9L/Screenshot-2025-06-06-152655.png)
 
 ## 07. grade Calculator
 
@@ -438,6 +450,8 @@ int main() {
 
 ## output
 
+![07](https://i.ibb.co/LDbk3RkR/Screenshot-2025-06-06-152818.png)
+
 ## 08. age group classifier
 
 ```cpp
@@ -461,6 +475,8 @@ int main() {
 ```
 
 ## output
+
+![08](https://i.ibb.co/LdzpCN9N/Screenshot-2025-06-06-152925.png)
 
 ## 09. find the largest of three numbers
 
@@ -501,6 +517,8 @@ int main() {
 
 ## output
 
+![09](https://i.ibb.co/ZpsxVvZt/Screenshot-2025-06-06-153029.png)
+
 ## 10. vowel or consonent
 
 ```cpp
@@ -532,3 +550,5 @@ int main() {
 ```
 
 ## output
+
+![10](https://i.ibb.co/fY3qxnG5/Screenshot-2025-06-06-153155.png)
