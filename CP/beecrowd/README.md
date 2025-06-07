@@ -33,33 +33,6 @@
 | 15  | [1059](https://judge.beecrowd.com/en/problems/view/1059) | Even Numbers           | 🟢 Beginner     | ✅ Solved |
 | 16  | [1060](https://judge.beecrowd.com/en/problems/view/1060) | Positive Numbers       | 🟢 Beginner     | ✅ Solved |
 
-## 📈 Statistics
-
-- **Beginner Level**: 13 problems
-- **Intermediate Level**: 3 problems
-- **Advanced Level**: 0 problems
-
-## 🎯 Next Goals
-
-1. Solve Problem 1051 (Taxes) - Currently Failed
-2. Maintain daily solving streak
-3. Focus on more intermediate level problems
-
-## 🛠️ Problem Categories
-
-- **Mathematics**: 5 problems
-- **Implementation**: 6 problems
-- **Basic Programming**: 5 problems
-
-## 💡 Tips for Success
-
-- 📝 Read problem statements carefully
-- ⏰ Practice time management
-- 🧪 Test with sample cases
-- 🔄 Review failed submissions
-
----
-
 <div align="center">
 
 [![Profile](https://img.shields.io/badge/BeeCrowd-Profile-blue)](https://judge.beecrowd.com/en/profile/1088780)
