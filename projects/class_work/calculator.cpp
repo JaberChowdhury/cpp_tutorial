@@ -1,3 +1,4 @@
+#include <cmath>   // for math operation
 #include <cstdlib> // for exit()
 #include <iostream>
 // #include <limits> // for numeric_limits
@@ -104,7 +105,7 @@ class Form {
             }
 
             if (selected_option == vector_length) {
-                log.error("Exiting program...");
+                log.info("Exiting program...");
                 exit(0);
             }
 
@@ -121,40 +122,40 @@ class Form {
 // Calculator class with methods for each operation
 class Calculator {
   private:
-    Logger log;
+    Logger logger;
 
   public:
     void boolean_and() {
         double x, y;
-        log.level_blue("Enter a numeric value for x :");
+        logger.level_blue("Enter a numeric value for x :");
         cin >> x;
-        log.level_blue("Enter a numeric value for y :");
+        logger.level_blue("Enter a numeric value for y :");
         cin >> y;
         bool result = x && y;
         cout << x << " && " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
+        logger.level_red(((result == true) ? "true" : "false"));
         cout << endl;
     }
     void boolean_or() {
         double x, y;
-        log.level_blue("Enter a numeric value for x :");
+        logger.level_blue("Enter a numeric value for x :");
         cin >> x;
-        log.level_blue("Enter a numeric value for y :");
+        logger.level_blue("Enter a numeric value for y :");
         cin >> y;
         bool result = x || y;
         cout << x << " || " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
+        logger.level_red(((result == true) ? "true" : "false"));
         cout << endl;
     }
     void boolean_not() {
         double x, y;
-        log.level_blue("Enter a numeric value for x :");
+        logger.level_blue("Enter a numeric value for x :");
         cin >> x;
-        log.level_blue("Enter a numeric value for y :");
+        logger.level_blue("Enter a numeric value for y :");
         cin >> y;
         bool result = x != y;
         cout << x << " != " << y << " = ";
-        log.level_red(((result == true) ? "true" : "false"));
+        logger.level_red(((result == true) ? "true" : "false"));
         cout << endl;
     }
     void boolean() {
@@ -192,7 +193,7 @@ class Calculator {
             selected = 3;
             break;
         case 3:
-            log.level("How many variable do you need ? :");
+            logger.level("How many variable do you need ? :");
             int x;
             cin >> x;
             selected = x;
@@ -238,33 +239,33 @@ class Calculator {
     void Addition() {
         int    selected = get_variable_count();
         double result   = n_variable_arithmetic_operation(selected, "+");
-        log.info("Addition result is completed ");
-        log.level("Result : ");
+        logger.info("Addition result is completed ");
+        logger.level("Result : ");
         cout << result << endl;
     }
     void Subtraction() {
         int    selected = get_variable_count();
         double result   = n_variable_arithmetic_operation(selected, "-");
-        log.info("Subtraction result is completed ");
-        log.level("Result : ");
+        logger.info("Subtraction result is completed ");
+        logger.level("Result : ");
         cout << result << endl;
     }
     void Multiplication() {
         int    selected = get_variable_count();
         double result   = n_variable_arithmetic_operation(selected, "*");
-        log.info("Multiplication result is completed ");
-        log.level("Result : ");
+        logger.info("Multiplication result is completed ");
+        logger.level("Result : ");
         cout << result << endl;
     }
     void Division() {
         int    selected = get_variable_count();
         double result   = n_variable_arithmetic_operation(selected, "/");
-        log.info("Division result is completed ");
-        log.level("Result : ");
+        logger.info("Division result is completed ");
+        logger.level("Result : ");
         cout << result << endl;
     }
     void arithmetic() {
-        log.info("Arithmetic operations selected.");
+        logger.info("Arithmetic operations selected.");
         vector<string> opt = {"Addition [+]", "Subtraction [-]", "Multiplication [*]", "Division [/]"};
         Form           form(opt);
         form.print_options();
@@ -286,14 +287,143 @@ class Calculator {
             init();
             break;
         default:
-            log.error("Something went wrong");
+            logger.error("Something went wrong");
         }
+    }
+    void handle_trigonometry(double (*func)(double)) {
+        std::cout << "Please enter a numerical value (degrees): ";
+        double x;
+        std::cin >> x;
+
+        // Convert degrees to radians
+        const double PI      = 3.14159265358979323846;
+        double       radians = x * PI / 180.0;
+
+        double result = func(radians);
+        std::cout << "Result: " << result << std::endl;
+    }
+
+    static double csc(double x) { return 1 / sin(x); }
+    static double sec(double x) { return 1 / cos(x); }
+    static double cot(double x) { return 1 / tan(x); }
+    static double acsc(double x) { return 1 / asin(x); }
+    static double asec(double x) { return 1 / acos(x); }
+    static double acot(double x) { return 1 / atan(x); }
+    void          trigonometry() {
+        vector<string> opt = {// Trigonometric
+                              "sin(x)", "cos(x)", "tan(x)", "csc(x)", "sec(x)", "cot(x)",
+
+                              // Inverse Trigonometric
+                              "asin(x) -> [inverse]", "acos(x) -> [inverse]", "atan(x) -> [inverse]",
+                              "acsc(x) -> [inverse]", "asec(x) -> [inverse]", "acot(x) -> [inverse]",
+
+                              // Hyperbolic
+                              "sinh(x) -> [Hyperbolic]", "cosh(x) -> [Hyperbolic]", "tanh(x) -> [Hyperbolic]",
+
+                              // Inverse Hyperbolic
+                              "asinh(x)", "acosh(x)", "atanh(x)"};
+        Form           f(opt);
+        f.print_options();
+        int selected = f.take_input();
+
+        Logger log;
+        double ans;
+
+        switch (selected) {
+        case 1:
+            handle_trigonometry(sin);
+            break;
+        case 2:
+            handle_trigonometry(cos);
+            break;
+        case 3:
+            handle_trigonometry(tan);
+            break;
+        case 4:
+            handle_trigonometry(csc);
+            break;
+        case 5:
+            handle_trigonometry(sec);
+            break;
+        case 6:
+            handle_trigonometry(cot);
+            break;
+        case 7:
+            handle_trigonometry(asin);
+            break;
+        case 8:
+            handle_trigonometry(acos);
+            break;
+        case 9:
+            handle_trigonometry(atan);
+            break;
+        case 10:
+            handle_trigonometry(acsc);
+            break;
+        case 11:
+            handle_trigonometry(asec);
+            break;
+        case 12:
+            handle_trigonometry(acot);
+            break;
+        case 13:
+            handle_trigonometry(sinh);
+            break;
+        case 14:
+            handle_trigonometry(cosh);
+            break;
+        case 15:
+            handle_trigonometry(tanh);
+            break;
+        case 16:
+            handle_trigonometry(asinh);
+            break;
+        case 17:
+            handle_trigonometry(acosh);
+            break;
+        case 18:
+            handle_trigonometry(atanh);
+            break;
+        case -1:
+            init();
+            break;
+        default:
+            break;
+        }
+    }
+    void logarithm() {
+        logger.level("Please enter a numerical value : ");
+        double x, ans;
+        cin >> x;
+        ans = log(x);
+        cout << "Ans : " << ans << endl;
+    }
+    void power_function() {
+        logger.level("Please enter the base value : ");
+        double base;
+        cin >> base;
+        logger.level("Please enter the power value : ");
+        double power;
+        cin >> power;
+        double ans = pow(base, power);
+        cout << "Ans : " << ans << endl;
+    }
+    void root_over() {
+        logger.level("Please enter the base value : ");
+        double base;
+        cin >> base;
+        logger.level("Please enter the power value : ");
+        double power;
+        cin >> power;
+        double ans = pow(base, 1.0 / power);
+        cout << "Ans : " << ans << endl;
     }
 };
 
 // main body of init function
 void init() {
-    vector<string> main_menu = {"Logical Operation", "arithmetic"};
+    vector<string> main_menu = {"Logical Operation", "Arithmetic",     "Trigonometry",
+                                "Logarithm",         "Power function", "Root Over"};
     Form           form(main_menu);
     Calculator     calc;
 
@@ -306,6 +436,18 @@ void init() {
         break;
     case 2:
         calc.arithmetic();
+        break;
+    case 3:
+        calc.trigonometry();
+        break;
+    case 4:
+        calc.logarithm();
+        break;
+    case 5:
+        calc.power_function();
+        break;
+    case 6:
+        calc.root_over();
         break;
     case -1:
         exit(0);

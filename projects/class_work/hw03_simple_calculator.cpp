@@ -4,10 +4,10 @@
 #include <vector>
 using namespace std;
 
-// entry of our console app
+// entry of our console app, we may need to call it sometimes for recursive operation
 void init();
 
-// this will help beautify our logging
+// this will help us to beautify our logging
 class Logger {
   public:
     enum Level { INFO, WARN, ERROR };
@@ -62,7 +62,7 @@ class Logger {
     }
 };
 
-// this will help use to handle user input based on options
+// this will help us to handle user input, based on given options
 class Form {
   private:
     int            vector_length = 0;
@@ -208,7 +208,7 @@ class Calculator {
         cout << result << endl;
     }
     void arithmetic() {
-        log.info("Arithmetic operations selected.");
+        // log.info("Arithmetic operations selected.");
         vector<string> opt = {"Addition [+]", "Subtraction [-]", "Multiplication [*]", "Division [/]"};
         Form           form(opt);
         form.print_options();

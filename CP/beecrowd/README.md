@@ -32,6 +32,7 @@
 | 14  | [1052](https://judge.beecrowd.com/en/problems/view/1052) | Month                  | 🟢 Beginner     | ✅ Solved |
 | 15  | [1059](https://judge.beecrowd.com/en/problems/view/1059) | Even Numbers           | 🟢 Beginner     | ✅ Solved |
 | 16  | [1060](https://judge.beecrowd.com/en/problems/view/1060) | Positive Numbers       | 🟢 Beginner     | ✅ Solved |
+| 17  | [1061](https://judge.beecrowd.com/en/problems/view/1061) | Event Time             | 🟢 Beginner     | ✅ Solved |
 
 <div align="center">
 
