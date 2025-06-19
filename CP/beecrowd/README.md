@@ -1,5 +1,7 @@
 # BeeCrowd 100 Problem Solving Journey
 
+target 100 solution
+
 | No. | Problem                                          | Status |
 | --- | ------------------------------------------------ | ------ |
 | 1   | https://judge.beecrowd.com/en/problems/view/1038 | [x]    |
@@ -24,6 +26,8 @@
 | 20  | https://judge.beecrowd.com/en/problems/view/1066 | [x]    |
 | 22  | https://judge.beecrowd.com/en/problems/view/1067 | [x]    |
 | 23  | https://judge.beecrowd.com/en/problems/view/1070 | [x]    |
+| 24  | https://judge.beecrowd.com/en/problems/view/1071 | [x]    |
+| 25  | https://judge.beecrowd.com/en/problems/view/1073 | [x]    |
 
 <div align="center">
 
