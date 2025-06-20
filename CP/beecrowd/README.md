@@ -28,6 +28,7 @@ target 100 solution
 | 23  | https://judge.beecrowd.com/en/problems/view/1070 | [x]    |
 | 24  | https://judge.beecrowd.com/en/problems/view/1071 | [x]    |
 | 25  | https://judge.beecrowd.com/en/problems/view/1073 | [x]    |
+| 26  | https://judge.beecrowd.com/en/problems/view/1074 | [x]    |
 
 <div align="center">
 
