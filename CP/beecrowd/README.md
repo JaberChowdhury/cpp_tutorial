@@ -29,6 +29,11 @@ target 100 solution
 | 24  | https://judge.beecrowd.com/en/problems/view/1071 | [x]    |
 | 25  | https://judge.beecrowd.com/en/problems/view/1073 | [x]    |
 | 26  | https://judge.beecrowd.com/en/problems/view/1074 | [x]    |
+| 27  | https://judge.beecrowd.com/en/problems/view/1075 | [x]    |
+| 28  | https://judge.beecrowd.com/en/problems/view/1078 | [x]    |
+| 29  | https://judge.beecrowd.com/en/problems/view/1079 | [x]    |
+| 30  | https://judge.beecrowd.com/en/problems/view/1080 | [x]    |
+| 31  | https://judge.beecrowd.com/en/problems/view/1094 | [x]    |
 
 <div align="center">
 
