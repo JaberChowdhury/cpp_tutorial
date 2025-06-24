@@ -34,6 +34,14 @@ target 100 solution
 | 29  | https://judge.beecrowd.com/en/problems/view/1079 | [x]    |
 | 30  | https://judge.beecrowd.com/en/problems/view/1080 | [x]    |
 | 31  | https://judge.beecrowd.com/en/problems/view/1094 | [x]    |
+| 32  | https://judge.beecrowd.com/en/problems/view/1095 | [x]    |
+| 33  | https://judge.beecrowd.com/en/problems/view/1096 | [x]    |
+| 34  | https://judge.beecrowd.com/en/problems/view/1097 | [x]    |
+| 35  | https://judge.beecrowd.com/en/problems/view/1098 | [x]    |
+| 36  | https://judge.beecrowd.com/en/problems/view/1099 | [x]    |
+| 37  | https://judge.beecrowd.com/en/problems/view/1101 | [x]    |
+| 38  | https://judge.beecrowd.com/en/problems/view/1103 | [x]    |
+| 39  | https://judge.beecrowd.com/en/problems/view/1114 | [x]    |
 
 <div align="center">
 
