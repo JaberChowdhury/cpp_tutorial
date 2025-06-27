@@ -43,6 +43,7 @@ target 100 solution
 | 38  | https://judge.beecrowd.com/en/problems/view/1103 | [x]    |
 | 39  | https://judge.beecrowd.com/en/problems/view/1114 | [x]    |
 | 40  | https://judge.beecrowd.com/en/problems/view/1115 | [x]    |
+| 41  | https://judge.beecrowd.com/en/problems/view/1023 | [ ]    |
 
 <div align="center">
 
