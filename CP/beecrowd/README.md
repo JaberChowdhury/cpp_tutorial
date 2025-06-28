@@ -52,6 +52,11 @@ target 100 solution
 | 47  | https://judge.beecrowd.com/en/problems/view/1133 | [x]    |
 | 48  | https://judge.beecrowd.com/en/problems/view/1134 | [x]    |
 | 49  | https://judge.beecrowd.com/en/problems/view/1142 | [x]    |
+| 50  | https://judge.beecrowd.com/en/problems/view/1144 | [x]    |
+| 51  | https://judge.beecrowd.com/en/problems/view/1145 | [x]    |
+| 52  | https://judge.beecrowd.com/en/problems/view/1146 | [x]    |
+| 53  | https://judge.beecrowd.com/en/problems/view/1149 | [x]    |
+| 54  | https://judge.beecrowd.com/en/problems/view/1149 | [x]    |
 
 <div align="center">
 
