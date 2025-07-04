@@ -19,7 +19,7 @@ int main() {
 
     // print nums
     for (int i = 0; i < nums.size(); i++) {
-        cout << nums[i] << endl;
+        cout << "X[" << i << "] = " << nums[i] << endl;
     }
     return 0;
 }
