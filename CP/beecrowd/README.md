@@ -63,6 +63,8 @@ target 100 solution
 | 58  | https://judge.beecrowd.com/en/problems/view/1155 | [x]    |
 | 59  | https://judge.beecrowd.com/en/problems/view/1156 | [x]    |
 | 60  | https://judge.beecrowd.com/en/problems/view/1157 | [x]    |
+| 61  | https://judge.beecrowd.com/en/problems/view/1158 | [x]    |
+| 62  | https://judge.beecrowd.com/en/problems/view/1159 | [x]    |
 
 <div align="center">
 
