@@ -102,15 +102,91 @@
 
 2. Write a C++ program to find either a given number is even or odd.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // celsius to fahrenheit
+>    // formula: F = (C * 9/5) + 32
+>
+>    double celsius;
+>    cin >> celsius;
+>    double fahrenheit = (celsius * 9 / 5) + 32;
+>
+>    cout << "Celsius: " << celsius << endl;
+>    cout << "Fahrenheit: " << fahrenheit << endl;
+>
+>    return 0;
+> }
+> ```
 
 3. Write a C++ program to find either a given number is leap year or not.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    int year;
+>    cin >> year;
+>    if (year % 4 == 0) {
+>        if (year % 100 == 0) {
+>            if (year % 400 == 0) {
+>                cout << "Leap year" << endl;
+>            } else {
+>                cout << "Not a leap year" << endl;
+>            }
+>        } else {
+>            cout << "Leap year" << endl;
+>        }
+>    } else {
+>        cout << "Not a leap year" << endl;
+>    }
+>    return 0;
+> }
+> ```
+
+> ### Simple version
+
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> // simple version
+> int main() {
+>    int year;
+>    cin >> year;
+>    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+>        cout << "Leap year" << endl;
+>    } else {
+>        cout << "Not a leap year" << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 4. Write a C++ program to find the biggest number of 3 numbers.
 
-### answer comming soon
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nums[3];
+    cin >> nums[0] >> nums[1] >> nums[2];
+
+    int big_num = nums[0];
+    for (int i = 0; i < 3; i++) {
+        if (nums[i] > big_num) {
+            big_num = nums[i];
+        }
+    }
+
+    cout << big_num << endl;
+    return 0;
+}
+```
 
 5. Write a C++ program to find the smallest number of 3 numbers.
 
