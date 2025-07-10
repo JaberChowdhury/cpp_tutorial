@@ -168,37 +168,126 @@
 
 4. Write a C++ program to find the biggest number of 3 numbers.
 
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    int nums[3];
-    cin >> nums[0] >> nums[1] >> nums[2];
-
-    int big_num = nums[0];
-    for (int i = 0; i < 3; i++) {
-        if (nums[i] > big_num) {
-            big_num = nums[i];
-        }
-    }
-
-    cout << big_num << endl;
-    return 0;
-}
-```
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    int nums[3];
+>    cin >> nums[0] >> nums[1] >> nums[2];
+>
+>    int big_num = nums[0];
+>    for (int i = 0; i < 3; i++) {
+>        if (nums[i] > big_num) {
+>            big_num = nums[i];
+>        }
+>    }
+>
+>    cout << big_num << endl;
+>    return 0;
+> }
+> ```
 
 5. Write a C++ program to find the smallest number of 3 numbers.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // smallest number
+>    int nums[3];
+>    cin >> nums[0] >> nums[1] >> nums[2];
+>
+>    int small_num = nums[0];
+>    for (int i = 0; i < 3; i++) {
+>        if (nums[i] < small_num) {
+>            small_num = nums[i];
+>        }
+>    }
+>
+>    cout << small_num << endl;
+>    return 0;
+> }
+> ```
 
 6. Write a C++ program to print the grade of the given marks of a student.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    float marks;
+>    cin >> marks;
+>    if (marks >= 80)
+>        cout << "A+" << endl;
+>    else if (marks >= 80)
+>        cout << "A" << endl;
+>    else if (marks >= 70)
+>        cout << "B" << endl;
+>    else if (marks >= 60)
+>        cout << "C" << endl;
+>    else if (marks >= 50)
+>        cout << "D" << endl;
+>    else if (marks >= 40)
+>        cout << "E" << endl;
+>    else
+>        cout << "F" << endl;
+>    return 0;
+> }
+> ```
 
 7. Write a C++ program to find given character is either vowel or consonant.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    char vowels[10] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+>    char letter;
+>    cin >> letter;
+>    bool isVowel = false;
+>    for (int i = 0; i < 10; i++) {
+>        if (letter == vowels[i]) {
+>            cout << "Its a vowel" << endl;
+>            isVowel = true;
+>            break;
+>        }
+>    }
+>    if (!isVowel) {
+>        cout << "Its a consonant" << endl;
+>    }
+>    return 0;
+> }
+>
+> ```
+
+> ### Another solution
+
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    string vowels = "aeiouAEIOU";
+>    char   letter;
+>    cin >> letter;
+>    bool isVowel = false;
+>    for (int i = 0; i < 10; i++) {
+>        if (letter == vowels[i]) {
+>            cout << "Its a vowel" << endl;
+>            isVowel = true;
+>            break;
+>        }
+>    }
+>    if (!isVowel) {
+>        cout << "Its a consonant" << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 <br />
 
@@ -214,7 +303,21 @@ int main() {
 
 3. Write a C++ code to find the factorial number of a given integer.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // factorial
+>    int num, result = 1;
+>    cin >> num;
+>    for (int i = 1; i <= num; i++) {
+>        result *= i;
+>    }
+>    cout << "Factorial of " << num << " is " << result << endl;
+>    return 0;
+> }
+> ```
 
 4. Write a C++ program to find out the GCD and LCM of two numbers.
 
