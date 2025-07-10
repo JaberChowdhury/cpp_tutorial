@@ -50,15 +50,47 @@
 > }
 > ```
 
-### answer comming soon
-
 6. Write a C++ program to calculate Celsius temperature from Fahrenheit temperature.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // fahrenheit to celsius
+>    // formula => (f-32)*(5/9)
+>
+>    double fahrenheit;
+>    cin >> fahrenheit;
+>    double celsius = (fahrenheit - 32.0) * (5.0 / 9.0);
+>
+>    cout << "Fahrenheit: " << fahrenheit << endl;
+>    cout << "Celsius: " << celsius << endl;
+>
+>    return 0;
+> }
+> ```
 
 7. Write a C++ program to calculate Fahrenheit temperature from Celsius temperature.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // celsius to fahrenheit
+>    // formula: F = (C * 9/5) + 32
+>
+>    double celsius;
+>    cin >> celsius;
+>    double fahrenheit = (celsius * 9 / 5) + 32;
+>
+>    cout << "Celsius: " << celsius << endl;
+>    cout << "Fahrenheit: " << fahrenheit << endl;
+>
+>    return 0;
+> }
+> ```
 
 <br />
 
