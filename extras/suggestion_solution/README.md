@@ -325,7 +325,71 @@
 
 5. Write a C++ program to print the prime number up to given N integer Number.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+>
+> bool isPrime(int num) {
+>    bool ans  = true;
+>    int  flag = 2;
+>    while (flag <= num) {
+>        if (num % flag != 0) {
+>            flag++;
+>        } else {
+>            ans = false;
+>            break;
+>        }
+>    }
+>    return ans;
+> }
+>
+> int main() {
+>    int limit;
+>    cin >> limit;
+>    for (int i = 1; i <= limit + 1; i++) {
+>        bool ans = isPrime(i);
+>        if (ans) {
+>            cout << i << endl;
+>        }
+>    }
+>    return 0;
+> }
+> ```
+>
+> ### Another solution
+>
+> ```cpp
+> #include <cmath>
+> #include <iostream>
+> using namespace std;
+>
+> bool isPrime(int num) {
+>    bool ans  = true;
+>    int  flag = 2;
+>    while (flag <= sqrt(num)) {
+>        if (num % flag != 0) {
+>            flag++;
+>        } else {
+>            ans = false;
+>            break;
+>        }
+>    }
+>    return ans;
+> }
+>
+> int main() {
+>    int limit;
+>    cin >> limit;
+>    for (int i = 1; i <= limit + 1; i++) {
+>        bool ans = isPrime(i);
+>        if (ans) {
+>            cout << i << endl;
+>        }
+>    }
+>    return 0;
+> }
+> ```
 
 6. Write a C++ program either a given number N is prime or not prime.
 

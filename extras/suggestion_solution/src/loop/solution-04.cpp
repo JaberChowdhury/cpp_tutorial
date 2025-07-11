@@ -34,7 +34,6 @@ int main() {
     for (int i = 0; i < limit; i++) {
         if (r1[i] == r2[i]) {
             factors.push_back(r1[i]);
-            cout << "Factors = " << r1[i] << endl;
         } else {
             break;
         }
