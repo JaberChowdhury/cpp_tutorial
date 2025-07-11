@@ -107,16 +107,16 @@
 > using namespace std;
 >
 > int main() {
->    // celsius to fahrenheit
->    // formula: F = (C * 9/5) + 32
+>    // even or odd
 >
->    double celsius;
->    cin >> celsius;
->    double fahrenheit = (celsius * 9 / 5) + 32;
+>    int num;
+>    cin >> num;
 >
->    cout << "Celsius: " << celsius << endl;
->    cout << "Fahrenheit: " << fahrenheit << endl;
->
+>    if (num % 2 == 0) {
+>        cout << "Even" << endl;
+>    } else {
+>        cout << "Odd" << endl;
+>    }
 >    return 0;
 > }
 > ```
