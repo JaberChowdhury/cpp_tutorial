@@ -356,9 +356,9 @@
 >    return 0;
 > }
 > ```
->
+
 > ### Another solution
->
+
 > ```cpp
 > #include <cmath>
 > #include <iostream>
@@ -393,19 +393,90 @@
 
 6. Write a C++ program either a given number N is prime or not prime.
 
-### answer comming soon
+> ```cpp
+> #include <cmath>
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    int num;
+>    cin >> num;
+>    bool isPrime = true;
+>    for (int i = 2; i <= sqrt(num); i++) {
+>        if (num % i == 0) {
+>            isPrime = false;
+>            break;
+>        }
+>    }
+>    if (isPrime) {
+>        cout << "This is  a prime number " << endl;
+>    } else {
+>        cout << "This is not a prime number " << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 7. Write a C++ program to build Multiplication Table for a Given Integer.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    int num;
+>    cin >> num;
+>
+>    for (int i = 1; i <= 10; i++) {
+>        cout << num << " x " << i << " = " << num * i << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 8. Write a C++ program to find out a given string is palindrome or not.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    string text = "jaber", rev_text = "";
+>    cin >> text;
+>
+>    for (int i = text.size() - 1; i >= 0; i--) {
+>        rev_text += text[i];
+>    }
+>    if (rev_text == text) {
+>        cout << "The text is a palindrome" << endl;
+>    } else {
+>        cout << "The text is not a palindrome" << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 9. Write a C++ program to find out a given number is palindrome or not.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    string text = "jaber", rev_text = "";
+>    cin >> text;
+>
+>    for (int i = text.size() - 1; i >= 0; i--) {
+>        rev_text += text[i];
+>    }
+>    if (rev_text == text) {
+>        cout << "The text is a palindrome" << endl;
+>    } else {
+>        cout << "The text is not a palindrome" << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 10. Write C++ Code to print the following pattern:
 
