@@ -351,7 +351,7 @@
 >    cin >> limit;
 >
 >    cout << "Prime numbers between 1 and " << limit << " are:\n";
->    for (int i = 2; i <= limit; i++) { // Start from 2, no need for limit+1
+>    for (int i = 2; i <= limit; i++) { 
 >        if (isPrime(i)) {
 >            cout << i << " ";
 >        }
