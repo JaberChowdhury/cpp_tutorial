@@ -517,15 +517,83 @@
 
 4. Write a C++ program to find the second largest element in an array of integers.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // given array
+>    int nums[] = {21, 4, 4, 76, 8, 65, 431, 21, 23, 54, 65, 8769, 879, 234, 32, 654, 7568956, 8, 67, 9, 6, 4, 748};
+>    int limit  = sizeof(nums) / sizeof(nums[0]);
+>
+>    // bubble sorting
+>    // sorting nums from big to small
+>    for (int i = 0; i < limit; i++) {
+>        for (int j = 0; j < limit - i - 1; j++) {
+>            if (nums[j] < nums[j + 1]) {
+>                int temp    = nums[j];
+>                nums[j]     = nums[j + 1];
+>                nums[j + 1] = temp;
+>            }
+>        }
+>    }
+>
+>    cout << "Second largest = " << nums[1] << endl;
+>    return 0;
+> }
+> ```
 
 5. Find the smallest element of a given array of integers.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // smallest element
+>    // given array
+>    int nums[] = {21, 43, 5634, 23, 766, 892, 9, 64, -1};
+>
+>    int smallest = nums[0], limit = sizeof(nums) / sizeof(nums[0]);
+>    for (int i = 0; i < limit; i++) {
+>        if (nums[i] < smallest) {
+>            smallest = nums[i];
+>        }
+>    }
+>
+>    cout << "Smallest number is = " << smallest << endl;
+>
+>    return 0;
+> }
+> ```
 
 6. Write a C++ program to find the second smallest elements in a given array of integers.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> using namespace std;
+>
+> int main() {
+>    // given array
+>    int nums[] = {21768342, 3478932, 43272, 65893, 90, 3};
+>    int limit  = sizeof(nums) / sizeof(nums[0]);
+>
+>    // bubble sorting
+>    // sorting nums from small to big
+>    for (int i = 0; i < limit; i++) {
+>        for (int j = 0; j < limit - i - 1; j++) {
+>            if (nums[j] > nums[j + 1]) {
+>                int temp    = nums[j];
+>                nums[j]     = nums[j + 1];
+>                nums[j + 1] = temp;
+>            }
+>        }
+>    }
+>
+>    cout << "Second smallest = " << nums[1] << endl;
+>    return 0;
+> }
+> ```
 
 7. Write a C++ program of Linear search.
 
