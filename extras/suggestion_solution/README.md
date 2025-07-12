@@ -222,16 +222,14 @@
 >    cin >> marks;
 >    if (marks >= 80)
 >        cout << "A+" << endl;
->    else if (marks >= 80)
->        cout << "A" << endl;
 >    else if (marks >= 70)
->        cout << "B" << endl;
+>        cout << "A" << endl;
 >    else if (marks >= 60)
->        cout << "C" << endl;
+>        cout << "B" << endl;
 >    else if (marks >= 50)
->        cout << "D" << endl;
+>        cout << "C" << endl;
 >    else if (marks >= 40)
->        cout << "E" << endl;
+>        cout << "D" << endl;
 >    else
 >        cout << "F" << endl;
 >    return 0;
@@ -325,71 +323,45 @@
 
 5. Write a C++ program to print the prime number up to given N integer Number.
 
-> ```cpp
-> #include <iostream>
-> using namespace std;
->
->
-> bool isPrime(int num) {
->    bool ans  = true;
->    int  flag = 2;
->    while (flag <= num) {
->        if (num % flag != 0) {
->            flag++;
->        } else {
->            ans = false;
->            break;
->        }
->    }
->    return ans;
-> }
->
-> int main() {
->    int limit;
->    cin >> limit;
->    for (int i = 1; i <= limit + 1; i++) {
->        bool ans = isPrime(i);
->        if (ans) {
->            cout << i << endl;
->        }
->    }
->    return 0;
-> }
-> ```
-
-> ### Another solution
-
-> ```cpp
+> ````cpp
 > #include <cmath>
 > #include <iostream>
 > using namespace std;
 >
 > bool isPrime(int num) {
->    bool ans  = true;
->    int  flag = 2;
->    while (flag <= sqrt(num)) {
->        if (num % flag != 0) {
->            flag++;
->        } else {
->            ans = false;
->            break;
+>    if (num <= 1)
+>        return false; // 0 and 1 are not prime
+>    if (num == 2)
+>        return true; // 2 is the only even prime
+>    if (num % 2 == 0)
+>        return false; // eliminate even numbers
+>
+>    // Check only odd divisors up to sqrt(num)
+>    for (int i = 3; i <= sqrt(num); i += 2) {
+>        if (num % i == 0) {
+>            return false;
 >        }
 >    }
->    return ans;
+>    return true;
 > }
 >
 > int main() {
 >    int limit;
+>    cout << "Enter a number: ";
 >    cin >> limit;
->    for (int i = 1; i <= limit + 1; i++) {
->        bool ans = isPrime(i);
->        if (ans) {
->            cout << i << endl;
+>
+>    cout << "Prime numbers between 1 and " << limit << " are:\n";
+>    for (int i = 2; i <= limit; i++) { // Start from 2, no need for limit+1
+>        if (isPrime(i)) {
+>            cout << i << " ";
 >        }
 >    }
+>    cout << endl;
+>
 >    return 0;
 > }
 > ```
+> ````
 
 6. Write a C++ program either a given number N is prime or not prime.
 
@@ -606,3 +578,7 @@
 9. Write a C++ code to Addition, Subtraction, Multiplication of two matrices?
 
 ### answer comming soon
+
+```
+
+```
