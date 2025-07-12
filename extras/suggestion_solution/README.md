@@ -351,7 +351,7 @@
 >    cin >> limit;
 >
 >    cout << "Prime numbers between 1 and " << limit << " are:\n";
->    for (int i = 2; i <= limit; i++) { 
+>    for (int i = 2; i <= limit; i++) {
 >        if (isPrime(i)) {
 >            cout << i << " ";
 >        }
@@ -569,7 +569,40 @@
 
 7. Write a C++ program of Linear search.
 
-### answer comming soon
+> ```cpp
+> #include <iostream>
+> #include <vector>
+> using namespace std;
+>
+> // linear search
+> int main() {
+>    vector<int> nums;
+>    int         limit, search, found_index = -1;
+>    cout << "Enter the limit :: ";
+>    cin >> limit;
+>    for (int i = 0; i < limit; i++) {
+>        int x;
+>        cin >> x;
+>        nums.push_back(x);
+>    }
+>    cout << "what number to find out ? :: ";
+>    cin >> search;
+>
+>    for (int i = 0; i < limit; i++) {
+>        if (search == nums[i]) {
+>            found_index = i;
+>            break;
+>        }
+>    }
+>
+>    if (found_index == -1) {
+>        cout << "Number didnt found" << endl;
+>    } else {
+>        cout << "The number is found at index " << found_index << endl;
+>    }
+>    return 0;
+> }
+> ```
 
 8. Write a C++ program Binary search.
 
