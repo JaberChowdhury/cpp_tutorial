@@ -558,6 +558,25 @@
 > }
 > ```
 
+> ### another solution
+
+> ```cpp
+> #include <iostream>
+> #include <algorithm>
+> using namespace std;
+>
+> int main() {
+>   // given array
+>   int nums[] = {21, 4,-1};
+>   int limit  = sizeof(nums) / sizeof(nums[0]);
+>
+>   sort(nums, nums + limit);
+>
+>   cout << "Second smallest = " << nums[1] << endl;
+>   return 0;
+> }
+> ```
+
 6. Write a C++ program to find the second smallest elements in a given array of integers.
 
 > ```cpp
