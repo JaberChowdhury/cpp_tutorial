@@ -46,15 +46,85 @@ When defining a variable in programming, the following rules must be followed:
 
 # 2. Define Datatypes.
 
-### answer comming soon
+A datatype (or data type) defines the type of data that a variable can hold, the operations that can be performed on it, and the way it is stored in memory. Datatypes help the compiler/interpreter allocate the correct memory size and enforce rules for data manipulation.
 
 # 3. Describe the different types of operators in CPP.
 
-### answer comming soon
+### **Types of Operators in C++**
 
+#### **1. Arithmetic Operators**
+
+Perform mathematical operations.
+**Example:**
+
+```cpp
+int a = 10, b = 3;
+cout << a + b;  // 13 (Addition)
+cout << a % b;  // 1 (Remainder)
+```
+
+#### **2. Assignment Operators**
+
+Assign values to variables.
+**Example:**
+
+```cpp
+int x = 5;
+x += 3;  // x = x + 3 → 8
+```
+
+#### **3. Relational Operators**
+
+Compare two values.
+**Example:**
+
+```cpp
+cout << (5 > 3);  // 1 (true)
+```
+
+#### **4. Logical Operators**
+
+Combine conditions (`&&`, `||`, `!`).
+**Example:**
+
+```cpp
+bool ans = (5 > 3) && (2 < 4);  // true
+```
+
+#### **5. Bitwise Operators**
+
+Work on binary bits (`&`, `|`, `^`, `~`, `<<`, `>>`).
+**Example:**
+
+```cpp
+cout << (5 & 3);  // 1 (Bitwise AND)
+```
+
+#### **6. Ternary Operator**
+
+Short `if-else` statement.
+**Example:**
+
+```cpp
+int res = (5 > 3) ? 1 : 0;  // res = 1
+```
+
+#### **7. Other Operators**
+
+- **`sizeof()`** → Returns variable size.
+- **`::`** → Scope resolution.
+- **`.` & `->`** → Access class members.
+
+**Example:**
+
+```cpp
+cout << sizeof(int);  // 4 (bytes)
+```
+
+<!--
 # 4. Find out the output of some basic problem.
 
-### answer comming soon
+### answer comming soon -->
 
 # 5. Write a C++ program to calculate the area of Triangle/ Circle/ Square.
 
@@ -136,7 +206,27 @@ When defining a variable in programming, the following rules must be followed:
 
 # 1. Define conditional operator.
 
-### answer comming soon
+The **conditional operator** (`?:`) is a shorthand for an **if-else** statement. It is also called the **ternary operator** because it takes **three operands**.
+
+### **Syntax:**
+
+```cpp
+condition ? expression1 : expression2;
+```
+
+### **How it works:**
+
+- If the **condition** is **true**, `expression1` is executed.
+- If the **condition** is **false**, `expression2` is executed.
+
+### **Example:**
+
+```cpp
+int a = 5, b = 10;
+int max = (a > b) ? a : b;  // If a > b, max = a; else max = b
+```
+
+Here, since `5 > 10` is false, `max` becomes `10`.
 
 # 2. Write a C++ program to find either a given number is even or odd.
 
@@ -331,7 +421,79 @@ When defining a variable in programming, the following rules must be followed:
 
 # 1. Different types of Loop.
 
-### answer comming soon
+**loops** are used to **repeat a block of code** multiple times. There are **three main types** of loops:
+
+### **1. `for` Loop**
+
+➡ **Best when** the number of iterations is known.
+
+#### **Syntax:**
+
+```cpp
+for (initialization; condition; update) {
+    // Code to repeat
+}
+```
+
+#### **Example:**
+
+```cpp
+for (int i = 1; i <= 5; i++) {
+    cout << i << " ";  // Output: 1 2 3 4 5
+}
+```
+
+### **2. `while` Loop**
+
+➡ **Best when** the number of iterations is **not known** beforehand.
+
+#### **Syntax:**
+
+```cpp
+while (condition) {
+    // Code to repeat
+}
+```
+
+#### **Example:**
+
+```cpp
+int i = 1;
+while (i <= 5) {
+    cout << i << " ";  // Output: 1 2 3 4 5
+    i++;
+}
+```
+
+### **3. `do-while` Loop**
+
+➡ **Best when** the loop must run **at least once** (condition checked after execution).
+
+#### **Syntax:**
+
+```cpp
+do {
+    // Code to repeat
+} while (condition);
+```
+
+#### **Example:**
+
+```cpp
+int i = 1;
+do {
+    cout << i << " ";  // Output: 1 2 3 4 5
+    i++;
+} while (i <= 5);
+```
+
+### **Key Differences:**
+
+| Loop Type  | When to Use        | Executes at Least Once? |
+| ---------- | ------------------ | ----------------------- |
+| `for`      | Known iterations   | ❌ No                   |
+| `while`    | Unknown iterations | ❌ No                   |
+| `do-while` | Must run once      | ✔ Yes                  |
 
 # 2. Distinguish between while loop and do while.
 
