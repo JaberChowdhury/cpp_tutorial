@@ -2,9 +2,46 @@
 
 <h2 align="center">  Variables, Data Type, Operator </h2>
 
-1. Define Variable and write the rules of define a variable.
+# 1. Define Variable and write the rules of define a variable.
 
-### answer comming soon
+### **Definition of Variable**
+A **variable** is a named storage location in a computer's memory that holds a value which can be changed during program execution. Variables are used to store data such as numbers, characters, or strings, which can be manipulated by the program.
+
+### **Rules for Defining a Variable**
+When defining a variable in programming, the following rules must be followed:
+
+1. **Valid Name**:
+   - Variable names can contain letters (`A-Z, a-z`), digits (`0-9`), and underscores (`_`).
+   - They **must begin with a letter or an underscore** (not a digit).
+   - Example: `age`, `_count`, `totalAmount` (Valid); `1var`, `@value` (Invalid).
+
+2. **Case Sensitivity**:
+   - Variable names are **case-sensitive** in most programming languages (e.g., `Age` and `age` are different variables).
+
+3. **No Reserved Keywords**:
+   - A variable name **cannot be a reserved keyword** (e.g., `if`, `for`, `while`, `int`, `return`).
+
+4. **Meaningful & Descriptive**:
+   - Variable names should be meaningful (e.g., `studentName` instead of `sn`).
+
+5. **No Special Characters**:
+   - Avoid using spaces or special symbols like `!`, `@`, `#`, `$`, `%`, etc. (except underscore `_`).
+
+6. **Length Consideration**:
+   - Some languages impose a limit on variable name length, but generally, it should be reasonable.
+
+7. **Initialization (Optional but Recommended)**:
+   - Variables can be declared without a value, but initializing them is good practice (e.g., `int x = 0;`).
+
+### **Examples of Valid and Invalid Variable Names**
+| **Valid**       | **Invalid**      | **Reason**                     |
+|-----------------|------------------|--------------------------------|
+| `age`          | `1age`           | Starts with a digit            |
+| `_salary`      | `first-name`     | Hyphen not allowed             |
+| `totalAmount`  | `float`          | Reserved keyword               |
+| `userName`     | `user name`      | Contains space                 |
+
+
 
 2. Define Datatypes.
 
