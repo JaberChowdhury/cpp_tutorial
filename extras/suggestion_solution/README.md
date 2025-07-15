@@ -5,9 +5,11 @@
 # 1. Define Variable and write the rules of define a variable.
 
 ### **Definition of Variable**
+
 A **variable** is a named storage location in a computer's memory that holds a value which can be changed during program execution. Variables are used to store data such as numbers, characters, or strings, which can be manipulated by the program.
 
 ### **Rules for Defining a Variable**
+
 When defining a variable in programming, the following rules must be followed:
 
 1. **Valid Name**:
@@ -34,28 +36,27 @@ When defining a variable in programming, the following rules must be followed:
    - Variables can be declared without a value, but initializing them is good practice (e.g., `int x = 0;`).
 
 ### **Examples of Valid and Invalid Variable Names**
-| **Valid**       | **Invalid**      | **Reason**                     |
-|-----------------|------------------|--------------------------------|
-| `age`          | `1age`           | Starts with a digit            |
-| `_salary`      | `first-name`     | Hyphen not allowed             |
-| `totalAmount`  | `float`          | Reserved keyword               |
-| `userName`     | `user name`      | Contains space                 |
 
+| **Valid**     | **Invalid**  | **Reason**          |
+| ------------- | ------------ | ------------------- |
+| `age`         | `1age`       | Starts with a digit |
+| `_salary`     | `first-name` | Hyphen not allowed  |
+| `totalAmount` | `float`      | Reserved keyword    |
+| `userName`    | `user name`  | Contains space      |
 
-
-2. Define Datatypes.
-
-### answer comming soon
-
-3. Describe the different types of operators in CPP.
+# 2. Define Datatypes.
 
 ### answer comming soon
 
-4. Find out the output of some basic problem.
+# 3. Describe the different types of operators in CPP.
 
 ### answer comming soon
 
-5. Write a C++ program to calculate the area of Triangle/ Circle/ Square.
+# 4. Find out the output of some basic problem.
+
+### answer comming soon
+
+# 5. Write a C++ program to calculate the area of Triangle/ Circle/ Square.
 
 > ```cpp
 > #include <iostream>
@@ -87,7 +88,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-6. Write a C++ program to calculate Celsius temperature from Fahrenheit temperature.
+# 6. Write a C++ program to calculate Celsius temperature from Fahrenheit temperature.
 
 > ```cpp
 > #include <iostream>
@@ -108,7 +109,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-7. Write a C++ program to calculate Fahrenheit temperature from Celsius temperature.
+# 7. Write a C++ program to calculate Fahrenheit temperature from Celsius temperature.
 
 > ```cpp
 > #include <iostream>
@@ -133,11 +134,11 @@ When defining a variable in programming, the following rules must be followed:
 
 <h2 align="center"> If else </h2>
 
-1. Define conditional operator.
+# 1. Define conditional operator.
 
 ### answer comming soon
 
-2. Write a C++ program to find either a given number is even or odd.
+# 2. Write a C++ program to find either a given number is even or odd.
 
 > ```cpp
 > #include <iostream>
@@ -158,7 +159,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-3. Write a C++ program to find either a given number is leap year or not.
+# 3. Write a C++ program to find either a given number is leap year or not.
 
 > ```cpp
 > #include <iostream>
@@ -203,7 +204,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-4. Write a C++ program to find the biggest number of 3 numbers.
+# 4. Write a C++ program to find the biggest number of 3 numbers.
 
 > ```cpp
 > #include <iostream>
@@ -225,7 +226,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-5. Write a C++ program to find the smallest number of 3 numbers.
+# 5. Write a C++ program to find the smallest number of 3 numbers.
 
 > ```cpp
 > #include <iostream>
@@ -248,7 +249,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-6. Write a C++ program to print the grade of the given marks of a student.
+# 6. Write a C++ program to print the grade of the given marks of a student.
 
 > ```cpp
 > #include <iostream>
@@ -273,7 +274,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-7. Write a C++ program to find given character is either vowel or consonant.
+# 7. Write a C++ program to find given character is either vowel or consonant.
 
 > ```cpp
 > #include <iostream>
@@ -328,15 +329,15 @@ When defining a variable in programming, the following rules must be followed:
 
 <h2 align="center"> Loop </h2>
 
-1. Different types of Loop.
+# 1. Different types of Loop.
 
 ### answer comming soon
 
-2. Distinguish between while loop and do while.
+# 2. Distinguish between while loop and do while.
 
 ### answer comming soon
 
-3. Write a C++ code to find the factorial number of a given integer.
+# 3. Write a C++ code to find the factorial number of a given integer.
 
 > ```cpp
 > #include <iostream>
@@ -354,11 +355,11 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-4. Write a C++ program to find out the GCD and LCM of two numbers.
+# 4. Write a C++ program to find out the GCD and LCM of two numbers.
 
 ### answer comming soon
 
-5. Write a C++ program to print the prime number up to given N integer Number.
+# 5. Write a C++ program to print the prime number up to given N integer Number.
 
 > ````cpp
 > #include <cmath>
@@ -400,7 +401,7 @@ When defining a variable in programming, the following rules must be followed:
 > ```
 > ````
 
-6. Write a C++ program either a given number N is prime or not prime.
+# 6. Write a C++ program either a given number N is prime or not prime.
 
 > ```cpp
 > #include <cmath>
@@ -426,7 +427,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-7. Write a C++ program to build Multiplication Table for a Given Integer.
+# 7. Write a C++ program to build Multiplication Table for a Given Integer.
 
 > ```cpp
 > #include <iostream>
@@ -443,7 +444,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-8. Write a C++ program to find out a given string is palindrome or not.
+# 8. Write a C++ program to find out a given string is palindrome or not.
 
 > ```cpp
 > #include <iostream>
@@ -465,7 +466,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-9. Write a C++ program to find out a given number is palindrome or not.
+# 9. Write a C++ program to find out a given number is palindrome or not.
 
 > ```cpp
 > #include <iostream>
@@ -487,7 +488,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-10. Write C++ Code to print the following pattern:
+# 10. Write C++ Code to print the following pattern:
 
 ### answer comming soon
 
@@ -495,15 +496,15 @@ When defining a variable in programming, the following rules must be followed:
 
 <h2 align="center"> Array </h2>
 
-1. Define the Array and write down the necessity of using an array.
+# 1. Define the Array and write down the necessity of using an array.
 
 ### answer comming soon
 
-2. Types of Array and Syntex of different types of array.
+# 2. Types of Array and Syntex of different types of array.
 
 ### answer comming soon
 
-3. Find the largest element of a given array of integers.
+# 3. Find the largest element of a given array of integers.
 
 > ```cpp
 > #include <iostream>
@@ -524,7 +525,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-4. Write a C++ program to find the second largest element in an array of integers.
+# 4. Write a C++ program to find the second largest element in an array of integers.
 
 > ```cpp
 > #include <iostream>
@@ -571,7 +572,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-5. Find the smallest element of a given array of integers.
+# 5. Find the smallest element of a given array of integers.
 
 > ```cpp
 > #include <iostream>
@@ -595,7 +596,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-6. Write a C++ program to find the second smallest elements in a given array of integers.
+# 6. Write a C++ program to find the second smallest elements in a given array of integers.
 
 > ```cpp
 > #include <iostream>
@@ -642,7 +643,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-7. Write a C++ program of Linear search.
+# 7. Write a C++ program of Linear search.
 
 > ```cpp
 > #include <iostream>
@@ -679,7 +680,7 @@ When defining a variable in programming, the following rules must be followed:
 > }
 > ```
 
-8. Write a C++ program Binary search.
+# 8. Write a C++ program Binary search.
 
 > ```cpp
 > // Binary search algorithm
@@ -782,7 +783,7 @@ int main() {
 }
 ```
 
-9. Write a C++ code to Addition, Subtraction, Multiplication of two matrices?
+# 9. Write a C++ code to Addition, Subtraction, Multiplication of two matrices?
 
 ### answer comming soon
 
