@@ -497,7 +497,14 @@ do {
 
 # 2. Distinguish between while loop and do while.
 
-### answer comming soon
+Both `while` and `do-while` loops execute code repeatedly **until a condition becomes false**, but they differ in **when the condition is checked**.
+
+| Feature                     | **`while` Loop**                     | **`do-while` Loop**                      |
+| --------------------------- | ------------------------------------ | ---------------------------------------- |
+| **Condition Check**         | **Before** execution                 | **After** execution                      |
+| **Executes at Least Once?** | ❌ No                                | ✔ Yes                                   |
+| **Syntax**                  | `while (condition) { ... }`          | `do { ... } while (condition);`          |
+| **Best Used When**          | When the loop may **not run at all** | When the loop **must run at least once** |
 
 # 3. Write a C++ code to find the factorial number of a given integer.
 
@@ -660,11 +667,124 @@ do {
 
 # 1. Define the Array and write down the necessity of using an array.
 
-### answer comming soon
+An **array** is a **fixed-size collection** of elements of the **same data type**, stored in **contiguous memory locations**.
+
+#### **Syntax:**
+
+```cpp
+data_type array_name[size];
+```
+
+**Example:**
+
+```cpp
+int numbers[5] = {10, 20, 30, 40, 50};  // Integer array of size 5
+```
+
+---
+
+### **Necessity of Using Arrays**
+
+Arrays are essential in programming because they:
+
+1. **Store Multiple Values Efficiently**
+   - Instead of declaring many individual variables (e.g., `num1`, `num2`, `num3`), an array groups them under one name.
+
+2. **Enable Easy Access with Indexing**
+   - Elements can be accessed directly using an index (e.g., `numbers[0]` gives the first element).
+
+3. **Optimize Memory Usage**
+   - All elements are stored in **adjacent memory locations**, making access faster than scattered variables.
+
+4. **Simplify Looping & Operations**
+   - Arrays work seamlessly with loops, allowing easy traversal and manipulation.
+     **Example:**
+
+   ```cpp
+   for (int i = 0; i < 5; i++) {
+       cout << numbers[i] << " ";  // Prints all elements
+   }
+   ```
+
+5. **Support Mathematical & Sorting Operations**
+   - Arrays are widely used in mathematical computations (e.g., matrices) and sorting algorithms (e.g., Bubble Sort, Quick Sort).
+
+6. **Foundation for Advanced Data Structures**
+   - Arrays serve as the base for **strings, stacks, queues, and matrices**.
+
+---
+
+### **When to Use an Array?**
+
+✔ When you need a **fixed-size** collection.
+✔ When you require **fast access** using indices.
+✔ When working with **homogeneous data** (same data type).
+
+---
 
 # 2. Types of Array and Syntex of different types of array.
 
-### answer comming soon
+An **array** is a collection of **similar data types** stored at **contiguous memory locations** under a single variable name.
+It helps store multiple values using a single variable.
+
+---
+
+## 🔵 **Types of Arrays in C++**
+
+### 1. **One-Dimensional Array (1D Array)**
+
+Used to store a list of values in a single row (like a line).
+
+#### ✅ Syntax:
+
+```cpp
+datatype arrayName[size];
+```
+
+#### ✅ Example:
+
+```cpp
+int numbers[5];        // Stores 5 integers
+float prices[3];       // Stores 3 floating point numbers
+char vowels[5];        // Stores 5 characters
+```
+
+---
+
+### 2. **Two-Dimensional Array (2D Array)**
+
+Used to store data in the form of rows and columns (like a matrix or table).
+
+#### ✅ Syntax:
+
+```cpp
+datatype arrayName[rowSize][colSize];
+```
+
+#### ✅ Example:
+
+```cpp
+int matrix[3][4];      // 3 rows and 4 columns
+char board[8][8];      // Chessboard grid (8x8)
+```
+
+---
+
+### 3. **Multi-Dimensional Array (3D or more)**
+
+Used when data is in more than two dimensions (rarely used in basic level).
+
+#### ✅ Syntax:
+
+```cpp
+datatype arrayName[size1][size2][size3];
+```
+
+#### ✅ Example:
+
+```cpp
+int cube[2][3][4];     // 3D array: 2 blocks of 3x4 matrices
+```
 
 # 3. Find the largest element of a given array of integers.
 
