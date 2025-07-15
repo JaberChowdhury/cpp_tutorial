@@ -27,10 +27,20 @@ int binary_search(int nums[], int limit, int search) {
 }
 
 int main() {
-    int nums[] = {23312743, 538732, 438972, 27294, 28754, 23, 543, 7, 5876, 24, 678, 69, 679};
-    int limit  = sizeof(nums) / sizeof(nums[0]);
+    int limit;
+    cout << "Enter the number of elements :: ";
+    cin >> limit;
+
+    int nums[limit];
+    cout << "Enter the elements :: ";
+    for (int i = 0; i < limit; i++) {
+        cin >> nums[i];
+    }
 
     int search = 23;
+    cout << "Enter the number to search :: ";
+    cin >> search;
+
     sort(nums, nums + limit); // from small to large sorting
 
     int position = binary_search(nums, limit, search);
