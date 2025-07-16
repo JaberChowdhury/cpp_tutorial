@@ -526,7 +526,42 @@ Both `while` and `do-while` loops execute code repeatedly **until a condition be
 
 # 4. Write a C++ program to find out the GCD and LCM of two numbers.
 
-### answer comming soon
+```cpp
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+int gcdfunc(int a,int b)
+{
+    while(b!=0){
+        int temp = b ;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int lcmfunc(int a, int b)
+{
+    return (a * b) / gcdfunc(a,b);
+}
+
+
+
+int main() {
+    // Write C++ code here
+
+int a = 45, b = 36;
+
+int gcd = gcdfunc(a,b);
+int lcm = lcmfunc(a,b);
+
+
+cout << "gcd :: "<< gcd << endl;
+cout << "lcm :: "<< lcm;
+    return 0;
+}
+```
 
 # 5. Write a C++ program to print the prime number up to given N integer Number.
 
