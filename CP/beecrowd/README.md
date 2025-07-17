@@ -73,6 +73,8 @@ target 100 solution
 | 68  | https://judge.beecrowd.com/en/problems/view/1174 | [x]    |
 | 69  | https://judge.beecrowd.com/en/problems/view/1175 | [x]    |
 | 70  | https://judge.beecrowd.com/en/problems/view/1176 | [x]    |
+| 71  | https://judge.beecrowd.com/en/problems/view/1177 | [x]    |
+| 72  | https://judge.beecrowd.com/en/problems/view/1178 | [ ]    |
 
 <div align="center">
 
