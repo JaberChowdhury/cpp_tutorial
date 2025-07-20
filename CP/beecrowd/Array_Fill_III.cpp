@@ -5,8 +5,8 @@
 using namespace std;
 
 int main() {
-    float nums[101];
-    float x;
+    double nums[101];
+    double x;
     cin >> x;
     nums[0] = x;
 
@@ -21,4 +21,4 @@ int main() {
     return 0;
 }
 
-// need to submit
+// solved

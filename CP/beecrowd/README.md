@@ -74,7 +74,8 @@ target 100 solution
 | 69  | https://judge.beecrowd.com/en/problems/view/1175 | [x]    |
 | 70  | https://judge.beecrowd.com/en/problems/view/1176 | [x]    |
 | 71  | https://judge.beecrowd.com/en/problems/view/1177 | [x]    |
-| 72  | https://judge.beecrowd.com/en/problems/view/1178 | [ ]    |
+| 72  | https://judge.beecrowd.com/en/problems/view/1178 | [x]    |
+| 73  | https://judge.beecrowd.com/en/problems/view/1024 | [x]    |
 
 <div align="center">
 
