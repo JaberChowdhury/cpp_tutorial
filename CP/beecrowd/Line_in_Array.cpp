@@ -5,24 +5,27 @@
 using namespace std;
 
 int main() {
-    int   l;
+    int  l;
+    char o;
+    cin >> l >> o;
+
     float sum = 0;
-    char  o;
-    cin >> l;
-    cin >> o;
-    for (int i = 0; i < 144; i++) {
+    for (int i = 0; i < 144; ++i) {
         float x;
         cin >> x;
-        if (i >= l * 12 && i < (i * 12) + 12) {
+        // Check if current element is in the l-th row
+        if (i / 12 == l) {
             sum += x;
         }
     }
+
     if (o == 'S') {
-        cout << sum << endl;
+        cout << fixed << setprecision(1) << sum << endl;
     } else {
         cout << fixed << setprecision(1) << sum / 12 << endl;
     }
+
     return 0;
 }
 
-// need to submit it later
+// solved
