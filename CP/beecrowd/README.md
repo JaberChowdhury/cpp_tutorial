@@ -86,6 +86,7 @@ target 100 solution
 | 81  | https://judge.beecrowd.com/en/problems/view/1183 | [L]    |
 | 82  | https://judge.beecrowd.com/en/problems/view/1184 | [L]    |
 | 83  | https://judge.beecrowd.com/en/problems/view/1185 | [L]    |
+| 84  | https://judge.beecrowd.com/en/problems/view/1186 | [L]    |
 
 <div align="center">
 
