@@ -2,40 +2,37 @@
 
 #include <iomanip>
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
-    char  o;
-    float sum = 0;
-    cin >> o;
-    vector<vector<float>> nums;
+    char operation;
+    cin >> operation;
+
+    double matrix[12][12];
+    double sum   = 0;
+    int    count = 0;
+
     for (int i = 0; i < 12; i++) {
-        vector<float> temp;
         for (int j = 0; j < 12; j++) {
-            float x;
-            cin >> x;
-            temp.push_back(x);
+            cin >> matrix[i][j];
         }
-        nums.push_back(temp);
     }
 
-    int start = 1, end = 11, total = 0;
-    for (int i = 0; i < 5; i++) {
-        for (int j = start; j < end; j++) {
-            sum += nums[i][j];
-            total++;
+    for (int i = 0; i < 12; i++) {
+        for (int j = i + 1; j < 12 - i - 1; j++) {
+            sum += matrix[i][j];
+            count++;
         }
-        start++;
-        end--;
     }
 
-    if (o == 'S') {
+    if (operation == 'S') {
         cout << fixed << setprecision(1) << sum << endl;
-    } else {
-        cout << fixed << setprecision(1) << sum / total << endl;
+    } else if (operation == 'M') {
+        double average = sum / count;
+        cout << fixed << setprecision(1) << average << endl;
     }
+
     return 0;
 }
 
-// need to submit it later
+// solved

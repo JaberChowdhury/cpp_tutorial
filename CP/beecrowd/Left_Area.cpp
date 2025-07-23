@@ -6,37 +6,40 @@
 using namespace std;
 
 int main() {
-    char  o;
-    float sum = 0;
+    char o;
     cin >> o;
 
-    vector<vector<float>> nums;
+    vector<vector<float>> nums; // 12x12 matrix
     for (int i = 0; i < 12; i++) {
-        vector<float> temp;
+        vector<float> row;
         for (int j = 0; j < 12; j++) {
             float x;
             cin >> x;
-            temp.push_back(x);
+            row.push_back(x);
         }
-        nums.push_back(temp);
+        nums.push_back(row);
     }
 
-    int limits[] = {0, 1, 2, 3, 4, 4, 3, 2, 1, 0};
-    int total = 0, flag = 0;
+    float sum   = 0;
+    int   count = 0;
+
+    // Traverse only left area
     for (int i = 1; i < 11; i++) {
-        for (int j = 0; j < limits[flag]; j++) {
-            sum += nums[i][j];
-            total++;
+        for (int j = 0; j < 11; j++) {
+            if (j < i && j < 11 - i) {
+                sum += nums[i][j];
+                count++;
+            }
         }
-        flag++;
     }
 
     if (o == 'S') {
         cout << fixed << setprecision(1) << sum << endl;
     } else {
-        cout << fixed << setprecision(1) << sum / total << endl;
+        cout << fixed << setprecision(1) << sum / count << endl;
     }
+
     return 0;
 }
 
-// i have to submit it later
+// solved
