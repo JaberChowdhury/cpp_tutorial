@@ -91,6 +91,7 @@ target 100 solution
 | 86  | https://judge.beecrowd.com/en/problems/view/1188 | [L]    |
 | 87  | https://judge.beecrowd.com/en/problems/view/1189 | [L]    |
 | 88  | https://judge.beecrowd.com/en/problems/view/1190 | [L]    |
+| 89  | https://judge.beecrowd.com/en/problems/view/1435 | [L]    |
 
 <div align="center">
 
