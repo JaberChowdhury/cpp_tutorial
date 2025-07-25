@@ -93,6 +93,8 @@ target 100 solution
 | 88  | https://judge.beecrowd.com/en/problems/view/1190 | [x]    |
 | 89  | https://judge.beecrowd.com/en/problems/view/1039 | [x]    |
 | 90  | https://judge.beecrowd.com/en/problems/view/1478 | [x]    |
+| 91  | https://judge.beecrowd.com/en/problems/view/1557 | [x]    |
+| 92  | https://judge.beecrowd.com/en/problems/view/1564 | [x]    |
 
 <div align="center">
 
