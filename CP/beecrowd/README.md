@@ -82,16 +82,17 @@ target 100 solution
 | 77  | https://judge.beecrowd.com/en/problems/view/1179 | [x]    |
 | 78  | https://judge.beecrowd.com/en/problems/view/1180 | [x]    |
 | 79  | https://judge.beecrowd.com/en/problems/view/1181 | [x]    |
-| 80  | https://judge.beecrowd.com/en/problems/view/1182 | [L]    |
-| 81  | https://judge.beecrowd.com/en/problems/view/1183 | [L]    |
-| 82  | https://judge.beecrowd.com/en/problems/view/1184 | [L]    |
-| 83  | https://judge.beecrowd.com/en/problems/view/1185 | [L]    |
-| 84  | https://judge.beecrowd.com/en/problems/view/1186 | [L]    |
+| 80  | https://judge.beecrowd.com/en/problems/view/1182 | [x]    |
+| 81  | https://judge.beecrowd.com/en/problems/view/1183 | [x]    |
+| 82  | https://judge.beecrowd.com/en/problems/view/1184 | [x]    |
+| 83  | https://judge.beecrowd.com/en/problems/view/1185 | [x]    |
+| 84  | https://judge.beecrowd.com/en/problems/view/1186 | [x]    |
 | 85  | https://judge.beecrowd.com/en/problems/view/1187 | [x]    |
 | 86  | https://judge.beecrowd.com/en/problems/view/1188 | [x]    |
 | 87  | https://judge.beecrowd.com/en/problems/view/1189 | [x]    |
 | 88  | https://judge.beecrowd.com/en/problems/view/1190 | [x]    |
 | 89  | https://judge.beecrowd.com/en/problems/view/1039 | [x]    |
+| 90  | https://judge.beecrowd.com/en/problems/view/1478 | [x]    |
 
 <div align="center">
 

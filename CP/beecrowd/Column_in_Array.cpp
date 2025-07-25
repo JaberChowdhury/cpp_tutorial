@@ -6,27 +6,28 @@
 using namespace std;
 
 int main() {
-    int   n   = 11;
+    int   n;
     float sum = 0;
-    char  o   = 'S';
+    char  o;
     cin >> n;
     cin >> o;
 
-    vector<float> nums;
-    // for (int i = 0; i < 144; i++) {
-    //     nums.push_back(1.00);
-    // }
-    for (int i = 0; i < 144; i++) {
-        float x;
-        cin >> x;
-        nums.push_back(x);
+    vector<vector<float>> nums;
+    //  take inputs
+    for (int i = 0; i < 12; i++) {
+        vector<float> temp;
+        for (int j = 0; j < 12; j++) {
+            float x;
+            cin >> x;
+            temp.push_back(x);
+        }
+        nums.push_back(temp);
     }
 
-    for (int i = n; i < 144; i += 12) {
-        sum += nums[i];
-        cout << nums[i] << endl;
+    // sum the matrix
+    for (int i = 0; i < 12; i++) {
+        sum += nums[i][n];
     }
-
     if (o == 'S') {
         cout << fixed << setprecision(1) << sum << endl;
     } else {
@@ -35,4 +36,4 @@ int main() {
     return 0;
 }
 
-// need to submit it later
+// solved

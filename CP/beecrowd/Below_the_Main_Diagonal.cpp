@@ -26,9 +26,8 @@ int main() {
         for (int j = 0; j < i; j++) {
             sum += nums[i][j];
             total++;
-            // cout << "nums[" << i << "][" << j << "]";
         }
-        cout << endl;
+        // cout << endl;
     }
     if (o == 'S') {
         cout << fixed << setprecision(1) << sum << endl;
@@ -38,4 +37,4 @@ int main() {
     return 0;
 }
 
-// need to submit it later
+// solved
