@@ -95,6 +95,9 @@ target 100 solution
 | 90  | https://judge.beecrowd.com/en/problems/view/1478 | [x]    |
 | 91  | https://judge.beecrowd.com/en/problems/view/1557 | [x]    |
 | 92  | https://judge.beecrowd.com/en/problems/view/1564 | [x]    |
+| 93  | https://judge.beecrowd.com/en/problems/view/1589 | [x]    |
+| 94  | https://judge.beecrowd.com/en/problems/view/1759 | [x]    |
+| 95  | https://judge.beecrowd.com/en/problems/view/1789 | [x]    |
 
 <div align="center">
 
