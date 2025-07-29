@@ -96,9 +96,12 @@ target 100 solution
 | 91  | https://judge.beecrowd.com/en/problems/view/1557 | [x]    |
 | 92  | https://judge.beecrowd.com/en/problems/view/1564 | [x]    |
 | 93  | https://judge.beecrowd.com/en/problems/view/1828 | [x]    |
-| 93  | https://judge.beecrowd.com/en/problems/view/1589 | [x]    |
-| 94  | https://judge.beecrowd.com/en/problems/view/1759 | [x]    |
-| 95  | https://judge.beecrowd.com/en/problems/view/1789 | [x]    |
+| 94  | https://judge.beecrowd.com/en/problems/view/1589 | [x]    |
+| 95  | https://judge.beecrowd.com/en/problems/view/1759 | [x]    |
+| 96  | https://judge.beecrowd.com/en/problems/view/1789 | [x]    |
+| 97  | https://judge.beecrowd.com/en/problems/view/1837 | [x]    |
+| 98  | https://judge.beecrowd.com/en/problems/view/1847 | [x]    |
+| 99  | https://judge.beecrowd.com/en/problems/view/1848 | [x]    |
 
 <div align="center">
 
