@@ -106,6 +106,8 @@ target 100 solution
 | 101 | https://judge.beecrowd.com/en/problems/view/1865 | [x]    |
 | 102 | https://judge.beecrowd.com/en/problems/view/1866 | [x]    |
 | 103 | https://judge.beecrowd.com/en/problems/view/1914 | [x]    |
+| 104 | https://judge.beecrowd.com/en/problems/view/1924 | [x]    |
+| 105 | https://judge.beecrowd.com/en/problems/view/1929 | [x]    |
 
 <div align="center">
 
