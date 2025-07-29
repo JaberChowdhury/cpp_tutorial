@@ -102,6 +102,10 @@ target 100 solution
 | 97  | https://judge.beecrowd.com/en/problems/view/1837 | [x]    |
 | 98  | https://judge.beecrowd.com/en/problems/view/1847 | [x]    |
 | 99  | https://judge.beecrowd.com/en/problems/view/1848 | [x]    |
+| 100 | https://judge.beecrowd.com/en/problems/view/1864 | [x]    |
+| 101 | https://judge.beecrowd.com/en/problems/view/1865 | [x]    |
+| 102 | https://judge.beecrowd.com/en/problems/view/1866 | [x]    |
+| 103 | https://judge.beecrowd.com/en/problems/view/1914 | [x]    |
 
 <div align="center">
 
