@@ -1,23 +1,22 @@
 // https://codeforces.com/problemset/problem/1/A
 
+#include <cstdint>
 #include <iostream>
 using namespace std;
 
 int main() {
-    int m, n, a, base_size, flag_size, total = 0;
+    int64_t m, n, a, x, y;
     cin >> m >> n >> a;
 
-    base_size = m * n;
-    flag_size = a * a;
+    x = m / a;
+    y = n / a;
 
-    if (base_size % flag_size != 0) {
-        total = (base_size / flag_size) + 1;
-    } else {
-        total = base_size / flag_size;
-    }
-    cout << total << endl;
-
+    if (m % a != 0)
+        x++;
+    if (n % a != 0)
+        y++;
+    cout << x * y << endl;
     return 0;
 }
 
-// not solved yet
+// solved
