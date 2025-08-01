@@ -10,7 +10,42 @@ Below is a diagram that illustrates the workflow of a C++ compiler. It shows the
 
 ![C++ Compiler Workflow](./assets/diagramv2.png)
 
----
+--- txt
+
+```
+┌───────────────────────┐
+│      main.cpp         │  ← Source code (.cpp, .hpp)
+└──────────┬────────────┘
+           │
+           ▼
+┌───────────────────────┐
+│ [1] Preprocessing     │  ← Handles #include, #define, macros, #ifdef, etc.
+│    (g++ -E → .i/.ii)  │  → Output: Preprocessed source (.i for C, .ii for C++)
+└──────────┬────────────┘
+           │
+           ▼
+┌───────────────────────┐
+│ [2] Compilation       │  ← Converts C++ to assembly (with optimizations if -O2/-O3)
+│    (g++ -S → .s)      │  → Output: Assembly code (.s)
+└──────────┬────────────┘
+           │
+           ▼
+┌───────────────────────┐
+│ [3] Assembling        │  ← Converts assembly to machine code (binary)
+│    (g++ -c → .o/.obj) │  → Output: Object file (.o for Unix, .obj for Windows)
+└──────────┬────────────┘
+           │
+           ▼
+┌───────────────────────┐
+│ [4] Linking           │  ← Combines object files + static/dynamic libraries
+│    (g++ *.o -o main)  │  → Output: Executable (a.out, main.exe, or custom name)
+└──────────┬────────────┘
+           │
+           ▼
+┌───────────────────────┐
+│   Final Executable    │  ← ./main (ELF on Linux, PE on Windows, Mach-O on macOS)
+└───────────────────────┘
+```
 
 ## Repository Structure
 
