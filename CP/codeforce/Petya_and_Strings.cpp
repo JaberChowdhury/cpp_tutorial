@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-string convert_to_lowercase(string& d) {
+string convert_to_lowercase(string d) {
     string temp = "";
     for (int i = 0; i < d.size(); i++) {
         int x = d[i];
@@ -12,38 +12,47 @@ string convert_to_lowercase(string& d) {
             x += 32;
             char y = x;
             temp += y;
+        } else {
+            temp += d[i];
         }
     }
     return temp;
+    // done
 }
+// int sum_ansi(string d) {
+//     int s = 0;
+//     for (int i = 0; i < d.size(); i++) {
+//         int x = d[i];
+//         cout << "d :: " << d[i] << "  x :: " << x << endl;
+//         s += x;
+//     }
+//     return s;
+//     // done
+// }
 int main() {
-    string str1 = "aaaa", str2 = "aaaA";
-    // cin >> str1;
-    // cin >> str2;
-    int s1 = 0, s2 = 0;
+    string str1, str2;
+    cin >> str1;
+    cin >> str2;
 
-    str1 = convert_to_lowercase(str1);
-    str2 = convert_to_lowercase(str2);
-
-    cout << str2 << endl;
-
-    // for (int i = 0; i < str1.size(); i++) {
-    //     char a = str1[i];
-    //     char b = str2[i];
-    //     int  x = a;
-    //     int  y = b;
-
-    //     cout << "x = " << x << endl;
-
-    //     s1 += x;
-    //     s2 += y;
-    // }
-
-    // cout << "s1 = " << s1 << " s2 = " << s2 << endl;
-
-    // cout << (s1 < s2 ? -1 : s1 > s2 ? 1 : 0) << endl;
-
+    str1      = convert_to_lowercase(str1);
+    str2      = convert_to_lowercase(str2);
+    bool iseq = true;
+    for (int i = 0; i < str1.size(); i++) {
+        int x = str1[i], y = str2[i];
+        if (x != y) {
+            if (x > y) {
+                iseq = false;
+                cout << 1 << endl;
+                break;
+            } else {
+                iseq = false;
+                cout << -1 << endl;
+                break;
+            }
+        }
+    }
+    iseq&& cout << 0 << endl;
     return 0;
 }
 
-// not solved yet
+// solved
