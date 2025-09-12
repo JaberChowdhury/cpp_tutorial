@@ -275,6 +275,42 @@ This repository includes custom Fish shell functions to streamline the compilati
   </pre>
 </details>
 
+<details>
+  <summary>Powershell function for input and output text file setup</summary>
+  <pre>
+    <code>
+   function cv {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$file
+    )
+
+    # Compile the C++ file
+    $exe = [System.IO.Path]::GetFileNameWithoutExtension($file)
+    g++ $file -o $exe
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Compilation failed." -ForegroundColor Red
+        return
+    }
+
+    # Prepare input/output
+    $inputFile = "input.txt"
+    $outputFile = "output.txt"
+
+    if (Test-Path $inputFile) {
+        Start-Process -FilePath ".\$exe.exe" -RedirectStandardInput $inputFile -RedirectStandardOutput $outputFile -Wait
+        Write-Host "Program executed with input.txt -> output.txt"
+    } else {
+        .\$exe.exe | Out-File $outputFile
+        Write-Host "Program executed with no input -> output.txt"
+    }
+
+}
+</code>
+
+  </pre>
+</details>
+
 ---
 
 ## How to Use This Repository
