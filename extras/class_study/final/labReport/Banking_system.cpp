@@ -182,20 +182,32 @@ void userAuth() {
         }
     }
 }
+void Adduser() {
+    string name, password, id;
+    float  balance;
+    cout << "Enter user name(no space) :: ";
+    cin >> name;
+    cout << "Enter user password :: ";
+    cin >> password;
+    cout << "Enter a unique id :: ";
+    cin >> id;
+    bank_cse_70.addUser(User(name, password, id, 100));
+}
 
 void init() {
     while (true) {
-        vector<string> opt = {"Bank Admin", "Bank User"};
+        vector<string> opt = {"Bank Admin", "Bank User", "Add User"};
         Menu           m(opt);
         if (m.selected == 0)
             BankAuth();
         else if (m.selected == 1)
             userAuth();
+        else if (m.selected == 2)
+            Adduser();
     }
 }
 
 int main() {
-    bank_cse_70.addUser(User("Alice", "1111", "U001", 1000));
-    bank_cse_70.addUser(User("Bob", "2222", "U002", 5000));
     init();
+    return 0;
 }
