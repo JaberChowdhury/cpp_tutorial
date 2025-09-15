@@ -213,4 +213,96 @@ ObjCreation > End
 
 ```
 
+# multilevel
 
+```txt
+[direction down]
+
+Start[shape: circle, text: "Start Program"]
+
+# Base class
+Animal[shape: rectangle, text: "Class Animal\n+ eat()"]
+
+# First derived
+Mammal[shape: rectangle, text: "Class Mammal : Animal\n+ Walk()"]
+
+# Second derived (from Mammal)
+Dog[shape: rectangle, text: "Class Dog : Mammal\n+ Bark()"]
+
+MainFunc[shape: rectangle, text: "main() function"]
+
+ObjCreation[shape: rectangle, text: "Create Dog object (bob)\nCall eat(), Walk(), Bark()"]
+
+End[shape: circle, text: "End Program"]
+
+# Connections
+Start > Animal
+Animal > Mammal
+Mammal > Dog
+Dog > MainFunc
+MainFunc > ObjCreation
+ObjCreation > End
+
+```
+
+# single
+
+```txt
+[[direction down]]
+
+Start[shape: circle, text: "Start Program"]
+
+# Base class
+Item[shape: rectangle, text: "Class Item\n+ isEatable : bool\n+ rating : float"]
+
+# Derived class
+Sunglass[shape: rectangle, text: "Class Sunglass : Item\n+ isAvailable : bool\n+ print_info()"]
+
+MainFunc[shape: rectangle, text: "main() function"]
+
+ObjCreation[shape: rectangle, text: "Create Sunglass object (s1)\nCall print_info()"]
+
+End[shape: circle, text: "End Program"]
+
+# Connections
+Start > Item
+Item > Sunglass
+Sunglass > MainFunc
+MainFunc > ObjCreation
+ObjCreation > End
+
+```
+
+# multiple
+
+```txt
+[[direction down]]
+
+Start[shape: circle, text: "Start Program"]
+
+# Base classes
+Base1[shape: rectangle, text: "Class Base_class_one\n+ print_one()"]
+Base2[shape: rectangle, text: "Class Base_class_two\n+ print_two()"]
+Base3[shape: rectangle, text: "Class Base_class_three\n+ print_three()"]
+
+# Derived class
+Derived[shape: rectangle, text: "Class Derived_class :\nBase_class_one, Base_class_two, Base_class_three\n+ print()"]
+
+MainFunc[shape: rectangle, text: "main() function"]
+
+ObjCreation[shape: rectangle, text: "Create Derived_class object (d)\nCall print() → calls\nprint_one(), print_two(), print_three()"]
+
+End[shape: circle, text: "End Program"]
+
+# Connections
+Start > Base1
+Start > Base2
+Start > Base3
+Base1 > Derived
+Base2 > Derived
+Base3 > Derived
+Derived > MainFunc
+MainFunc > ObjCreation
+ObjCreation > End
+
+```
