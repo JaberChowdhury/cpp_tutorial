@@ -139,12 +139,24 @@ void init() {
     while (true) {
         Menu m(mainMenu);
         switch (m.selected) {
-        case 0: calc.addition(); break;
-        case 1: calc.subtraction(); break;
-        case 2: calc.multiplication(); break;
-        case 3: calc.division(); break;
-        case 4: calc.trigonometry(); break;
-        case 5: calc.logarithm(); break;
+        case 0:
+            calc.addition();
+            break;
+        case 1:
+            calc.subtraction();
+            break;
+        case 2:
+            calc.multiplication();
+            break;
+        case 3:
+            calc.division();
+            break;
+        case 4:
+            calc.trigonometry();
+            break;
+        case 5:
+            calc.logarithm();
+            break;
         }
     }
 }
@@ -358,22 +370,34 @@ void userAuth() {
         }
     }
 }
+void Adduser() {
+    string name, password, id;
+    float  balance;
+    cout << "Enter user name(no space) :: ";
+    cin >> name;
+    cout << "Enter user password :: ";
+    cin >> password;
+    cout << "Enter a unique id :: ";
+    cin >> id;
+    bank_cse_70.addUser(User(name, password, id, 100));
+}
 
 void init() {
     while (true) {
-        vector<string> opt = {"Bank Admin", "Bank User"};
+        vector<string> opt = {"Bank Admin", "Bank User", "Add User"};
         Menu           m(opt);
         if (m.selected == 0)
             BankAuth();
         else if (m.selected == 1)
             userAuth();
+        else if (m.selected == 2)
+            Adduser();
     }
 }
 
 int main() {
-    bank_cse_70.addUser(User("Alice", "1111", "U001", 1000));
-    bank_cse_70.addUser(User("Bob", "2222", "U002", 5000));
     init();
+    return 0;
 }
 ```
 
@@ -383,6 +407,169 @@ int main() {
 ========= MENU =========
 [0] : Bank Admin
 [1] : Bank User
-[2] : Exit
-Select option (0-2):
+[2] : Add User
+[3] : Exit
+Select option (0-3):
+```
+
+# [Task-03] Single Inheritance
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Item {
+  public:
+    bool  isEatable = true;
+    float rating    = 9.7;
+};
+class Sunglass : public Item {
+  public:
+    bool isAvailable = false;
+    void print_info() {
+        cout << "Eatable :: " << (this->isEatable ? "Yes" : "No") << endl;
+        cout << "Rating :: " << this->rating << endl;
+        cout << "Available  :: " << (this->isAvailable ? "Yes" : "No") << endl;
+    }
+};
+int main() {
+    Sunglass s1;
+    s1.print_info();
+    return 0;
+}
+```
+
+## Output
+
+```txt
+Eatable :: Yes
+Rating :: 9.7
+Available  :: No
+```
+
+# [Task-04] Multilevel Inheritance
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// base class
+class Animal {
+  public:
+    void eat() { cout << "Animal is eating" << endl; }
+};
+class Mammal : public Animal {
+  public:
+    void Walk() { cout << "Mammal is walking" << endl; }
+};
+class Dog : public Mammal {
+  public:
+    void Bark() { cout << "Dog is barking" << endl; }
+};
+
+int main() {
+    Dog bob;
+    bob.eat();
+    bob.Walk();
+    bob.Bark();
+    return 0;
+}
+```
+
+## Output
+
+```txt
+Animal is eating
+Mammal is walking
+Dog is barking
+```
+
+# [Task-05] Multiple Inheritance
+
+```cpp
+#include <iostream>
+using namespace std;
+class Base_class_one {
+  public:
+    void print_one() { cout << "Congratualation from class 1" << endl; }
+};
+class Base_class_two {
+  public:
+    void print_two() { cout << "Congratualation from class 2" << endl; }
+};
+class Base_class_three {
+  public:
+    void print_three() { cout << "Congratualation from class 3" << endl; }
+};
+class Derived_class : public Base_class_one, public Base_class_two, public Base_class_three {
+  public:
+    void print() {
+        this->print_one();
+        this->print_two();
+        this->print_three();
+        cout << "Congratualation from derived class" << endl;
+    }
+};
+int main() {
+    Derived_class d;
+    d.print();
+    return 0;
+}
+```
+
+## Output
+
+```txt
+Congratualation from class 1
+Congratualation from class 2
+Congratualation from class 3
+Congratualation from derived class
+```
+
+# [Task-06] Hierarchical Inheritance
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+  public:
+    string name;
+    int    id;
+    int    gpa;
+    void   print() {
+        cout << "Name : " << this->name << endl;
+        cout << "Id : " << this->id << endl;
+    }
+};
+
+class Hasan : public Student {};
+class Sifat : public Student {};
+class Masum : public Student {};
+int main() {
+    Hasan hm;
+    hm.name = "Hasan Mahmud";
+    hm.id   = 6;
+    hm.gpa  = 4;
+    hm.print();
+
+    Sifat si;
+    si.name = "Sifatul Islam";
+    si.id   = 90;
+    si.gpa  = 4;
+    si.print();
+
+    Masum mb;
+    mb.name = "Masum Billah";
+    mb.id   = 89;
+    mb.gpa  = 3;
+    mb.print();
+    return 0;
+}
+```
+
+## Output
+
+```cpp
+
 ```
