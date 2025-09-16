@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 class Person {
@@ -13,7 +13,7 @@ class Person {
     }
 };
 
-class Employee : public Person {
+class Employee : virtual public Person {
   protected:
     int id;
 
@@ -23,7 +23,8 @@ class Employee : public Person {
         this->id = id;
     }
 };
-class Student : public Person {
+
+class Student : virtual public Person {
   protected:
     int roll;
 
@@ -39,14 +40,24 @@ class InternStudent : public Employee, public Student {
     float salary;
 
   public:
-    InternStudent(const string& n, int a, int roll, int id, int salary)
-        : Employee(n, a, id)
+    InternStudent(const string& n, int a, int roll, int id, float salary)
+        : Person(n, a)
+        , Employee(n, a, id)
         , Student(n, a, roll) {
         this->salary = salary;
+    }
+
+    void info() {
+        cout << "Name   :: " << name << endl;
+        cout << "Age    :: " << age << endl;
+        cout << "Roll   :: " << roll << endl;
+        cout << "ID     :: " << id << endl;
+        cout << "Salary :: " << salary << endl;
     }
 };
 
 int main() {
     InternStudent jaber("jaber", 21, 70002, 21231, 2124565);
+    jaber.info();
     return 0;
 }

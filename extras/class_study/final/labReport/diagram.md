@@ -216,29 +216,17 @@ Mammal > Dog
 # single
 
 ```txt
-[[direction down]]
+direction right
+colorMode bold
+styleMode plain
+typeface mono
 
-Start[shape: circle, text: "Start Program"]
+Base[shape: rectangle, text: "Class Item\n+ isEatable : bool\n+ rating : float"]
 
-# Base class
-Item[shape: rectangle, text: "Class Item\n+ isEatable : bool\n+ rating : float"]
+Derived[shape: rectangle, text: "Class Sunglass : Item\n+ isAvailable : bool\n+ print_info()"]
 
-# Derived class
-Sunglass[shape: rectangle, text: "Class Sunglass : Item\n+ isAvailable : bool\n+ print_info()"]
 
-MainFunc[shape: rectangle, text: "main() function"]
-
-ObjCreation[shape: rectangle, text: "Create Sunglass object (s1)\nCall print_info()"]
-
-End[shape: circle, text: "End Program"]
-
-# Connections
-Start > Item
-Item > Sunglass
-Sunglass > MainFunc
-MainFunc > ObjCreation
-ObjCreation > End
-
+Base > Derived
 ```
 
 # multiple

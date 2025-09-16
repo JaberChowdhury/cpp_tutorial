@@ -1,8 +1,11 @@
 ## [Task-01] Calculater programm
 
+**Description:**
+A calculator program performs arithmetic and mathematical operations like addition, subtraction, multiplication, division, logarithm, and trigonometric functions. It helps to practice basic input/output and function handling in C++.
+
 ### Diagram
 
-![My SVG](calculator-diagram.svg)
+![Calculator](https://i.ibb.co.com/m5MTVWtz/calculator.png)
 
 ### Code
 
@@ -182,6 +185,13 @@ Select option (0-6):
 ```
 
 # [Task-02] Banking System
+
+**Description:**
+The banking system simulates simple account operations like deposit, withdraw, and balance inquiry. It also allows admin control such as adding or removing users. This project shows the use of classes, objects, and encapsulation.
+
+### Diagram
+
+![Calculator](https://i.ibb.co.com/RpZ68JJm/Banking-system.png)
 
 ## Code
 
@@ -414,6 +424,15 @@ Select option (0-3):
 
 # [Task-03] Single Inheritance
 
+**Description:**
+Single inheritance allows one class to inherit from another class. This helps reusing parent class properties and methods in a child class, promoting simplicity and code reusability.
+
+### Diagram
+
+![single inheritance](https://i.ibb.co.com/rG8XJLK6/single.png)
+
+## code
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -448,6 +467,15 @@ Available  :: No
 ```
 
 # [Task-04] Multilevel Inheritance
+
+**Description:**
+Multilevel inheritance means a chain of inheritance where a derived class acts as a base for another class. It shows how properties are passed from parent → child → grandchild classes.
+
+### Diagram
+
+![Calculator](https://i.ibb.co.com/B2KZZJ6h/multilevel.png)
+
+## code
 
 ```cpp
 #include <iostream>
@@ -485,6 +513,15 @@ Dog is barking
 ```
 
 # [Task-05] Multiple Inheritance
+
+**Description:**
+Multiple inheritance lets a class inherit features from more than one base class. It combines different functionalities into a single derived class, though it may cause ambiguity issues.
+
+### Diagram
+
+![multiple inheritance](https://i.ibb.co.com/TxkKy0yW/multiple.png)
+
+## code
 
 ```cpp
 #include <iostream>
@@ -528,6 +565,15 @@ Congratualation from derived class
 
 # [Task-06] Hierarchical Inheritance
 
+**Description:**
+Hierarchical inheritance occurs when multiple classes inherit from the same base class. It demonstrates how a single base class can provide shared features to multiple derived classes.
+
+### Diagram
+
+![multiple inheritance](https://i.ibb.co.com/zHGj1HrM/hierarchical.png)
+
+## code
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -570,6 +616,98 @@ int main() {
 
 ## Output
 
-```cpp
+```txt
+Name : Hasan Mahmud
+Id : 6
+Name : Sifatul Islam
+Id : 90
+Name : Masum Billah
+Id : 89
+```
 
+# [Task-07] Hybrid Inheritance
+
+**Description:**
+Hybrid inheritance is a combination of two or more types of inheritance, such as multiple and multilevel. It shows complex relationships among classes and often uses virtual inheritance to solve ambiguity.
+
+### Diagram
+
+![multiple inheritance](https://i.ibb.co.com/ZRXLGbzY/hybrid.png)
+
+## code
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+  protected:
+    string name;
+    int    age;
+
+  public:
+    Person(const string& n, int a) {
+        this->name = n;
+        this->age  = a;
+    }
+};
+
+class Employee : virtual public Person {
+  protected:
+    int id;
+
+  public:
+    Employee(const string& n, int a, int id)
+        : Person(n, a) {
+        this->id = id;
+    }
+};
+
+class Student : virtual public Person {
+  protected:
+    int roll;
+
+  public:
+    Student(const string& n, int a, int roll)
+        : Person(n, a) {
+        this->roll = roll;
+    }
+};
+
+class InternStudent : public Employee, public Student {
+  protected:
+    float salary;
+
+  public:
+    InternStudent(const string& n, int a, int roll, int id, float salary)
+        : Person(n, a)
+        , Employee(n, a, id)
+        , Student(n, a, roll) {
+        this->salary = salary;
+    }
+
+    void info() {
+        cout << "Name   :: " << name << endl;
+        cout << "Age    :: " << age << endl;
+        cout << "Roll   :: " << roll << endl;
+        cout << "ID     :: " << id << endl;
+        cout << "Salary :: " << salary << endl;
+    }
+};
+
+int main() {
+    InternStudent jaber("jaber", 21, 70002, 21231, 2124565);
+    jaber.info();
+    return 0;
+}
+```
+
+## Output
+
+```txt
+Name   :: jaber
+Age    :: 21
+Roll   :: 70002
+ID     :: 21231
+Salary :: 2.12456e+06
 ```

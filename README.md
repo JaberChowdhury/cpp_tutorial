@@ -279,33 +279,54 @@ This repository includes custom Fish shell functions to streamline the compilati
   <summary>Powershell function for input and output text file setup</summary>
   <pre>
     <code>
-   function cv {
+function cv {
     param (
-        [Parameter(Mandatory=$true)]
-        [string]$file
+        [Parameter(Mandatory = $true)]
+        [string]$File
     )
 
-    # Compile the C++ file
-    $exe = [System.IO.Path]::GetFileNameWithoutExtension($file)
-    g++ $file -o $exe
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "Compilation failed." -ForegroundColor Red
+    if (-not (Test-Path $File)) {
+        Write-Error "File '$File' not found."
         return
     }
 
-    # Prepare input/output
-    $inputFile = "input.txt"
-    $outputFile = "output.txt"
+    $dir  = Split-Path -Parent $File
+    $exe  = [System.IO.Path]::ChangeExtension($File, ".exe")
+    $in   = Join-Path $dir "input.txt"
+    $out  = Join-Path $dir "output.txt"
 
-    if (Test-Path $inputFile) {
-        Start-Process -FilePath ".\$exe.exe" -RedirectStandardInput $inputFile -RedirectStandardOutput $outputFile -Wait
-        Write-Host "Program executed with input.txt -> output.txt"
-    } else {
-        .\$exe.exe | Out-File $outputFile
-        Write-Host "Program executed with no input -> output.txt"
+    # Ensure input/output files exist in same folder
+    if (-not (Test-Path $in)) {
+        New-Item -Path $in -ItemType File | Out-Null
+        Write-Host "Created $in"
+    }
+    if (-not (Test-Path $out)) {
+        New-Item -Path $out -ItemType File | Out-Null
+        Write-Host "Created $out"
     }
 
+    # Compile
+    Write-Host "Compiling $File..."
+    $compileStart = [System.Diagnostics.Stopwatch]::StartNew()
+    g++ $File -o $exe 2>&1 | Out-String
+    $compileStart.Stop()
+    Write-Host ("Compile time: {0:N3} seconds" -f $compileStart.Elapsed.TotalSeconds)
+
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $exe)) {
+        Write-Error "Compilation failed."
+        return
+    }
+
+    # Run with redirection (PowerShell style)
+    Write-Host "Running $exe with $in → $out"
+    $execStart = [System.Diagnostics.Stopwatch]::StartNew()
+    Get-Content $in | & $exe | Set-Content $out
+    $execStart.Stop()
+    Write-Host ("Execution time: {0:N3} seconds" -f $execStart.Elapsed.TotalSeconds)
+    Write-Host "Execution complete. Output written to $out"
+
 }
+
 </code>
 
   </pre>
