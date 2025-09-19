@@ -57,7 +57,7 @@ class InternStudent : public Employee, public Student {
 };
 
 int main() {
-    InternStudent jaber("jaber", 21, 70002, 21231, 2124565);
+    InternStudent jaber("jaber", 21, 70002, 21231, 4565);
     jaber.info();
     return 0;
 }

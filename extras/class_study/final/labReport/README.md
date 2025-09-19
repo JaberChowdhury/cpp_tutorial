@@ -1,13 +1,14 @@
-## [Task-01] Calculater programm
+## **01. Calculater programm**
 
-**Description:**
+### Description :
+
 A calculator program performs arithmetic and mathematical operations like addition, subtraction, multiplication, division, logarithm, and trigonometric functions. It helps to practice basic input/output and function handling in C++.
 
-### Diagram
+### Diagram :
 
 ![Calculator](https://i.ibb.co.com/m5MTVWtz/calculator.png)
 
-### Code
+### Code :
 
 ```cpp
 #include <cmath>
@@ -170,7 +171,7 @@ int main() {
 }
 ```
 
-### Output
+### Output :
 
 ```txt
 ========= MENU =========
@@ -184,16 +185,17 @@ int main() {
 Select option (0-6):
 ```
 
-# [Task-02] Banking System
+# **02. Banking System**
 
-**Description:**
+### Description :
+
 The banking system simulates simple account operations like deposit, withdraw, and balance inquiry. It also allows admin control such as adding or removing users. This project shows the use of classes, objects, and encapsulation.
 
-### Diagram
+### Diagram :
 
 ![Calculator](https://i.ibb.co.com/RpZ68JJm/Banking-system.png)
 
-## Code
+### Code :
 
 ```cpp
 #include <iostream>
@@ -411,7 +413,7 @@ int main() {
 }
 ```
 
-## Output
+### Output :
 
 ```txt
 ========= MENU =========
@@ -422,16 +424,17 @@ int main() {
 Select option (0-3):
 ```
 
-# [Task-03] Single Inheritance
+# **03. Single Inheritance**
 
-**Description:**
+### Description :
+
 Single inheritance allows one class to inherit from another class. This helps reusing parent class properties and methods in a child class, promoting simplicity and code reusability.
 
-### Diagram
+### Diagram :
 
 ![single inheritance](https://i.ibb.co.com/rG8XJLK6/single.png)
 
-## code
+### Code :
 
 ```cpp
 #include <iostream>
@@ -458,7 +461,7 @@ int main() {
 }
 ```
 
-## Output
+### Output
 
 ```txt
 Eatable :: Yes
@@ -466,16 +469,17 @@ Rating :: 9.7
 Available  :: No
 ```
 
-# [Task-04] Multilevel Inheritance
+# **04. Multilevel Inheritance**
 
-**Description:**
+### Description :
+
 Multilevel inheritance means a chain of inheritance where a derived class acts as a base for another class. It shows how properties are passed from parent → child → grandchild classes.
 
-### Diagram
+### Diagram :
 
 ![Calculator](https://i.ibb.co.com/B2KZZJ6h/multilevel.png)
 
-## code
+### Code :
 
 ```cpp
 #include <iostream>
@@ -504,7 +508,7 @@ int main() {
 }
 ```
 
-## Output
+### Output :
 
 ```txt
 Animal is eating
@@ -512,16 +516,17 @@ Mammal is walking
 Dog is barking
 ```
 
-# [Task-05] Multiple Inheritance
+# **05. Multiple Inheritance**
 
-**Description:**
+### Description :
+
 Multiple inheritance lets a class inherit features from more than one base class. It combines different functionalities into a single derived class, though it may cause ambiguity issues.
 
-### Diagram
+### Diagram :
 
 ![multiple inheritance](https://i.ibb.co.com/TxkKy0yW/multiple.png)
 
-## code
+### Code :
 
 ```cpp
 #include <iostream>
@@ -554,7 +559,7 @@ int main() {
 }
 ```
 
-## Output
+### Output :
 
 ```txt
 Congratualation from class 1
@@ -563,16 +568,17 @@ Congratualation from class 3
 Congratualation from derived class
 ```
 
-# [Task-06] Hierarchical Inheritance
+# **06. Hierarchical Inheritance**
 
-**Description:**
+### Description :
+
 Hierarchical inheritance occurs when multiple classes inherit from the same base class. It demonstrates how a single base class can provide shared features to multiple derived classes.
 
-### Diagram
+### Diagram :
 
 ![multiple inheritance](https://i.ibb.co.com/zHGj1HrM/hierarchical.png)
 
-## code
+### Code :
 
 ```cpp
 #include <iostream>
@@ -614,7 +620,7 @@ int main() {
 }
 ```
 
-## Output
+### Output :
 
 ```txt
 Name : Hasan Mahmud
@@ -625,16 +631,17 @@ Name : Masum Billah
 Id : 89
 ```
 
-# [Task-07] Hybrid Inheritance
+# **07. Hybrid Inheritance**
 
-**Description:**
+### Description :
+
 Hybrid inheritance is a combination of two or more types of inheritance, such as multiple and multilevel. It shows complex relationships among classes and often uses virtual inheritance to solve ambiguity.
 
-### Diagram
+### Diagram :
 
 ![multiple inheritance](https://i.ibb.co.com/ZRXLGbzY/hybrid.png)
 
-## code
+### Code :
 
 ```cpp
 #include <iostream>
@@ -696,18 +703,18 @@ class InternStudent : public Employee, public Student {
 };
 
 int main() {
-    InternStudent jaber("jaber", 21, 70002, 21231, 2124565);
+    InternStudent jaber("jaber", 21, 70002, 21231, 4565);
     jaber.info();
     return 0;
 }
 ```
 
-## Output
+### Output :
 
 ```txt
 Name   :: jaber
 Age    :: 21
 Roll   :: 70002
 ID     :: 21231
-Salary :: 2.12456e+06
+Salary :: 4565
 ```
