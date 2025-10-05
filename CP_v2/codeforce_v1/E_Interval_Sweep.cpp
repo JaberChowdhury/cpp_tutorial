@@ -1,20 +1,16 @@
-// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/D
+// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/E
 
+#include <cmath>
 #include <iostream>
 using namespace std;
 #define endl '\n'
 
 void test() {
-    int64_t a, b, c, d;
-    cin >> a >> b >> c >> d;
 
-    // a+b-c
-    // a-b+c
-    // a+b*c
-    // a*b+c
-    // a-b*c
-    // a*b-c
-    if (a + b - c == d || a - b + c == d || a + b * c == d || a * b + c == d || a - b * c == d || a * b - c == d) {
+    int a, b;
+    cin >> a >> b;
+
+    if (abs(a - b) <= 1 && (a + b) > 0) {
         cout << "YES" << endl;
     } else {
         cout << "NO" << endl;

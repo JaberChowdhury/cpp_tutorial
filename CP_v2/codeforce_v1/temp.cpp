@@ -5,20 +5,8 @@ using namespace std;
 #define endl '\n'
 
 void test() {
-    int64_t a, b, c, d;
-    cin >> a >> b >> c >> d;
-
-    // a+b-c
-    // a-b+c
-    // a+b*c
-    // a*b+c
-    // a-b*c
-    // a*b-c
-    if (a + b - c == d || a - b + c == d || a + b * c == d || a * b + c == d || a - b * c == d || a * b - c == d) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
+    
+    
 };
 
 int main() {
