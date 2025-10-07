@@ -1,15 +1,21 @@
-// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/F
+// https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/B
 
-#include <bitset>
 #include <iostream>
 using namespace std;
 #define endl '\n'
 
 void test() {
-    int a, b, c;
-    cin >> a >> b;
-    c = a ^ b;
-    cout << c << endl;
+    int n;
+    cin >> n;
+    if (n == 1) {
+        cout << -1 << endl;
+        return;
+    }
+    for (int i = 1; i <= n; i++) {
+        if (i % 2 == 0) {
+            cout << i << endl;
+        }
+    }
 };
 
 int main() {

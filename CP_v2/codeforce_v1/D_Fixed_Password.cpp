@@ -1,15 +1,19 @@
-// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/F
+// https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/D
 
-#include <bitset>
 #include <iostream>
 using namespace std;
 #define endl '\n'
 
 void test() {
-    int a, b, c;
-    cin >> a >> b;
-    c = a ^ b;
-    cout << c << endl;
+    int x;
+    while (cin >> x) {
+        if (x == 1999) {
+            cout << "Correct" << endl;
+            break;
+        } else {
+            cout << "Wrong" << endl;
+        }
+    }
 };
 
 int main() {

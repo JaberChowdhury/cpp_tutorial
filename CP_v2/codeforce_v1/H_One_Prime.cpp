@@ -4,11 +4,29 @@
 using namespace std;
 #define endl '\n'
 
+bool isPrime(int a) {
+    if (a == 2) {
+        return true;
+    }
+    if (a % 2 == 0) {
+        return false;
+    }
+
+    for (int i = 3; i < a; i++) {
+        if (a != i && a % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void test() {
-    int x = 0;
-    for (char i = 'a'; i <= 'z'; i++) {
-        x++;
-        cout << i << "--->" << x << endl;
+    int x;
+    cin >> x;
+    if (isPrime(x)) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
     }
 };
 

@@ -1,15 +1,22 @@
-// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/F
+// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/D
 
-#include <bitset>
+#include <cmath>
+#include <cstdint>
 #include <iostream>
 using namespace std;
 #define endl '\n'
 
 void test() {
-    int a, b, c;
-    cin >> a >> b;
-    c = a ^ b;
-    cout << c << endl;
+    int64_t t;
+    cin >> t;
+
+    // int64_t f = pow(5, t);
+    // cout << f << endl;
+
+    // for (int i = 1; i < 10; i++) {
+    //     cout << pow(5, i) << endl;
+    // }
+    cout << 25 << endl;
 };
 
 int main() {

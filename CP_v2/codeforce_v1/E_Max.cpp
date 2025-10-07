@@ -1,15 +1,24 @@
-// https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/F
+// https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/E
 
-#include <bitset>
 #include <iostream>
 using namespace std;
 #define endl '\n'
 
 void test() {
-    int a, b, c;
-    cin >> a >> b;
-    c = a ^ b;
-    cout << c << endl;
+
+    int a;
+    cin >> a;
+    int temp = -1;
+
+    while (a--) {
+        int x;
+        cin >> x;
+        if (x > temp) {
+            temp = x;
+        }
+    }
+
+    cout << temp << endl;
 };
 
 int main() {

@@ -4,11 +4,23 @@
 using namespace std;
 #define endl '\n'
 
+void print_his(string s, int l) {
+    string f = "";
+    for (int i = 1; i <= l; i++) {
+        f += s;
+    }
+    cout << f << endl;
+}
 void test() {
-    int x = 0;
-    for (char i = 'a'; i <= 'z'; i++) {
-        x++;
-        cout << i << "--->" << x << endl;
+    string s;
+    int    x;
+
+    cin >> s >> x;
+
+    for (int i = 0; i < x; i++) {
+        int a;
+        cin >> a;
+        print_his(s, a);
     }
 };
 
