@@ -1,4 +1,4 @@
-//
+// https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/C
 //
 //
 //
@@ -7,6 +7,7 @@
 #include <iostream>
 using namespace std;
 #define endl '\n'
+#define ll long long
 void test(); // test func
 int  main() {
     ios::sync_with_stdio(false);
@@ -24,4 +25,20 @@ int  main() {
     return 0;
 }
 
-void test() {}
+void test() {
+    ll t;
+    cin >> t;
+
+    while (t--) {
+        ll x;
+        cin >> x;
+        if (x > 0) {
+            cout << 1 << " ";
+        } else if (x < 0) {
+            cout << 2 << " ";
+        } else if (x == 0) {
+            cout << 0 << " ";
+        }
+    }
+    cout << endl;
+}
