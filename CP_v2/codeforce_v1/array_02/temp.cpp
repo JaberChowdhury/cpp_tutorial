@@ -1,4 +1,4 @@
-// https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/D
+//
 //
 //
 //
@@ -26,15 +26,4 @@ int  main() {
     return 0;
 }
 
-void test() {
-    ll t;
-    cin >> t;
-
-    for (ll i = 0; i < t; ++i) {
-        ll x;
-        cin >> x;
-        if (x <= 10) {
-            cout << "A[" << i << "] = " << x << endl;
-        }
-    }
-}
+void test() {}
