@@ -1,12 +1,32 @@
-#include <iostream>
-
 #define vector std::vector;
 #define cout std::cout;
 #define cin std::cin;
 
 // bubble sort
-
+void bubbleSort(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        for (int j = i; j < size - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                int temp   = arr[j];
+                arr[j + 1] = arr[j];
+                arr[j]     = temp;
+            }
+        }
+    }
+}
 // insertion sort
+void insertionSort(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        int key = arr[i];
+        for (int j = i; j > 0; --j) {
+            if (key > arr[j]) {
+                int temp = arr[j];
+                key      = arr[j];
+                arr[j]   = temp;
+            }
+        }
+    }
+}
 // selection sort
 
 int main() {
