@@ -1,12 +1,14 @@
+// https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/K
 //
 //
 //
 //
-//
+#include <cstdint>
 #include <iostream>
 using namespace std;
 #define endl '\n'
-#define ll long long
+// #define ll long long
+#define ll int64_t
 
 void solution(); // solutioin func
 int  main() {
@@ -25,4 +27,16 @@ int  main() {
     return 0;
 }
 
-void solution() {}
+void solution() {
+
+    int n, sum = 0;
+    cin >> n;
+    string num;
+    cin >> num;
+
+    for (auto d : num) {
+        sum += d - '0';
+    }
+
+    cout << sum << endl;
+}

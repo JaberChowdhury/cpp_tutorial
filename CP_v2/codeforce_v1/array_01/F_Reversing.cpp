@@ -1,14 +1,16 @@
+// https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/F
 //
 //
 //
 //
 //
 #include <iostream>
+#include <queue>
 using namespace std;
 #define endl '\n'
 #define ll long long
 
-void solution(); // solutioin func
+void test(); // test func
 int  main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -21,8 +23,21 @@ int  main() {
     cin >> t;
     while (t--)
 #endif
-        solution();
+        test();
     return 0;
 }
 
-void solution() {}
+void test() {
+    int n;
+    cin >> n;
+
+    int nums[n];
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+
+    while (n--) {
+        cout << nums[n] << " ";
+    }
+    cout << endl;
+}
