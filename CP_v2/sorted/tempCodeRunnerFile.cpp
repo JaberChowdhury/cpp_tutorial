@@ -1,2 +1,0 @@
-
-#define ll long long

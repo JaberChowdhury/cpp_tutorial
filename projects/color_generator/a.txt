@@ -1,0 +1,143 @@
+.
+├── a.txt
+├── build
+│   └── single
+│       ├── main.d
+│       ├── main.o
+│       └── src
+│           ├── color
+│           │   ├── gencolor.d
+│           │   ├── gencolor.o
+│           │   └── hexadecimal
+│           │       ├── hexadecimal.d
+│           │       └── hexadecimal.o
+│           └── random
+│               ├── random.d
+│               └── random.o
+├── include
+│   └── spdlog
+│       ├── async.h
+│       ├── async_logger.h
+│       ├── async_logger-inl.h
+│       ├── cfg
+│       │   ├── argv.h
+│       │   ├── env.h
+│       │   ├── helpers.h
+│       │   └── helpers-inl.h
+│       ├── common.h
+│       ├── common-inl.h
+│       ├── details
+│       │   ├── backtracer.h
+│       │   ├── backtracer-inl.h
+│       │   ├── circular_q.h
+│       │   ├── console_globals.h
+│       │   ├── file_helper.h
+│       │   ├── file_helper-inl.h
+│       │   ├── fmt_helper.h
+│       │   ├── log_msg_buffer.h
+│       │   ├── log_msg_buffer-inl.h
+│       │   ├── log_msg.h
+│       │   ├── log_msg-inl.h
+│       │   ├── mpmc_blocking_q.h
+│       │   ├── null_mutex.h
+│       │   ├── os.h
+│       │   ├── os-inl.h
+│       │   ├── periodic_worker.h
+│       │   ├── periodic_worker-inl.h
+│       │   ├── registry.h
+│       │   ├── registry-inl.h
+│       │   ├── synchronous_factory.h
+│       │   ├── tcp_client.h
+│       │   ├── tcp_client-windows.h
+│       │   ├── thread_pool.h
+│       │   ├── thread_pool-inl.h
+│       │   ├── udp_client.h
+│       │   ├── udp_client-windows.h
+│       │   └── windows_include.h
+│       ├── fmt
+│       │   ├── bin_to_hex.h
+│       │   ├── bundled
+│       │   │   ├── args.h
+│       │   │   ├── base.h
+│       │   │   ├── chrono.h
+│       │   │   ├── color.h
+│       │   │   ├── compile.h
+│       │   │   ├── core.h
+│       │   │   ├── fmt.license.rst
+│       │   │   ├── format.h
+│       │   │   ├── format-inl.h
+│       │   │   ├── os.h
+│       │   │   ├── ostream.h
+│       │   │   ├── printf.h
+│       │   │   ├── ranges.h
+│       │   │   ├── std.h
+│       │   │   └── xchar.h
+│       │   ├── chrono.h
+│       │   ├── compile.h
+│       │   ├── fmt.h
+│       │   ├── ostr.h
+│       │   ├── ranges.h
+│       │   ├── std.h
+│       │   └── xchar.h
+│       ├── formatter.h
+│       ├── fwd.h
+│       ├── logger.h
+│       ├── logger-inl.h
+│       ├── mdc.h
+│       ├── pattern_formatter.h
+│       ├── pattern_formatter-inl.h
+│       ├── sinks
+│       │   ├── android_sink.h
+│       │   ├── ansicolor_sink.h
+│       │   ├── ansicolor_sink-inl.h
+│       │   ├── base_sink.h
+│       │   ├── base_sink-inl.h
+│       │   ├── basic_file_sink.h
+│       │   ├── basic_file_sink-inl.h
+│       │   ├── callback_sink.h
+│       │   ├── daily_file_sink.h
+│       │   ├── dist_sink.h
+│       │   ├── dup_filter_sink.h
+│       │   ├── hourly_file_sink.h
+│       │   ├── kafka_sink.h
+│       │   ├── mongo_sink.h
+│       │   ├── msvc_sink.h
+│       │   ├── null_sink.h
+│       │   ├── ostream_sink.h
+│       │   ├── qt_sinks.h
+│       │   ├── ringbuffer_sink.h
+│       │   ├── rotating_file_sink.h
+│       │   ├── rotating_file_sink-inl.h
+│       │   ├── sink.h
+│       │   ├── sink-inl.h
+│       │   ├── stdout_color_sinks.h
+│       │   ├── stdout_color_sinks-inl.h
+│       │   ├── stdout_sinks.h
+│       │   ├── stdout_sinks-inl.h
+│       │   ├── syslog_sink.h
+│       │   ├── systemd_sink.h
+│       │   ├── tcp_sink.h
+│       │   ├── udp_sink.h
+│       │   ├── wincolor_sink.h
+│       │   ├── wincolor_sink-inl.h
+│       │   └── win_eventlog_sink.h
+│       ├── spdlog.h
+│       ├── spdlog-inl.h
+│       ├── stopwatch.h
+│       ├── tweakme.h
+│       └── version.h
+├── main.cpp
+├── Makefile
+└── src
+    ├── color
+    │   ├── gencolor.cpp
+    │   ├── gencolor.hpp
+    │   └── hexadecimal
+    │       ├── hexadecimal.cpp
+    │       └── hexadecimal.hpp
+    ├── random
+    │   ├── random.cpp
+    │   └── random.hpp
+    └── utils
+
+19 directories, 122 files
