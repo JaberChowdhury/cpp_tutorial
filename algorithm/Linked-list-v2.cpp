@@ -1,46 +1,48 @@
-#include <cstddef>
 #include <iostream>
 using namespace std;
-
 class Node {
-
   public:
-    char  value;
+    int   value;
     Node* next;
 };
-
 int main() {
-    int   n = 10, ptr = 1;
+    // ios::sync_with_stdio(false);
+    // cin.tie(nullptr);
+    // cout.tie(nullptr);
+
     Node* start = NULL;
     Node* temp  = NULL;
-    while (n--) {
 
+    int ptr = 1, n = 10;
+
+    while (n--) {
         Node* newNode = new Node();
-        cout << "Enter the value for new node( char type ) :: ";
+        cout << "Enter a new value :: ";
         cin >> newNode->value;
+        cout << "\n";
         newNode->next = NULL;
 
         if (ptr == 1) {
             start = newNode;
             temp  = newNode;
         } else {
-            temp       = newNode;
             temp->next = newNode;
+            temp       = newNode;
         }
         ptr++;
-        cout << "\nDo you want to continue ? (press 1 or 0 to exit) :: ";
+
+        cout << "Do you want to continue?(press 1 or 0 to exit) :: ";
         cin >> n;
-        if (n == 0) {
-            break;
-        }
-    }
-    cout << "\nLinked List: ";
-    Node* PTR = start;
-
-    while (PTR != NULL) {
-        cout << PTR->value << " ";
-        PTR = PTR->next;
+        cout << "\n";
     }
 
+    // iterate through linked list
+
+    Node* current = start;
+    while (current != NULL) {
+        cout << "Pointer :: " << current << "  Value :: " << current->value << "  Next Pointer :: " << current->next
+             << endl;
+        current = current->next;
+    }
     return 0;
 }
