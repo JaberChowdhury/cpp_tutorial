@@ -1,134 +1,71 @@
 #include <iostream>
+using namespace std;
 
-// 1. Define the Node Structure
-struct Node {
-    int   data;
+class Node {
+  public:
+    int   value;
     Node* next;
 };
 
-// Class to handle Linked List operations
 class LinkedList {
-  private:
-    Node* head; // Pointer to the first node
-
   public:
-    // Constructor
+    Node* head;
     LinkedList() { head = nullptr; }
-
-    // --- INSERT FUNCTION ---
-    // Position 0 = Start of list
-    void insertNode(int value, int position) {
-        // Create the new node
-        Node* newNode = new Node();
-        newNode->data = value;
-        newNode->next = nullptr;
-
-        // Case 1: Insert at the beginning (Position 0)
-        if (position == 0) {
-            newNode->next = head;
-            head          = newNode;
-            std::cout << "Inserted " << value << " at position " << position << std::endl;
+    ~LinkedList() { delete head; }
+    void addNode(int value, int pos) {
+        if (pos <= 0) {
+            cout << "Invalid position. Position must start from 1." << endl;
             return;
         }
 
-        // Case 2: Insert at specific position or end
+        if (pos == 1) {
+            Node* temp = head;
+            Node* x    = new Node();
+            x->value   = value;
+            x->next    = temp;
+            head       = x;
+            cout << "New Head is added" << endl;
+            return;
+        }
+        if (head == nullptr) {
+            cout << "List is empty. You can only insert at position 1." << endl;
+            return;
+        }
         Node* temp = head;
-        // Traverse to the node JUST BEFORE the desired position
-        for (int i = 0; i < position - 1; i++) {
-            if (temp == nullptr) {
-                std::cout << "Position out of bounds." << std::endl;
-                delete newNode; // Prevent memory leak
+        for (int i = 1; i < pos - 1; i++) {
+            if (temp->next == nullptr) {
+                cout << "---------------\nPosition out of bounds. List is short.\n---------------\n" << endl;
                 return;
             }
             temp = temp->next;
         }
 
-        // Link the new node
-        if (temp != nullptr) {
-            newNode->next = temp->next; // Point new node to the next node
-            temp->next    = newNode;    // Point previous node to the new node
-            std::cout << "Inserted " << value << " at position " << position << std::endl;
+        Node* a    = new Node();
+        a->value   = value;
+        a->next    = temp->next;
+        temp->next = a;
+        cout << "---------------\nInserted " << value << " at position " << pos << "\n---------------\n" << endl;
+    }
+    void smartDisplay() {
+        Node* ptr = head;
+        if (ptr == nullptr) {
+            cout << "Your list is empty" << endl;
         } else {
-            std::cout << "Position out of bounds." << std::endl;
-            delete newNode;
-        }
-    }
-
-    // --- DELETE FUNCTION ---
-    // Position 0 = Start of list
-    void deleteNode(int position) {
-        if (head == nullptr) {
-            std::cout << "List is empty." << std::endl;
-            return;
-        }
-
-        Node* temp = head;
-
-        // Case 1: Delete the head (Position 0)
-        if (position == 0) {
-            head = head->next; // Move head to the second node
-            delete temp;       // Free memory of old head
-            std::cout << "Deleted node at position " << position << std::endl;
-            return;
-        }
-
-        // Case 2: Delete from specific position
-        // Traverse to the node JUST BEFORE the one we want to delete
-        for (int i = 0; i < position - 1; i++) {
-            if (temp == nullptr || temp->next == nullptr) {
-                std::cout << "Position out of bounds." << std::endl;
-                return;
+            while (ptr != nullptr) {
+                cout << "[" << ptr->value << "] --> ";
+                ptr = ptr->next;
             }
-            temp = temp->next;
+            cout << "NULL" << endl; // Visual indicator for end of list
         }
-
-        // Node to be deleted is temp->next
-        Node* nodeToDelete = temp->next;
-
-        if (nodeToDelete == nullptr) {
-            std::cout << "Position out of bounds." << std::endl;
-            return;
-        }
-
-        temp->next = nodeToDelete->next; // Unlink the node
-        delete nodeToDelete;             // Free memory
-        std::cout << "Deleted node at position " << position << std::endl;
-    }
-
-    // --- DISPLAY FUNCTION ---
-    void display() {
-        if (head == nullptr) {
-            std::cout << "List is empty." << std::endl;
-            return;
-        }
-
-        Node* temp = head;
-        std::cout << "Current List: ";
-        while (temp != nullptr) {
-            std::cout << temp->data << " -> ";
-            temp = temp->next;
-        }
-        std::cout << "NULL" << std::endl;
     }
 };
 
 int main() {
-    LinkedList list;
+    LinkedList* l = new LinkedList();
 
-    // 1. Insertions
-    list.insertNode(10, 0); // Add 10 at start: 10 -> NULL
-    list.insertNode(20, 1); // Add 20 at pos 1: 10 -> 20 -> NULL
-    list.insertNode(30, 1); // Add 30 at pos 1: 10 -> 30 -> 20 -> NULL
-    list.insertNode(5, 0);  // Add 5 at start:  5 -> 10 -> 30 -> 20 -> NULL
-
-    list.display();
-
-    // 2. Deletions
-    list.deleteNode(0); // Delete head (5)
-    list.display();
-
-    list.deleteNode(2); // Delete node at index 2 (value 20)
-    list.display();
-
+    for (int i = 0; i < 12; i++) {
+        l->addNode(13 * i, i);
+        l->smartDisplay();
+    }
     return 0;
 }
