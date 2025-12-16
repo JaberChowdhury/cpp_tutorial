@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    int size       = 30;
+    int size       = 5;
     int frame_loop = 0;
     while (1) {
         int flag = 1, f2 = size;
@@ -17,7 +17,7 @@ int main() {
                     cout << 1 << " ";
                 } else {
                     // cout << "\033[90m0 \033[0m";
-                    cout << "- ";
+                    cout << " ";
                 }
             }
             flag++;
