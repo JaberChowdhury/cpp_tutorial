@@ -6,35 +6,36 @@
 using namespace std;
 #define endl '\n'
 
-string count_one(bitset<12> a) {
-    string count = "";
-    for (int i = 0; i < 12; i++) {
-        if (a[i] == 1) {
-            count += "1";
-        }
-    }
-    return count;
-}
-
-void test() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int a;
-        cin >> a;
-        cout << bitset<32>(count_one(a)).to_ulong() << endl;
-    }
-};
-
-int main() {
+void sol();
+int  main() {
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-#endif
 
     int t;
     cin >> t;
     while (t--)
-        test();
+#endif
+        sol();
     return 0;
+}
+
+void sol() {
+    int n;
+    cin >> n;
+
+    while (n--) {
+        int x;
+        cin >> x;
+        string bits = bitset<64>(x).to_string(), only_one = "";
+
+        for (int i = 0; i < bits.size(); i++) {
+            if (bits[i] == '1') {
+                only_one += '1';
+            }
+        }
+
+        unsigned long final = bitset<64>(only_one).to_ullong();
+        cout << final << endl;
+    }
 }

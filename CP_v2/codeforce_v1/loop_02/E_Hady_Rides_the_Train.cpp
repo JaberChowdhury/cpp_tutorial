@@ -5,29 +5,31 @@
 using namespace std;
 #define endl '\n'
 
-void test() {
-    long long id;
-    cin >> id;
-    long long row = id + 1 / 4;
-    long long col;
-    if (row % 2 == 0) {
-        col = id % 4;
-    } else {
-        col = 3 - (id % 4);
-    }
-    cout << row + 1 << " " << col << endl;
-};
+void test();
 
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     // freopen("error.txt", "w", stderr);
-#endif
 
     int t;
     cin >> t;
     while (t--)
+#endif
         test();
     return 0;
 }
+void test() {
+    long long id, col, row;
+    cin >> id;
+
+    if (id <= 3) {
+        row = id;
+    } else {
+        row = id / 4;
+    }
+
+    cout << "row = " << row << endl;
+    cout << "col = " << col << endl;
+};
