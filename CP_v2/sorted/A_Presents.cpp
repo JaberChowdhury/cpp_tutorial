@@ -1,9 +1,7 @@
-// https://codeforces.com/problemset/problem/200/B
+// https://codeforces.com/problemset/problem/136/A
 //
 
 #include <bits/stdc++.h>
-#include <iomanip>
-#include <ios>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -25,17 +23,4 @@ int  main() {
     return 0;
 }
 
-void solution() {
-
-    int t, n;
-    cin >> t;
-    n                       = t;
-    double total_containing = 0;
-    while (t--) {
-        double x;
-        cin >> x;
-        total_containing += (x / 100.000000);
-    }
-
-    cout << fixed << setprecision(12) << (total_containing / n) * 100 << endl;
-}
+void solution() {}

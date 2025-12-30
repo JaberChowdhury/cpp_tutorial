@@ -1,9 +1,8 @@
-// https://codeforces.com/problemset/problem/200/B
-//
+// https : // codeforces.com/problemset/problem/228/A
+// //
 
 #include <bits/stdc++.h>
-#include <iomanip>
-#include <ios>
+#include <set>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -27,15 +26,12 @@ int  main() {
 
 void solution() {
 
-    int t, n;
-    cin >> t;
-    n                       = t;
-    double total_containing = 0;
-    while (t--) {
-        double x;
-        cin >> x;
-        total_containing += (x / 100.000000);
+    set<long int> x;
+    for (int i = 0; i < 4; i++) {
+        long int a;
+        cin >> a;
+        x.insert(a);
     }
 
-    cout << fixed << setprecision(12) << (total_containing / n) * 100 << endl;
+    cout << 4 - (x.size()) << endl;
 }

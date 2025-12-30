@@ -1,9 +1,7 @@
-// https://codeforces.com/problemset/problem/200/B
-//
+// https://codeforces.com/problemset/problem/61/A// //
 
 #include <bits/stdc++.h>
-#include <iomanip>
-#include <ios>
+#include <iostream>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -26,16 +24,15 @@ int  main() {
 }
 
 void solution() {
+    string a, b;
+    cin >> a >> b;
 
-    int t, n;
-    cin >> t;
-    n                       = t;
-    double total_containing = 0;
-    while (t--) {
-        double x;
-        cin >> x;
-        total_containing += (x / 100.000000);
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] == b[i]) {
+            cout << "0";
+        } else {
+            cout << "1";
+        }
     }
-
-    cout << fixed << setprecision(12) << (total_containing / n) * 100 << endl;
+    cout << endl;
 }

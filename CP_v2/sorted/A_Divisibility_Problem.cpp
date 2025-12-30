@@ -1,9 +1,9 @@
-// https://codeforces.com/problemset/problem/200/B
+// https://codeforces.com/problemset/problem/1328/A
 //
-
+//
+//
 #include <bits/stdc++.h>
-#include <iomanip>
-#include <ios>
+#include <sys/types.h>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -25,17 +25,23 @@ int  main() {
     return 0;
 }
 
-void solution() {
-
-    int t, n;
-    cin >> t;
-    n                       = t;
-    double total_containing = 0;
-    while (t--) {
-        double x;
-        cin >> x;
-        total_containing += (x / 100.000000);
+void test() {
+    long int a, b;
+    cin >> a >> b;
+    if (a % b == 0) {
+        cout << 0 << endl;
+        return;
+    }
+    if (a < b) {
+        cout << b - a << endl;
+        return;
     }
 
-    cout << fixed << setprecision(12) << (total_containing / n) * 100 << endl;
+    cout << (((a / b) + 1) * b) - a << endl;
+}
+void solution() {
+    int t;
+    cin >> t;
+    while (t--)
+        test();
 }

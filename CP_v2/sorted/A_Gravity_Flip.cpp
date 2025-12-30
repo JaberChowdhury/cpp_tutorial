@@ -1,9 +1,9 @@
-// https://codeforces.com/problemset/problem/200/B
+// https://codeforces.com/problemset/problem/405/A
 //
-
+//
+#include <algorithm>
 #include <bits/stdc++.h>
-#include <iomanip>
-#include <ios>
+#include <vector>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -27,15 +27,20 @@ int  main() {
 
 void solution() {
 
-    int t, n;
-    cin >> t;
-    n                       = t;
-    double total_containing = 0;
-    while (t--) {
-        double x;
+    int n;
+    cin >> n;
+
+    vector<int> nums;
+    while (n--) {
+        int x;
         cin >> x;
-        total_containing += (x / 100.000000);
+        nums.push_back(x);
     }
 
-    cout << fixed << setprecision(12) << (total_containing / n) * 100 << endl;
+    sort(nums.begin(), nums.end());
+
+    for (auto d : nums) {
+        cout << d << " ";
+    }
+    cout << endl;
 }
