@@ -1,8 +1,5 @@
-// https://codeforces.com/problemset/problem/208/A
-//
-//
-//
-//
+// https://codeforces.com/problemset/problem/268/A
+
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
@@ -27,21 +24,27 @@ int  main() {
 }
 
 void solution() {
-    string s, song = "";
-    cin >> s;
+    int n;
+    cin >> n;
 
-    int ptr = 0;
-    while (s[ptr] != '\0') {
-        string search = "WUB";
-        for (int i = 1; i <= 3; i++) {
-            if (s[ptr + 1] == search[i]) {
+    int hsc[n], gsc[n];
+
+    for (int i = 0; i < n; i++) {
+        cin >> hsc[i] >> gsc[i];
+    }
+
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i != j) {
+                if (hsc[i] == gsc[j]) {
+                    // cout << hsc[i] << " " << gsc[j] << endl;
+                    count++;
+                }
             }
         }
-        // if (s[ptr] == 'w' && s[ptr + 1] == 'U' && s[ptr + 2] == 'B') {
-        // song += s[ptr + 3];
-        // ptr += 3;
     }
-}
 
-cout << song << endl;
+    cout << count << endl;
 }

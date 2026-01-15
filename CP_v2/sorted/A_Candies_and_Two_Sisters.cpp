@@ -1,5 +1,4 @@
-// https://codeforces.com/problemset/problem/208/A
-//
+// https://codeforces.com/problemset/problem/1335/A
 //
 //
 //
@@ -27,21 +26,38 @@ int  main() {
 }
 
 void solution() {
-    string s, song = "";
-    cin >> s;
+    int n;
+    cin >> n;
 
-    int ptr = 0;
-    while (s[ptr] != '\0') {
-        string search = "WUB";
-        for (int i = 1; i <= 3; i++) {
-            if (s[ptr + 1] == search[i]) {
-            }
-        }
-        // if (s[ptr] == 'w' && s[ptr + 1] == 'U' && s[ptr + 2] == 'B') {
-        // song += s[ptr + 3];
-        // ptr += 3;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        cout << (x - 1) / 2 << endl;
     }
 }
 
-cout << song << endl;
-}
+/*
+ * n = 1 ans = 0
+ * n = 2 ans = 0
+ * n = 3 ans = 1
+ * n = 4 ans = 1
+ * n = 5 ans = 2
+ * n = 6 ans = 2
+ * n = 7 ans = 3
+ * n = 8 ans = 3
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * n = 5
+ * 4 1
+ * 3 2
+ *
+ * n = 6
+ * 5 1
+ * 4 2
+ *
+ */

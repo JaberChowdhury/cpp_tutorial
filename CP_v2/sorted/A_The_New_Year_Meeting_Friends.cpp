@@ -1,10 +1,12 @@
-// https://codeforces.com/problemset/problem/208/A
+// https://codeforces.com/problemset/problem/723/A
 //
 //
 //
 //
+//
+#include <algorithm>
 #include <bits/stdc++.h>
-#include <iostream>
+#include <vector>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -27,21 +29,16 @@ int  main() {
 }
 
 void solution() {
-    string s, song = "";
-    cin >> s;
-
-    int ptr = 0;
-    while (s[ptr] != '\0') {
-        string search = "WUB";
-        for (int i = 1; i <= 3; i++) {
-            if (s[ptr + 1] == search[i]) {
-            }
-        }
-        // if (s[ptr] == 'w' && s[ptr + 1] == 'U' && s[ptr + 2] == 'B') {
-        // song += s[ptr + 3];
-        // ptr += 3;
+    vector<int> nums(3);
+    for (int i = 0; i < 3; i++) {
+        cin >> nums[i];
     }
-}
 
-cout << song << endl;
+    sort(nums.begin(), nums.end());
+
+    int sum = 0;
+    sum += nums[1] - nums[0];
+    sum += nums[2] - nums[1];
+
+    cout << sum << endl;
 }
