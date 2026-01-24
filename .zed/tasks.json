@@ -1,9 +1,10 @@
 [
   {
-    "label": "Compile and Run C++",
-    "command": "cd \"$ZED_DIRNAME\" && g++ \"$ZED_FILE\" -o /tmp/cp_exec && /tmp/cp_exec && cat output.txt",
+    "label": "Build and Run",
+    "command": "touch input.txt && g++ -O2 -std=c++20 \"$ZED_FILE\" -o /tmp/cp_exec && /tmp/cp_exec < input.txt > output.txt && cat output.txt",
+    "cwd": "$ZED_DIRNAME",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
-    "reveal": "always",
+    "reveal": "no_focus",
   },
 ]

@@ -3,8 +3,9 @@
 //
 //
 //
+#include <algorithm>
 #include <bits/stdc++.h>
-#include <map>
+#include <string>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -26,7 +27,51 @@ int  main() {
     return 0;
 }
 
-void solution() {
+string check(string s) {
+    if (s.size() > 3) {
+        return "NO";
+    }
+    if (
+        //
+        (s[0] == 'Y' || 'y')
+        //
+        // (s[1] == 'E' || 'e') &&
+        // //
+        // (s[2] == 'S' || 's')
+        //
+    ) {
+        return "YES";
+    } else {
+        return "NO";
+    }
+}
 
-    //
+void solution() {
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+
+        //
+        if (s.size() > 3) {
+            cout << "NO" << endl;
+            continue;
+        } else {
+            if (
+                //
+                (s[0] == 'Y' || s[0] == 'y') &&
+                //
+                (s[1] == 'E' || s[1] == 'e') &&
+                // //
+                (s[2] == 'S' || s[2] == 's')
+                //
+            ) {
+                cout << "YES" << endl;
+            } else {
+                cout << "NO" << endl;
+            }
+        }
+    }
 }
