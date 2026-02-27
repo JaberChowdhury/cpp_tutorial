@@ -1,9 +1,9 @@
-// https://codeforces.com/problemset/problem/750/A
+// https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/O
 //
 //
 //
 //
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -25,24 +25,18 @@ int  main() {
     return 0;
 }
 
-void solution() {
-    int n, t;
-    cin >> n >> t;
-
-    int rt = 240 - t;
-
-    int can_solve = 0;
-
-    int timeneeded[] = {5, 15, 30, 50, 75, 105, 140, 180, 225, 275};
-
-    for (int i = 1; i <= n; i++) {
-        rt -= (5 * i);
-        if (rt >= 0) {
-            can_solve++;
-        } else {
-            break;
-        }
+ll nthFibo(int n) {
+    ll fibos[60] = {0, 1};
+    // for (auto d : fibos) {
+    //     cout << d << " ";
+    // }
+    for (int i = 2; i < n; i++) {
+        fibos[i] = fibos[i - 1] + fibos[i - 2];
     }
-
-    cout << can_solve << endl;
+    return fibos[n - 1];
+}
+void solution() {
+    int n;
+    cin >> n;
+    cout << nthFibo(n) << endl;
 }

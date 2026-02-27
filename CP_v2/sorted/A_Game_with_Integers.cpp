@@ -1,9 +1,11 @@
-// https://codeforces.com/problemset/problem/750/A
+// https://codeforces.com/problemset/problem/1899/A
 //
 //
 //
 //
 #include <bits/stdc++.h>
+#include <iostream>
+#include <set>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -26,23 +28,5 @@ int  main() {
 }
 
 void solution() {
-    int n, t;
-    cin >> n >> t;
-
-    int rt = 240 - t;
-
-    int can_solve = 0;
-
-    int timeneeded[] = {5, 15, 30, 50, 75, 105, 140, 180, 225, 275};
-
-    for (int i = 1; i <= n; i++) {
-        rt -= (5 * i);
-        if (rt >= 0) {
-            can_solve++;
-        } else {
-            break;
-        }
-    }
-
-    cout << can_solve << endl;
+    //
 }

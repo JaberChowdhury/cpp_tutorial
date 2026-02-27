@@ -26,35 +26,31 @@ int  main() {
     return 0;
 }
 
-bool check_pos(string s, int a) {
-    // cout << "pos is true " << s[a] << endl;
-    if (s[a] == '-') {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-bool onlunumber(string s, int a) {
-    
-    for()
-    
-}
-
 void solution() {
-
     int a, b;
     cin >> a >> b;
-    string s;
-    cin >> s;
+    string eq;
+    cin >> eq;
 
-    // for (auto d : s) {
-    //     cout << d << endl;
-    // }
-
-    if (check_pos(s, a) && s.size() == (a + b + 1)) {
-        cout << "Yes" << endl;
-    } else {
+    if (eq[a] != '-') {
         cout << "No" << endl;
+    } else {
+        bool isSOlved = true;
+        for (int i = 0; i < eq.size(); i++) {
+            // cout << eq[i] << endl;
+            if (i == a) {
+                continue;
+            } else if (!((int) eq[i] >= 48 && (int) eq[i] <= 57)) {
+                // cout << "break because " << eq[i] << endl;
+                isSOlved = false;
+                break;
+            }
+        }
+        if (isSOlved) {
+            cout << "Yes" << endl;
+        } else {
+            cout << "No" << endl;
+        }
     }
+    // 48 - 57
 }
