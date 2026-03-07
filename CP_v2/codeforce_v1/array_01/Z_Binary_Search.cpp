@@ -1,7 +1,11 @@
-// https://codeforces.com/problemset/problem/136/A
+// https://codeforces.com/group/MWSDmqGsZm/contest/219774/problem/Z
 //
-
-#include <bits/stdc++.h>
+//
+//
+//
+//
+//
+#include <iostream>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -22,15 +26,12 @@ int  main() {
         solution();
     return 0;
 }
-struct Data {
-    int giver;
-    int receiver;
-};
-void merge(Data arr[], ll left, ll mid, ll right) {
+
+void merge(ll arr[], ll left, ll mid, ll right) {
     ll n1 = (mid - left) + 1;
     ll n2 = right - mid;
 
-    Data l[n1], r[n2];
+    ll l[n1], r[n2];
 
     for (ll i = 0; i < n1; i++) {
         l[i] = arr[left + i];
@@ -42,7 +43,7 @@ void merge(Data arr[], ll left, ll mid, ll right) {
     ll i = 0, j = 0, k = left;
 
     while (i < n1 && j < n2) {
-        if (l[i].receiver < r[j].receiver) {
+        if (l[i] < r[j]) {
             arr[k++] = l[i++];
         } else {
             arr[k++] = r[j++];
@@ -56,7 +57,7 @@ void merge(Data arr[], ll left, ll mid, ll right) {
         arr[k++] = r[j++];
     }
 }
-void mergeSort(Data arr[], ll left, ll right) {
+void mergeSort(ll arr[], ll left, ll right) {
 
     if (left < right) {
         ll mid = left + (right - left) / 2;
@@ -66,23 +67,42 @@ void mergeSort(Data arr[], ll left, ll right) {
     }
 }
 
-void solution() {
-    int n;
-    cin >> n;
+bool binarySearch(ll arr[], ll left, ll right, ll search) {
+    ll mid = left + (right - left) / 2;
 
-    Data arr[n];
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        Data d;
-        d.giver    = i + 1;
-        d.receiver = x + 1;
-        arr[i]     = d;
+    if (arr[mid] == search) {
+        return true;
+    }
+    if (left >= right)
+        return false;
+
+    if (search > arr[mid]) {
+        return binarySearch(arr, mid + 1, right, search);
+    } else {
+        return binarySearch(arr, left, mid, search);
+    }
+    return false;
+}
+
+void solution() {
+    ll n, q;
+    cin >> n >> q;
+    ll arr[n];
+    for (ll i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    ll search[q];
+    for (ll i = 0; i < q; i++) {
+        cin >> search[i];
     }
 
     mergeSort(arr, 0, n - 1);
 
-    for (int i = 0; i < n; i++) {
-        cout << arr[i].giver << " ";
+    for (ll i = 0; i < q; i++) {
+        if (binarySearch(arr, 0, n - 1, search[i])) {
+            cout << "found" << endl;
+        } else {
+            cout << "not found" << endl;
+        }
     }
 }

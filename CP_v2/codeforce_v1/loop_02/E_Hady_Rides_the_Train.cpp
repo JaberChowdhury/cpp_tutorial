@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #define endl '\n'
+#define ll long long
 
 void test();
 
@@ -21,15 +22,19 @@ int main() {
     return 0;
 }
 void test() {
-    long long id, col, row;
-    cin >> id;
+    ll x, row, col;
 
-    if (id <= 3) {
-        row = id;
+    cin >> x;
+
+    row = x / 4;
+
+    if (row % 2 != 0) {
+        // cout << "row == odd -> " << row % 4 << endl;
+        col = 3 - (x % 4);
     } else {
-        row = id / 4;
+        // cout << "row == even" << endl;
+        col = x % 4;
     }
 
-    cout << "row = " << row << endl;
-    cout << "col = " << col << endl;
+    cout << row << " " << col << endl;
 };

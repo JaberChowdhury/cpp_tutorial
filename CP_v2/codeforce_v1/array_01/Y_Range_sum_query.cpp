@@ -30,24 +30,35 @@ int  main() {
 
 void solution() {
 
-    int n, q;
+    ll n, q;
     cin >> n >> q;
-    int arr[n];
-    for (int i = 0; i < n; i++) {
+    ll arr[n];
+    for (ll i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    int pairs[q][2];
-    for (int i = 0; i < q; i++) {
-        for (int j = 0; j < 2; j++) {
+    ll pairs[q][2];
+    for (ll i = 0; i < q; i++) {
+        for (ll j = 0; j < 2; j++) {
             cin >> pairs[i][j];
         }
     }
 
-    for (auto d : pairs) {
-        int sum = 0;
-        for (int i = d[0] - 1; i < d[1]; i++) {
-            sum += arr[i];
-        }
-        cout << sum << endl;
+    ll prefix[n];
+    prefix[0] = arr[0];
+    for (ll i = 1; i < n; i++) {
+        prefix[i] = 0;
+        prefix[i] = prefix[i - 1] + arr[i];
     }
+
+    for (auto d : pairs) {
+        if (d[0] == 1) {
+            cout << prefix[d[1] - 1] << endl;
+        } else {
+            cout << prefix[d[1] - 1] - prefix[d[0] - 2] << endl;
+        }
+    }
+
+    // for (auto d : prefix) {
+    //     cout << d << " ";
+    // }
 }
