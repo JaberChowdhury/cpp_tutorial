@@ -2,23 +2,23 @@
 using namespace std;
 
 int main() {
-  int limit, y;
-  cin >> limit;
-  int x[limit];
-  for (int i = 0; i < limit; i++) {
-    cin >> x[i];
-  }
-
-  cout << "Search number : ";
-  cin >> y;
-  for (int i = 0; i < limit; i++) {
-    if (x[i] == y) {
-      cout << "Number found" << endl;
-      break;
-    } else {
-      cout << "Number didnt found found" << endl;
-      break;
+    int size, search;
+    cin >> size;
+    int x[size];
+    for (int i = 0; i < size; i++) {
+        cin >> x[i];
     }
-  }
-  return 0;
+
+    cout << "Search number : ";
+    cin >> search;
+    for (int i = 0; i < size; i++) {
+        if (x[i] == search) {
+            cout << "Number found" << endl;
+            break;
+        } else {
+            cout << "Number didnt found found" << endl;
+            break;
+        }
+    }
+    return 0;
 }
