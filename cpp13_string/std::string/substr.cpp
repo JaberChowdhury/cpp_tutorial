@@ -1,0 +1,22 @@
+// https://cplusplus.com/reference/string/string/rfind/
+// string::substr
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    std::string str = "We think in generalities, but we live in details.";
+    // (quoting Alfred N. Whitehead)
+
+    std::string str2 = str.substr(3, 5); // "think"
+
+    std::size_t pos = str.find("live"); // position of "live" in str
+
+    std::string str3 = str.substr(pos); // get from "live" to the end
+
+    std::cout << "pos = " << pos << endl;
+    std::cout << str2 << endl;
+    std::cout << str3 << endl;
+
+    return 0;
+}
