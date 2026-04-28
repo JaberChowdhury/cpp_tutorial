@@ -1,11 +1,12 @@
-// https://codeforces.com/problemset/problem/1899/A
+// https://codeforces.com/problemset/problem/1154/A
+//
+//
+//
 //
 //
 //
 //
 #include <bits/stdc++.h>
-#include <iostream>
-#include <set>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -28,17 +29,15 @@ int  main() {
 }
 
 void solution() {
-    int n;
-    cin >> n;
-    int data[n];
-    for (int i = 0; i < n; i++) {
-        cin >> data[i];
+    vector<int> nums(4);
+    for (int i = 0; i < 4; i++) {
+        cin >> nums[i];
     }
-    for (int i = 0; i < n; i++) {
-        if (data[i] % 3 == 0) {
-            cout << "Second" << endl;
-        } else {
-            cout << "First" << endl;
-        }
+
+    sort(nums.begin(), nums.end());
+
+    for (int i = 0; i < 3; i++) {
+        cout << nums[3] - nums[i] << " ";
     }
+    cout << endl;
 }

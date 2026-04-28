@@ -1,7 +1,6 @@
 #include <cctype>
 #include <iostream>
 #include <string>
-#include <vector>
 using namespace std;
 #define endl '\n'
 
@@ -26,19 +25,25 @@ void solution() {
     string s;
     getline(cin, s);
 
-    int  count  = 0;
-    bool inWord = false;
+    int    count = 0;
+    string t     = "";
 
-    for (char c : s) {
-        if (isalpha(c)) {
-            if (!inWord) {
-                count++;
-                inWord = true;
-            }
+    for (auto d : s) {
+        if (isalpha(d)) {
+            t += d;
         } else {
-            inWord = false;
+            if (t != "") {
+                count++;
+                t = "";
+            }
         }
+    }
+
+    if (t != "") {
+        count++;
     }
 
     cout << count << endl;
 }
+
+// need to submit

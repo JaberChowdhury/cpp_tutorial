@@ -1,11 +1,12 @@
-// https://codeforces.com/problemset/problem/1899/A
+// https://codeforces.com/problemset/problem/732/A
+//
+//
+//
 //
 //
 //
 //
 #include <bits/stdc++.h>
-#include <iostream>
-#include <set>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -28,17 +29,12 @@ int  main() {
 }
 
 void solution() {
-    int n;
-    cin >> n;
-    int data[n];
-    for (int i = 0; i < n; i++) {
-        cin >> data[i];
-    }
-    for (int i = 0; i < n; i++) {
-        if (data[i] % 3 == 0) {
-            cout << "Second" << endl;
-        } else {
-            cout << "First" << endl;
+    int k, l;
+    cin >> k >> l;
+    for (int i = 1; i <= 10; i++) {
+        if ((i * k) % 10 == 0 || (i * k) % 10 == l) {
+            cout << i << endl;
+            break;
         }
     }
 }

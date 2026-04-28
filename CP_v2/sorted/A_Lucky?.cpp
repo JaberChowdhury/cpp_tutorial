@@ -1,10 +1,12 @@
-// https://codeforces.com/problemset/problem/230/B
+// https://codeforces.com/problemset/problem/1676/A
 //
 //
 //
 //
-#include <cmath>
-#include <iostream>
+//
+//
+//
+#include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -25,31 +27,36 @@ int  main() {
         solution();
     return 0;
 }
+bool isLucky(int x) {
+    int s1 = 0, s2 = 0;
 
-bool isPrime(ll x) {
-    if (x < 2)
-        return false;
-    if (x == 2)
-        return true;
-    if (x % 2 == 0)
-        return false;
-    for (ll i = 3; i * i <= x; i += 2) {
-        if (x % i == 0)
-            return false;
+    int counter = 1;
+    while (x != 0) {
+        int lastdigit = x % 10;
+        if (counter <= 3) {
+            s2 += lastdigit;
+        } else {
+            s1 += lastdigit;
+        }
+        x /= 10;
+        counter++;
     }
-    return true;
+    // cout << "s1 = " << s1 << " | s2 = " << s2 << endl;
+    if (s1 == s2) {
+        return true;
+    } else {
+        return false;
+    }
 }
 void solution() {
     int n;
     cin >> n;
-    ll data[n];
+    int tickets[n];
     for (int i = 0; i < n; i++) {
-        cin >> data[i];
+        cin >> tickets[i];
     }
-
     for (int i = 0; i < n; i++) {
-        ll root = sqrt(data[i]);
-        if (root * root == data[i] && isPrime(root)) {
+        if (isLucky(tickets[i])) {
             cout << "YES" << endl;
         } else {
             cout << "NO" << endl;

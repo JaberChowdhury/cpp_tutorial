@@ -1,11 +1,13 @@
-// https://codeforces.com/problemset/problem/1899/A
+// https://codeforces.com/problemset/problem/1475/A
+//
+//
+//
 //
 //
 //
 //
 #include <bits/stdc++.h>
-#include <iostream>
-#include <set>
+#include <cstdint>
 using namespace std;
 #define endl '\n'
 #define ll long long
@@ -27,18 +29,29 @@ int  main() {
     return 0;
 }
 
-void solution() {
-    int n;
+void test() {
+    int64_t n;
     cin >> n;
-    int data[n];
-    for (int i = 0; i < n; i++) {
-        cin >> data[i];
+    cout << n << endl;
+    if (n % 2 == 1) {
+        cout << "YES" << endl;
+        return;
     }
-    for (int i = 0; i < n; i++) {
-        if (data[i] % 3 == 0) {
-            cout << "Second" << endl;
-        } else {
-            cout << "First" << endl;
+
+    for (int64_t i = 3; i < n / 2; i += 2) {
+        if (n % i == 0) {
+            cout << "YES" << endl;
+            return;
         }
+    }
+    cout << "NO" << endl;
+}
+void solution() {
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        test();
     }
 }
