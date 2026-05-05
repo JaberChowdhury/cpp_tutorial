@@ -1,0 +1,50 @@
+// https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/X
+//
+//
+//
+//
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+#define endl '\n'
+#define ll long long
+
+void solution(); // solutioin func
+int  main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    // freopen("error.txt", "w", stderr);
+    ll t;
+    cin >> t;
+    while (t--)
+#endif
+        solution();
+    return 0;
+}
+
+void solution() {
+
+    string s;
+    cin >> s;
+
+    int            n = s.size();
+    vector<string> ss;
+    if (n <= 2) {
+        cout << s << endl;
+        return;
+    }
+    for (int i = 0; i < n - 1; i++) {
+        string a = s.substr(0, i + 1);
+        string b = s.substr(i + 1, n - 1);
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        ss.push_back(a + b);
+    }
+    sort(ss.begin(), ss.end());
+    cout << ss.front() << endl;
+}
